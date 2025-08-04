@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <body style="font-family: Arial, sans-serif; font-size: 12px; margin: 0; padding: 5%;">
+    <div style="page-break-before: always; margin-top: 40px;">
+        <div style="text-align: right; font-size: 12px;">Page 1</div>
+        <h2 style="font-size: 18px; font-weight: bold;">BILL OF LADING</h2>
+        <div style="font-size: 12px;">
+            TO BE USED WITH CHARTER-PARTIES<br>
+            CODE NAME: "CONGENBILL"<br>
+            EDITION 1994<br>
+            ADOPTED BY<br>
+            THE BALTIC AND INTERNATIONAL MARITIME COUNCIL (BIMCO)
+        </div>
+        <h3 style="text-align: center; margin-top: 20px;">Conditions of Carriage</h3>
+        <ol style="font-size: 12px;">
+            <li>All terms and conditions, liberties and <u>exception</u> of the Charter Party dated as overleaf, including the Law and Arbitration Clauses, as herewith incorporated.</li>
+        </ol>
+        <div style="font-size: 12px; margin-left: 20px;">
+            <b>(2) General Paramount Clause.</b><br>
+            (a) The Hague Rules contained in the International Convention for the Unification of certain rules relating to Bills of Lading, dated Brussels the 25<sup>th</sup> August 1924 as enacted in the country of shipment, shall apply to this Bill of Lading. When no such enactment is in force in the country of shipment, the corresponding legislation of the country of destination shall apply, but in respect of shipments to which no such enactments are compulsorily applicable, the terms of the said Convention shall apply.<br>
+            (b) Trades where Hague-Visby Rules apply.<br>
+            In trade where the International Brussels Convention 1924 as amended by the Protocol signed at Brussels on February 23<sup>rd</sup> 1968 – the Hague-Visby Rules-apply compulsorily, the Provisions of the respective legislation shall apply to this Bill of Lading.<br>
+            (c) The Carrier shall in no case be responsible for loss or damage to the cargo, howsoever arising prior to loading into and after discharge from the vessel or while the cargo is in the charge of another Carrier, or in respect of deck cargo or live animals.
+        </div>
+        <div style="font-size: 12px; margin-left: 20px; margin-top: 10px;">
+            <b>(3) General Average.</b><br>
+            General Average shall be adjusted, stated and settled according to York-Antwerp Rules 1994, or any subsequent modification thereof, in London unless another place is agreed in the Charter Party.<br>
+            Cargo's contribution to General Average shall be paid to the Carrier even when such average is the result of a fault, neglect or error of the Master, Pilot or Crew. The Charterers, Shippers and Consignees expressly renounce the Belgian Commercial Code Part II, Art. 148.
+        </div>
+        <div style="font-size: 12px; margin-left: 20px; margin-top: 10px;">
+            <b>(4) New Jason Clause.</b><br>
+            In the event of accident, danger, damage or disaster before or after the commencement of the voyage, resulting from any cause whatsoever, whether due to negligence or not, for which, or for the consequence of which, the Carrier is not responsible, by statute, contract or otherwise, the cargo, Shippers, consignees or the owners of the cargo shall contribute with the Carrier in General Average to the payment of any sacrifices, losses of expenses of a General Average nature that may be made or incurred and shall pay salvage and special charges incurred in respect of the cargo. If a salving vessel is owned or operated by the Carrier, salvage shall be paid for as fully as if the said salving vessel or vessels belonged to strangers. Such deposit as the Carrier, or his agents, may deem sufficient to cover the estimated contribution of the goods and any salvage and special charges thereon shall, if required, be made by the cargo Shippers, Consignees or owners of the goods to the Carrier before delivery.
+        </div>
+        <div style="font-size: 12px; margin-left: 20px; margin-top: 10px;">
+            <b>(5) Both-to Blame Collision Clause.</b><br>
+            If the Vessel comes into collision with another vessel as a result of the negligence of the other vessel and any act, neglect of default of the Master, Mariner, Pilot or the servants of the Carrier in the navigation or in the management of the Vessel, the owners of the cargo carried hereunder will indemnify the Carrier against all loss or liability to the other or non-carrying vessel or her owners in so far as such loss or liability represents loss of, or damage to, or any claim whatsoever of the owners of said cargo, paid or payable by the other or non-carrying ship or her Owners to the owners of said cargo and set-off, recouped or recovered by the other or non-carrying vessel or her Owners as part of their claim against the carrying Vessel or the Carrier.<br>
+            The foregoing provisions shall also apply where the owners, operators or those in charge of any vessel or vessels or objects other than, or in addition to, the colliding vessels, or objects are at fault in respect of a collision or contract.
+        </div>
+        <div style="font-size: 12px; text-align: right; margin-top: 120px;">
+            For particulars of cargo, freight, destination, etc., see overleaf.
+        </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h1 style="font-size: 20px; font-weight: bold; margin: 0; text-decoration: underline;">CODE NAME: "CONGENBILL "EDITION 1994 G</h1>
+        <div>
+            <div style="text-align: center; font-size: 10px;">NOT NEGOTIABLE UNLESS CONSIGNED "TO ORDER"</div>
+        </div>
+    </div>
+
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px;">
+        <tr>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top; width: 50%;">
+                <strong>Shipper</strong><br>
+                {{shipper.name}}<br>
+                {{#each shipper.address}}
+                    {{this}}<br>
+                {{/each}}
+            </td>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top; width: 50%;">
+                <strong>Bill of Lading No.</strong><br>
+                {{billOfLadingNumber}}<br>
+            </td>
+        </tr>
+    </table>
+
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px;">
+        <tr>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top; width: 50%;">
+                <strong>Consignee</strong><br>
+                {{consignee.name}}<br>
+                {{#each consignee.address}}
+                    {{this}}<br>
+                {{/each}}
+            </td>
+        </tr>
+    </table>
+
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px;">
+        <tr>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top; width: 50%;">
+                <strong>Notify Party</strong><br>
+                {{notifyParty.name}}<br>
+                {{#each notifyParty.address}}
+                    {{this}}<br>
+                {{/each}}
+            </td>
+        </tr>
+    </table>
+
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px;">
+        <tr>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top; width: 33%;"><strong>Port of Loading</strong><br>{{portOfLoading}}</td>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top; width: 33%;"><strong>Port of Discharge</strong><br>{{portOfDischarge}}</td>
+        </tr>
+    </table>
+
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px;">
+        <tr>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top; width: 33%;"><strong>Vessel</strong><br></td>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top; width: 17%;"><strong>Place of Delivery</strong><br>{{placeOfDelivery}}</td>
+        </tr>
+    </table>
+
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px;">
+        <tr>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top; width: 33%;"><strong>Description of Goods & Pkgs.</strong></td>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top; width: 17%;"><strong>Gross Weight</strong></td>
+        </tr>
+        {{#each cargoDetails}}
+        <tr>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top;"> {{product}}</td>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top;">{{grossWeight}} {{weightUnit}}</td>
+        </tr>
+        {{/each}}
+    </table>
+
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px;">
+        <tr>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top; width: 67%;">
+                {{freightTerms}}<br>
+                {{#each documentsRequired}}
+                {{this}}<br>
+                {{/each}}
+                <br>
+                CARGO STOWED IN:<br>
+                (Of which NIL on deck at Shipper's risk, the Carrier not being responsible for loss or damage howsoever arising)
+            </td>
+        </tr>
+    </table>
+
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px;">
+        <tr>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top; width: 50%;">
+                <strong>Freight Payable As Per</strong><br>
+                <span></span><br><br>
+                <strong>FREIGHT ADVANCE.</strong><br>
+                Received on account of freight:<br><br><br>
+                Time used for loading&nbsp;&nbsp;&nbsp;&nbsp;days hours
+            </td>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top; width: 50%;">
+                <strong>SHIPPED</strong> at the port of Loading in apparent good order and condition on board the vessel 
+                for carriage to the Port of Discharge or so near thereto as she may safely get the goods 
+                specified above.<br><br>
+                Weight, Measure, Quality, Quantity, Condition, Contents and Value Unknown.<br><br>
+                IN WITNESS whereof the Master or Agent of the said Vessel has signed the number of 
+                Bills of lading indicated below all of this tenor & date. Any one of which being accomplished 
+                the others shall be void.<br><br>
+                FOR CONDITIONS OF CARRIAGE SEE OVERLEAF.
+            </td>
+        </tr>
+    </table>
+
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px;">
+        <tr>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top; width: 67%;">
+                <strong>Freight Payable at</strong>
+            </td>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top; width: 33%;">
+                <strong>Place & Date of Issue</strong><br>
+                <span><br><br></span>
+            </td>
+        </tr>
+    </table>
+
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px;">
+        <tr>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top; width: 67%;">
+                <strong>Number of original BL/s</strong><br><br>
+                {{numberOfOriginals}}
+            </td>
+            <td style="border: 1px solid black; padding: 5px; vertical-align: top; width: 33%;">
+                <strong>Signature:</strong><br>
+                <span><br><br></span>
+            </td>
+        </tr>
+    </table>
+</body>
+</body>
+</html>
