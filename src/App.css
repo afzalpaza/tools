@@ -90,17 +90,84 @@
 }
 
 .content-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   margin-bottom: 30px;
 }
 
-.input-area, .preview-area {
+.tabs {
+  display: flex;
+  gap: 0;
+  background: #f7fafc;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  border: 2px solid #e2e8f0;
+  border-bottom: none;
+}
+
+.tab {
+  flex: 1;
+  padding: 15px 20px;
+  background: #f7fafc;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4a5568;
+  transition: all 0.3s ease;
+  border-right: 1px solid #e2e8f0;
+}
+
+.tab:last-child {
+  border-right: none;
+}
+
+.tab:hover {
+  background: #edf2f7;
+}
+
+.tab.active {
+  background: white;
+  color: #667eea;
+  position: relative;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: white;
+}
+
+.input-area, .editor-area {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  padding: 0;
   text-align: left;
 }
 
-.input-area h3, .preview-area h3 {
+.editor-area {
+  padding: 0;
+}
+
+.editor-area .tiptap-editor {
+  border: none;
+  border-radius: 0 0 10px 10px;
+  box-shadow: none;
+}
+
+.preview-section {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.preview-section h3 {
   margin: 0 0 15px 0;
   color: #2d3748;
   font-size: 1.3rem;
@@ -110,13 +177,14 @@
 .html-textarea {
   width: 100%;
   padding: 15px;
-  border: 2px solid #e2e8f0;
-  border-radius: 10px;
+  border: none;
+  border-radius: 0 0 10px 10px;
   font-family: 'Courier New', monospace;
   font-size: 14px;
   line-height: 1.5;
   resize: vertical;
   transition: border-color 0.3s ease;
+  min-height: 400px;
 }
 
 .html-textarea:focus {
@@ -233,9 +301,17 @@
     padding: 20px;
   }
 
-  .content-section {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .tabs {
+    flex-direction: column;
+  }
+  
+  .tab {
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .tab:last-child {
+    border-bottom: none;
   }
 
   .action-buttons {
@@ -247,4 +323,59 @@
     width: 100%;
     max-width: 300px;
   }
+} 
+
+/* Converter Options Styles */
+.converter-options {
+  margin: 20px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+}
+
+.converter-toggle {
+  text-align: left;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.toggle-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.toggle-text {
+  color: #333;
+  font-size: 1rem;
+}
+
+.converter-info {
+  margin: 0;
+  padding: 8px 12px;
+  background: #e9f7ef;
+  border-left: 4px solid #28a745;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #155724;
+}
+
+.converter-info:has-text("html-docx-js") {
+  background: #fff3cd;
+  border-left-color: #ffc107;
+  color: #856404;
+}
+
+.converter-info:has-text("Only html-docx-js") {
+  background: #f8d7da;
+  border-left-color: #dc3545;
+  color: #721c24;
 } 
