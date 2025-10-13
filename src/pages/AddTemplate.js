@@ -87,17 +87,21 @@ function AddTemplate() {
     setResponseMessage('');
 
     try {
-      let url = 'https://test.istakapaza.com/businesses/trade/template';
-      if(environment === 'production') {
-        url = 'https://istakapaza.com/businesses/trade/template';
-      } else if(environment === 'local') {
-        url = 'http://localhost:3002/businesses/trade/template';
+      const apiUrl = localStorage.getItem('apiUrl');
+      const token = localStorage.getItem('apiToken');
+      
+      if (!apiUrl || !token) {
+        setResponseMessage('API settings not found. Please configure your API URL and token first.');
+        return;
       }
+
+      let url = `${apiUrl}/businesses/trade/template`;
+
       const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': jwtToken
+          'Authorization': token
         },
         body: JSON.stringify({
           templateName: templateName.trim(),

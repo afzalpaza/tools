@@ -49,6 +49,9 @@
   border-radius: 25px;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  background: none;
+  cursor: pointer;
+  font-size: inherit;
 }
 
 .nav-link:hover {
@@ -61,6 +64,19 @@
   color: #4CAF50;
   background: rgba(76, 175, 80, 0.1);
   border-color: #4CAF50;
+}
+
+.token-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  border: 2px solid transparent !important;
+}
+
+.token-btn:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%) !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .page-content {
@@ -455,11 +471,14 @@
     width: 100%;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 10px;
   }
 
   .nav-link {
     flex: 1;
     text-align: center;
-    min-width: 120px;
+    min-width: 90px;
+    padding: 8px 10px;
+    font-size: 0.85rem;
   }
 } 
