@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sales Contract</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; font-size: 10pt;">
+  <p>&nbsp;</p>
+  <table style="width:100%; border-collapse:collapse;border:none; margin-top: 25px;">
+    <tr>
+      <td style="width:50%; vertical-align:top; text-align:left; border:none; padding:5px;">
+        <strong>Agrifields</strong><br>
+        TEL: +971 4 2766391<br>
+        FAX: +971 4 2766032<br>
+        EMAIL: naj@agrifields.com
+      </td>
+
+      <td style="width:50%; vertical-align:top; text-align:right; border:none; padding:5px;">
+        <strong>AGRIFIELDS DMCC</strong><br>
+        JBC 4, UNIT 3201, CLUSTER N<br>
+        JUMEIRAH LAKE TOWERS<br>
+        DUBAI. <strong>U.A.E.</strong>
+      </td>
+    </tr>
+  </table>
+
+  <h2 style="text-align: center; font-size: 16pt; margin-top: 25px;">SALES CONTRACT</h2>
+  <p>Contract Number: {{contractNumber}} </p>
+  <p>Contract Dated: {{contractDate}}</p>
+
+  <ol>
+    <li><b>{{buyer.name}} </b>(“the Buyer”)<br>
+      {{buyer.addressline1}}<br>
+      {{buyer.addressline2}}<br>
+      {{buyer.addressline3}}<br>
+    </li>
+    <li><b>{{seller.name}} </b>(the “Seller”)<br>
+      {{seller.addressline1}}<br>
+      {{seller.addressline2}}<br>
+      {{seller.addressline3}}<br>
+    </li>
+  </ol>
+
+  <p><b>Description of Goods:</b></p>
+  {{#each products}}
+    <p>{{description}} as per the Fertiliser (Inorganic, Organic or Mixed) (Control) Order, 1985 of India
+    (“hereinafter referred to as FCO”)</p>
+  {{/each}}
+
+  <p><b>Specifications:</b></p>
+  <p>As per Specifications in Annexure 1. </p>
+
+  <p><b>Quality, Quantity determination & Claims:</b></p>
+  <p>The Seller shall always be responsible for the quality of the product supplied to the Buyer, which shall always
+    conform to the standards prescribed under the FCO. The Seller shall provide the Buyer with a detailed analysis
+    report along with every Invoice & mail the soft copy of the test certificate under the Seller’s letter head at the
+    time of dispatch of the material to the Buyer. In case any sample of the product is found non-standard by analysis
+    report issued by Regional Fertilizer Control Laboratory (which is controlled by Central Fertilizers Quality Control
+    and Training Institute), then Buyer shall apply for retesting as per the process laid down in FCO and in case the
+    test results declare the product non-standard, then the Seller will either replace the cargo or return the invoice
+    amount as may be agreed between the parties, of such non-compliant product/lot at its own cost.
+  </p>
+  <p>Quantity at load port to be final & binding on both parties’ basis the certificate of quantity issued by Seller. In
+    case of any shortages/damages, buyer to put initial notice within 3 (three) business days and lodge claim within 15
+    (fifteen) business days from shipment arrival at destination port with all the valid supporting documents. Both
+    quality & quantity claim should be supported by a report issued by an international inspection agency acceptable to
+    both the parties. The cost of surveyor at the discharge port shall be for Buyer’s account.
+    Any shortage in excess of 0.5% in weight shall be reimbursed by the Seller to the Buyer. If the difference in
+    quantity exceeds 0.5%, the Seller will compensate the Buyer for the shortfall quantity as per Invoice in excess of
+    0.5%. Such claims shall be settled within 60 (sixty) business days or as per the payment terms agreed whichever
+    comes later date and, on the demand, raised by the Buyer to Seller.
+  </p>
+
+  <p><b>Product/ Price/Origin/Packing/Quantity & Total Value:</b></p>
+  <table style="width: 80%; border-collapse: collapse; margin-top: 15px; border: 1px solid black;">
+    <tr>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Product</th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Price & Incoterms</th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Origin</th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Packing</th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Quantity</th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Total Value in USD</th>
+    </tr>
+    {{#each products}}
+    <tr>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{description}} as per Indian FCO
+      </td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{currency}} {{price}} P{{uom}}, {{incoterms}}, {{dischargePort}}.</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{origin}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">In {{packing}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{quantity}} {{uom}}S ({{toleranceSign}} {{tolerancePercentage}}% at Seller's Option)</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{amount}}/-</td>
+    </tr>
+    {{/each}}
+  </table>
+
+
+  <p><b>Tentative Shipment Period:</b></p>
+  <p>May 2025 </p>
+  <p>Shipment is subject to China customs inspection and availability of shipping space.</p>
+  <p>Contract extension beyond June 2025 subject to Manufacturer reconfirmation.</p>
+
+  <p><b>Payment terms:</b></p>
+  <p>{{paymentTerms}}</p>
+  <p>In case of delay in payments, interest will be applicable at the rate of 12% p.a. on Invoice value. </p>
+
+  <p><b>Agrifields DMCC Bank Details:</b></p>
+  {{#if seller.bankName}}
+    <p>{{seller.bankName}}<br>
+      Dubai, U.A.E.<br>
+      A/C No. {{seller.accountNumber}}<br>
+      IBAN No. {{seller.IBAN}}<br>
+      Swift: {{seller.swiftCode}}<br>
+    </p>
+  {{else}}
+    <p>Emirates NBD<br>
+      Dubai, U.A.E.<br>
+      A/C No. 1025245143002<br>
+      IBAN No. AE450260001025245143002<br>
+      Swift: EBILAEAD<br>
+    </p>
+  {{/if}}
+  
+  <p>Due to increasing number of international web Hackers’ attacks (Hacker is a person who uses computers to gain
+    unauthorized access to data.) Both parties hereby acknowledge that Agrifields DMCC shall never ask buyer to transfer
+    any monies and/or pay Agrifields DMCC’s invoice to any other banks which are not mentioned in this
+    Contract/Agreement. </p>
+
+  <p><b>Documents:</b></p>
+  <p>The following documents to be sent by seller:</p>
+  <ul>
+    <li>Seller’s Invoice. </li>
+    <li>Bill of Lading</li>
+    <li>Certificate of Origin issued by seller. </li>
+    <li>Packing List issued by seller.</li>
+    <li>Certificate of Quality and Quantity issued by seller.</li>
+    <li>Insurance Certificate</li>
+  </ul>
+
+  <p><b>Dispatch / Demurrage Rate:</b></p>
+  <p>Buyer to clear the containers from discharge port within time stipulated by shipping company and ensure no
+    demurrage is incurred.</p>
+
+  <p><b>Loading port:</b></p>
+  {{#each loadingPorts}}
+  <p>{{port}}</p>
+  {{/each}}
+
+  <p><b>Discharge port:</b></p>
+  {{#each dischargePorts}}
+  <p>{{port}}</p>
+  {{/each}}
+
+  <p><b>Insurance:</b></p>
+  <p>Insurance of cargo will be covered by Seller in accordance with Incoterms 2020.</p>
+
+  <p><b>Title & Risk:</b></p>
+  <p>Title of the goods and risk of loss or damage to the goods is transferred from the seller to the buyer when the
+    goods shall have effectively passed progressively the ship’s rail at the port of loading except otherwise mentioned
+    here, other relevant provision of Incoterms 2020 shall apply. Seller hereby expressly warrants that at the time of
+    the title transfer it will have good title, free and clear of any liens or encumbrances, and that it has and will
+    have the full right and authority to transfer such title and effect delivery to Buyer.</p>
+
+  <p><b>Ethical Dealing:</b></p>
+  <p>Seller represents and warrants that it has not given or received and shall not give or receive any commission,
+    payment, kickback, secret rebate or other thing of value to or from any employee or agent of the other party or to
+    any supplier of services in connection with this contract. Seller acknowledges that the giving or receiving of any
+    such commission, payment, kickback, secret rebate or other thing of value constitutes a breach of ethical standards,
+    is potentially in violation of applicable law and may result in immediate termination of this and other outstanding
+    agreements between the parties.</p>
+
+  <p><b>Compliance: </b></p>
+  <p>Each party declares, represents and warrants for itself and its respective affiliates, employees and agents to be
+    aware of all economic sanctions laws, anti-boycott laws and trade restrictions imposed by the United Nations, the
+    United State of America, the member states of the European Union and/or the country/ countries from which the goods
+    may originate be shipped or discharged through which funds paid pursuant to the Contract may originate, pass or be
+    received; as may be amended from time to time (the “Restrictions”). For the purpose of this clause “affiliates”
+    means, in relation to either of the parties, any company controlling, controlled by, or under common control with
+    that party, either directly or indirectly.</p>
+  <p>The parties undertake to comply (or cause their respective affiliates, employees and agents to comply) with the
+    Restriction in all respects in relation to the performance of this Contract and any import acquisition from or
+    export or resale to a third party. The warranty and undertaking contained in this clause refer in particular but not
+    exclusively to the nominated Vessel (and whoever may own, control, operate or have chartered her; directly or
+    indirectly), to Buyer’s documentary instructions to any Intervening banks, and in general to any other person,
+    company or entity involved in the performance of this Contract and any import or acquisition for or export or resale
+    to a third party.</p>
+  <p>Each party (the “Indemnifying Party”) shall fully Indemnify the other (the “Indemnified part”) and hold the
+    Indemnified Party harmless for any loss, cost or damage suffered by its principals, affiliates, employees or agents,
+    as a result of any intentional or unintentional breach of the Restrictions by the Indemnifying Party or any of the
+    person, companies and entities comprised in the indemnifying party warranty and undertaking under the terms of this
+    clause. </p>
+  <p>Nothing in this Contract is meant to require either party to take any action which is likely to place it or any of
+    its respective affiliates, employees and agents in a position of non-compliance with, or in contravention of, the
+    Restrictions. </p>
+  <p>Breach by either party of any warranty or undertaking in this clause shall be deemed to be a breach of condition of
+    this Contract entitling the other party with notice to rectify the breach without prejudice to any of its rights
+    against the party in breach and in respect of which there shall be no waiver unless expressly
+    made in writing. </p>
+
+  <p><b>Indemnity: </b></p>
+  <p>The Parties hereby agrees to indemnify, keep indemnified and hold harmless, each other against all claims, actual
+    losses, damages, costs and expenses, whether arising as a result of (i) any representation or warranty given by them
+    being found to be incorrect or misleading or (ii) any Government action, proceedings, litigation or for any reason
+    on account of infirmity or defect or inadequacy of the permissions/approvals or (iii) there being any defect or
+    deficiency or inadequacy in either party’s right to execute this Agreement or (iv) breach, non-performance or
+    non-observance of the terms of this Agreement or (v) any liability arising on the Parties as a result of any act of
+    negligence of the respective party or its authorized agents.</p>
+
+
+  <p><b>Termination: </b></p>
+  <p>Notwithstanding the foregoing, aggrieved party may terminate the Contract if an Event of Default has occurred. The
+    following shall constitute events of default:</p>
+  <ol type="A">
+    <li>Any Party commits a material breach of any of the provisions of this Contract.</li>
+    <li>A liquidator, receiver or receiver and manager, administrator or similar officer is appointed in respect of a
+      Party.</li>
+    <li>An application (other than a frivolous or vexatious application) or an order is made for the dissolution or
+      winding up of a Party or an effective resolution is passed for the winding up of a Party other than for the
+      purpose of a solvent reconstruction or amalgamation on terms approved by the other Party.</li>
+    <li>If a Party suspends payment of its debts or is unable to pay its debts when they fall due or is deemed unable to
+      pay its debts under any applicable legislation (other than as a result of a failure to pay a debt or claim which
+      is the subject of a bona fide dispute).</li>
+    <li>There has been a Material Adverse Change in the business of a Party.</li>
+  </ol>
+  <p>"Material Adverse Change" shall mean a material adverse effect on or material adverse change in the operations,
+    financial condition, assets, revenues, prospects or business of a Party; or the ability of a Party to perform and
+    comply with its obligations this Contract.</p>
+  <p>Upon the occurrence of any Event of Default in respect of a Party (the "Defaulting Party"), the other Party (the
+    "Aggrieved Party") shall be at liberty to serve upon the Defaulting Party a written notice (the "Notice of Default")
+    requiring the Defaulting Party to remedy such Event of Default within a period of 15 working days following service
+    of the Notice of Default (the "Cure Period").</p>
+  <p>In the event that the Defaulting Party fails to remedy the Event of Default within the Cure Period to the
+    reasonable satisfaction of the Aggrieved Party, then without prejudice to any other rights or remedies which may be
+    available to the Aggrieved Party under the Contract or at law, the Aggrieved Party may terminate the Contract.</p>
+  <p>Termination of the Contract will not relieve either Party of claims against it that arose under the Contract before
+    the Contract was terminated.</p>
+
+  <p><b>Notices:</b></p>
+  <p>All notices to be given or served by either party to this Agreement shall be deemed to have been given or served if
+    the same is delivered or served by messenger, on the date of its receipt/delivery; or on the expiry of 72 hours
+    after dispatch if by courier/fax/email/post/ telegram / registered post, as the case may be, by either party to the
+    other at its registered or principal office as mentioned hereinabove. Provided that either party shall have the
+    right to inform the other in writing in a similar manner of any other address or addresses at which such notices
+    shall be given or served. </p>
+
+  <p><b>Arbitration:</b></p>
+  <p>This Agreement shall be governed by, construed and enforced in accordance with the laws of Singapore, without
+    regards to its conflicts of law provisions. For the avoidance of doubt, the application of the United Nations
+    Convention on Contracts for the International Sale of Goods is expressly excluded.</p>
+  <p>Any dispute arising out of or in connection with this contract, including any question regarding its existence,
+    validity or termination, shall be referred to and finally resolved by arbitration as per the rules of the Singapore
+    International Arbitration Centre (SIAC), which Rules are deemed to be incorporated by reference into this clause.
+    The arbitration shall be conducted by a sole arbitrator who shall be appointed in accordance with the rules of the
+    SIAC. </p>
+  <p>The venue of arbitration shall be Singapore. The language of arbitration shall be English. The arbitration award
+    shall be final and binding on both parties. </p>
+
+
+  <p><b>Taxes, Duties and Import Permit:</b></p>
+  <p>All taxes, dues, duties, permits and other charges on cargo at the load port to be for Seller's account and all
+    taxes, dues, duties, permits and other charges on cargo at discharging port to be for Buyer's account.</p>
+
+  <p><b>Force majeure:</b></p>
+  <p>Neither party shall be liable for any non-performance or delay in performance caused by acts of God, industrial
+    disturbance, war (declared or undeclared), civil commotion, perils of the sea (herein called ‘force majeure’). The
+    party, whose performance may be impaired by the occurrence of any event of force majeure, shall promptly notify the
+    other party indicating effect on delivery date or delivery schedule. Each party shall make every reasonable effort
+    with all reasonable dispatch to overcome the force majeure event interfering with its performance under this
+    agreement. If Chinese government issues any new policy which will influence the shipment/imposes any additional
+    restrictions towards product, the parties will rediscuss the contract mutually and if no mutual agreement is
+    achieved, then cancel the contract. The buyer recognizes that the seller is not the producer of the cargo and any
+    Force Majeure condition affecting the producer of the cargo shall constitute as the Force Majeure condition
+    affecting the seller under this contract. It has been expressly understood that once loading commenced, force
+    majeure is not applicable</p>
+  <p>The party claiming Force Majeure shall notify the other party within three (3) days after the claiming party has
+    notice thereof. If required by the Seller, the Buyer shall take delivery when the said prevention or hindrance shall
+    have ceased at the same date of delivery as within specified, but in case the continuous non-performance or delay
+    exceeds three (3) months, the quantity in question may be cancelled at the option of either party. Certificate
+    issued by a respective Chamber of Commerce of the incapacitated party’s country shall be regarded as sufficient
+    evidence of existence and duration of Force Majeure. </p>
+
+  <p><b>Non-Exclusivity:</b></p>
+  <p>It is expressly agreed and understood between the parties that the Buyer is free to buy product(s) similar to those
+    which the Seller has agreed to sell to the Buyer under this Agreement, from any other manufacturer/trader during the
+    continuance of this Agreement. It is further expressly agreed and understood between the parties that the Buyer
+    shall be free to sell the said products purchased by it from the Seller at any place in India without any
+    territorial restrictions. The Buyer is also free to sell products/formulations of any other manufacturer. </p>
+
+
+  <p><b>Confidentiality:</b></p>
+  <p>The Seller and the Buyer undertakes that they shall keep strictly secret and confidential and shall not disclose,
+    divulge or reveal during the continuance of this Agreement or at any time thereafter any information, know-how,
+    formula, sourcing information, client data base, price, marketing strategies and its details or any part thereof
+    disclosed or communicated by either party to other party under this Agreement relating to the trading/sourcing or
+    packaging of the said products or otherwise gained or acquired by virtue of or as a result of the implementation of
+    this Agreement to any person, firm, Company, body corporate or authority and shall ensure that the same is kept
+    strictly secret and confidential. Any disclosure, statutory or otherwise, required to be made by the receiving party
+    shall be on prior written approval of the disclosing party.</p>
+
+  <p><b>Seller’s Obligation: </b></p>
+  <p>The Seller shall be solely responsible for the safety and upkeep of the quantity / quality of the said products
+    till the risk of the products are transferred to Buyer. The Seller shall be responsible for preserving the quality
+    of the Product and the Product packing as per techniques and procedures that may be best suited to the Product.</p>
+
+  <p><b>Claims and Limitation of Liability: </b></p>
+  <ol type="A">
+    <li>No claim of any kind by either Party shall be greater in amount than the purchase price of the product in
+      respect of which damages are claimed</li>
+    <li>No suit or legal proceeding or demand for arbitration arising under this Agreement shall be maintainable by
+      either Party unless commenced or made within one year from delivery or failure to deliver or lift product
+      hereunder by the respective party, as may be the case.</li>
+  </ol>
+
+  <p><b>Assignment: </b></p>
+  <p>Neither this contract nor any right, duty or obligation of any party hereunder may be assigned or delegated by any
+    party (in whole or in part) without the prior written consent of the other party hereto.</p>
+
+  <p><b>Amendment:</b></p>
+  <p>No provision in this Contract (including this provision) shall be changed or modified in any way either in whole or
+    in part except by an instrument in writing made after the date of this Contract and signed on behalf of both the
+    parties and which expressly states to amend this Contract.</p>
+
+  <p><b>Entirety of Contract: </b></p>
+  <p>This contract read along with the Purchase Order issued to Seller shall constitute the entire understanding between
+    Buyer and Seller and supersedes all previous negotiations representations, agreements or commitments with respect to
+    the matters dealt with herein or oral statements which may have been made between the parties. No amendments to this
+    Contract shall be binding unless agreed by the parties in writing. Each Party acknowledges that in entering into
+    this contract it has not reeled on any representations, warranties, statements or undertaking except those which are
+    expressly set out herein. </p>
+
+  <p><b>Waiver:</b></p>
+  <p>Any waiver of a provision or of a particular breach of any obligation, or the failure to exercise any of the rights
+    herein provided by a party, shall not be deemed to constitute a waiver of any other provision or subsequent breach
+    or to prejudice the exercise in future of any right by that party.</p>
+
+  <p><b>Severability:</b></p>
+  <p>If any covenant or provision of the Agreement is determined to be void or unenforceable in whole or in part, then
+    such void or unenforceable covenant or provision shall be deleted from this Agreement and shall not affect or impair
+    the enforceability or validity of any other covenant or provision of this Agreement or any part thereof.
+  </p>
+
+  <table style="width:100%; border-collapse:collapse;border:none;">
+    <tr>
+      <td style="width:50%; vertical-align:top; text-align:left; border:none; padding:5px;">
+        Signed & Accepted as Seller on this day of <br>
+        30th April 2025 <br>
+        For and on behalf of <br>
+        <b>Agrifields DMCC </b>
+      </td>
+
+      <td style="width:50%; vertical-align:top; text-align:right; border:none; padding:5px;">
+        Signed & Accepted as Buyer on this day of<br>
+        For and on behalf of<br>
+        <b>{{buyer.name}} </b>
+      </td>
+    </tr>
+  </table>
+
+  <p>Najmuddin Bhavnagarwala<br>
+    Director & COO<br>
+  </p>
+
+  <h3 style="margin-bottom: 5px; text-align: center;"><u>Annexure 1</u> </h3>
+  {{#each specifications}}
+  <h3 style="margin-bottom: 5px; text-align: center;"><u>Typical Specification of {{productName}} as per the
+      Fertiliser (Inorganic, Organic or Mixed) Control Order, 1985 of India and its latest amendments (FCO) </u></h3>
+
+  <table style="width: 80%; border-collapse: collapse; margin-top: 15px; margin-left: auto; margin-right: auto;">
+    <tr>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;"><u>ITEMS</u></th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;"><u>SPECIFICATION</u></th>
+    </tr>
+    {{#each specifications}}
+    <tr>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{name}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{value}}</td>
+    </tr>
+    {{/each}}
+  </table>
+  {{/each}}
+
+</body>
+
+</html>

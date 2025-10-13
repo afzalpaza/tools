@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sales and Purchase Contract</title>
+</head>
+
+<body style="font-family: 'Arial', sans-serif; font-size: 10pt;">
+  <p>&nbsp;</p>
+  <table style="width: 100%; border-collapse: collapse; margin-top: 25px;">
+    <tr>
+      <td style="width: 50%; vertical-align: top; padding: 0; border: none;">
+        <div><strong>Agrifields</strong></div>
+        <div>TEL: +971 4 2766391</div>
+        <div>FAX: +971 4 2766032</div>
+        <div>EMAIL: naj@agrifields.com</div>
+      </td>
+      <td style="width: 50%; vertical-align: top; text-align: right; padding: 0; border: none;">
+        <strong>AGRIFIELDS DMCC</strong><br>
+        JBC 4, UNIT 3201, CLUSTER N<br>
+        JUMEIRAH LAKE TOWERS<br>
+        DUBAI. <strong>U.A.E.</strong>
+      </td>
+    </tr>
+  </table>
+
+  <h2 style="text-align: center; text-decoration: underline; font-size: 18pt; font-weight: bold;">SALES AND PURCHASE CONTRACT</h2>
+
+  <table style="width: 100%;">
+    <tr>
+      <td style="width: 50%; border: none">
+        <strong>Agrifields Contract Number:</strong> {{contractNumber}}
+      </td>
+      <td style="width: 50%; border: none; text-align: right;">
+        <strong>Date:</strong>{{contractDate}}
+      </td>
+    </tr>
+  </table>
+
+  <p></p>
+  <div style="margin-bottom: 20px;">
+    <span style="font-weight: bold; display: inline-block; margin-right: 8px; min-width: 70px;">BUYER</span> :
+    <span style="display: inline-block; font-weight: bold;">{{buyer.name}}</span><br>
+    <div style="margin-left: 150px;">
+      {{buyer.addressline1}}<br>
+      {{buyer.addressline2}}<br>
+      {{buyer.addressline3}}
+    </div>
+  </div>
+
+  <div style="margin-bottom: 20px;">
+    <span style="font-weight: bold; display: inline-block; margin-right: 8px; min-width: 70px;">SELLER</span> :
+    <span style="display: inline-block; font-weight: bold;">{{seller.name}}</span><br>
+    <div style="margin-left: 150px;">
+      {{seller.addressline1}}<br>
+      {{seller.addressline2}}<br>
+      {{seller.addressline3}}
+    </div>
+  </div>
+
+  <p>The Buyer and the Seller are hereby, wherever the context so requires, are jointly referred to as the Parties and
+    individually as the Party.</p>
+  <p>Whereas the Buyer has agreed to buy and the Seller has agreed to sell the following goods in accordance with the
+    following terms and conditions.</p>
+
+  <p style="font-weight: bold;">Description of Goods:</p>
+  <table style="width: 100%; border: 1px solid #000; margin-top: 10px; border-collapse: collapse;">
+    <tr>
+      <th style="border: 1px solid #000; padding: 6px; text-align: left;">Sl NO</th>
+      <th style="border: 1px solid #000; padding: 6px; text-align: left;">Product Description</th>
+      <th style="border: 1px solid #000; padding: 6px; text-align: left;">Quantity</th>
+      <th style="border: 1px solid #000; padding: 6px; text-align: left;">UOM</th>
+      <th style="border: 1px solid #000; padding: 6px; text-align: left;">Currency</th>
+      <th style="border: 1px solid #000; padding: 6px; text-align: left;">Provisional Price</th>
+      <th style="border: 1px solid #000; padding: 6px; text-align: left;">Incoterms</th>
+    </tr>
+    {{#each products}}
+    <tr>
+      <td style="border: 1px solid #000; padding: 6px; text-align: left;">{{@index + 1}}</td>
+      <td style="border: 1px solid #000; padding: 6px; text-align: left;">{{description}}</td>
+      <td style="border: 1px solid #000; padding: 6px; text-align: left;">{{quantity}} {{uom}} ({{toleranceSign}}{{tolerancePercentage}}%)</td>
+      <td style="border: 1px solid #000; padding: 6px; text-align: left;">{{uom}}</td>
+      <td style="border: 1px solid #000; padding: 6px; text-align: left;">{{currency}}</td>
+      <td style="border: 1px solid #000; padding: 6px; text-align: left;">{{provisionalPrice}}</td>
+      <td style="border: 1px solid #000; padding: 6px; text-align: left;">{{incoterms}}</td>
+    </tr>
+    {{/each}}
+    <tr>
+      <td colspan="7" style="border: 1px solid #000; padding: 6px; text-align: left;"><strong>[ Product Specification:
+          As per annexure I]</strong></td>
+    </tr>
+  </table>
+
+  <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Provisional Price</td>
+      {{#each products}}
+      <td style="vertical-align: top; padding: 6px 8px;">The provisional price of {{currency}} {{provisionalPrice}} P{{uom}} shall be applicable for
+        {{incoterms}}, {{dischargePort}} until the quarter's
+        CFR price (July 24 to Sep 24) is declared on 100% P2O5 basis Letter of credit shall be issued considering the
+        provisional price. </td>
+      {{/each}}
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Final
+        Price: </td>
+      <td style="vertical-align: top; padding: 6px 8px;">The final price will be India declared CFR price for the
+        quarter (July 24 to Sep 24).
+        <p>The differential amount basis the provisional price and final price, if any, shall be settled via Debit and
+          Credit note.</p>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">ORIGIN:
+      </td>
+      {{#each products}}
+      <td style="vertical-align: top; padding: 6px 8px;">{{origin}}</td>
+      {{/each}}
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">SHIPMENT:
+      </td>
+      <td style="vertical-align: top; padding: 6px 8px;">The tentative loading laycan is {{loadingLaycan}} </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">PAYMENT:
+      </td>
+      {{#each products}}
+      <td style="vertical-align: top; padding: 6px 8px;">The provisional price of {{currency}} {{provisionalPrice}} PMT shall be applicable for
+        {{incoterms}}, {{dischargePort}} until the quarter's
+        CFR price (July 24 to Sep 24) is declared on 100% P2O5 basis Letter of credit shall be issued considering the
+        provisional price. </td>
+      {{/each}}
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Provisional Price</td>
+      <td style="vertical-align: top; padding: 6px 8px;">{{paymentTerms}}. Buyer has the option to avail credit beyond 30 days and upto 180 days from BL date, for which Interest
+        will be applicable beyond 30 days and up to 180 days on 6% p.a and such interest shall be added to the CFR price
+        further.
+        <p>L/C to be opened by buyer after acceptance of vessel nomination and at least within 7 working days before
+          commencement of loading laycan. </p>
+        <p>All Bank charges and expenses in connection to the L/C will be to Buyer's Account, except for beneficiary and
+          confirming bank charges which will be to Sellers's account. </p>
+        <p>Reimbursing Bank Charges, if any shall be to Buyer's Account. LC Amendment charges to the Party occasioning
+          the amendment. </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">BANK:
+      </td>
+      <td style="vertical-align: top; padding: 6px 8px;">{{seller.bankName}} <br>
+        {{seller.bankBranch}}<br>
+        SWIFT: {{seller.swiftCode}}<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        DOCUMENTS:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">a) Three original signed Commercial Invoice plus 3 copies<br>
+        b) 3/3 original Bills of Lading marked "clean on board" and "freight payable as per charter party" plus 3
+        non-negotiable sets<br>
+        c) One original Certificate of Quality issued by internationally reputed independent surveyor plus 3 copies<br>
+        d) One original Certificate of Quantity issued by internationally reputed independent surveyor plus 3 copies<br>
+        e) Certificate of Origin issued by beneficiary in one (1) Original plus three (3) copies. <br>
+        f) Ullage report in respect of quantity loaded in to the Vessel issued by Internationally reputed independent
+        inspection agency as appointed by the seller at loading port [1 Original + 3 Copies]<br>
+        g) Certificate of cleanliness of vessel tanks issued by internationally reputed inspection agency [1 Original +
+        3 Copies]<br>
+        h)Certificate from shipping company or its Agent to the effect that the carrying vessel is Seaworthy, Regular
+        Liner, Classed 100A 1 as per Lloyds or equivalent classification and not more than 25 years old."<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        INSPECTION:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">Both quantity and quality inspection to be performed by an
+        internationally accepted independent surveyor at
+        loading port. Method of sampling & determination of quantity and quality of cargo shall be conducted in
+        accordance to internationally accepted standard procedures. For purposes of assessment of quality/P2O5
+        concentration referred to in this contract, the analysis shall be performed in accordance with the AOAC 2016
+        Gravimetric Quinolinium Molybdophosphate (962.02) and/or ISO 3706:1976 official methods of analysis, as may be
+        amended from time to time. Cost of inspection at load port is for Seller's account. Independent surveyor,
+        appointed by Seller, shall draw sample of the acid at regular intervals during loading and such samples shall be
+        mixed together to form a composite sample which would be divided into 3 equal parts and sealed in 3 separate
+        bottles. These operations as performed by Seller in presence of independent, internationally recognized mutually
+        accepted inspection company. One sealed sample shall be sent to Buyer through the master of the vessel and one
+        sample will be utilized for performing analysis of phosphoric pentoxide (P2O5) concentration of the product at
+        Load port to form the basis of Seller's invoice and load port documentation. The remaining sample shall be
+        retained by the seller. Such quantity and P205 analysis from composite sample of cargo loaded in Vessel's tanks
+        determined by Seller's appointed surveyor shall form the basis of the Bill of Lading and the Seller's Invoice.
+        <p>Buyer shall have a right to depute, at his own expense an independent international surveyor to be present at
+          the time of loading to view weight and quality determination of Phosphoric Acid Solution being loaded. But the
+          exercise or non-exercise of such right by Buyer shall not absolve seller from the obligation to supply the
+          goods as per specifications that are stipulated in the contract.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">CLAIMS:
+      </td>
+      <td style="vertical-align: top; padding: 6px 8px;">Buyer shall have the right to raise quality claim within 15
+        days of discharge completion if difference in P2O5
+        concentration received is more than 0.15% (absolute terms) of the invoiced P2O5 percentage.
+        <p>If the results of the Independent surveyor analysis appointed by Buyer at discharge port indicate that the
+          P2O5 concentration is more than 0.15% (absolute terms) below the invoiced concentration, seller shall settle
+          Buyer's claim for difference in excess of 0.15% P2O5 concentration (absolute Terms) within thirty days (30
+          days) of the date of receipt of such results or claim from Buyer. If the results of the Independent surveyor
+          analysis appointed by Buyer at disport indicate that the concentration is within 0.15% of the invoiced
+          concentration, seller's invoice shall be determinative, final and binding on Buyer for all purposes.
+        </p>
+        <p>Buyer shall also have the right to raise quantity shortage claim within 15 days of discharge completion. If
+          difference in quantity per Ullage report at disport determined by Independent Surveyor and quantity as per
+          invoice is more than 0.5% of the invoiced quantity. The buyer shall raise a claim for shortfall quantity in
+          excess of 0.5% and Seller shall settle such claim within 30 days from date of receipt of such claim from
+          Buyer.</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        INSURANCE:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">To be arranged and covered by the Buyer for all risks with all
+        costs for Buyer's account. The overage
+        insurance premium (for vessel more than 20 years old) on Seller's account, If already paid by the Buyer, then
+        Seller to refunded by Telegraphic Transfer to Buyer's designated account within 30 days of the receipt of debit
+        note/claim from Buyer.</td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">TITLE AND
+        RISKS:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">Title to the goods shall pass to Buyer as the product is
+        progressively loaded. Seller hereby expressly
+        warrants that at the time of the title transfer it will have good title, free and clear of any liens or
+        encumbrances, and that it has and will have the full right and authority to transfer such title and effect
+        delivery to Buyer. The risk of loss or damage to each installment of the goods shall pass from Seller to Buyer
+        upon shipment except otherwise mentioned here, other relevant provision of Incoterms 2020 shall apply.</td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">TAX,
+        DUTIES:</td>
+      <td style="vertical-align: top; padding: 6px 8px;"></td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;"></td>
+      <td style="vertical-align: top; padding: 6px 8px;">All taxes, duties, fees and any other charges of any nature
+        imposed on the cargo at loading port shall be for
+        Seller's account. All taxes, duties, fees and any other charges of any nature imposed on the cargo at
+        discharging port shall be for Buyer's account. All taxes, duties and charges on Vessel, vessel flag, class, age,
+        crew etc., both at load port & discharge port shall be to Seller / Vessel owner's account.
+        <p>Seller confirms that, all necessary licenses and permits required to export the product contracted herein
+          have been obtained. Buyer's confirms that all necessary licenses and permits required to import the product
+          contracted herein have been obtained.</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">VESSEL:
+      </td>
+      <td style="vertical-align: top; padding: 6px 8px;">The performing vessel shall be a suitable tanker carrier,
+        seaworthy and fully P&I hull and machinery covered.
+        Vessel should be properly equipped at Owner's expense for loading & discharging at ports, including suitable
+        ground tackle, mooring lines and equipment for handling submarine hoses.
+        <p>Seller shall get Buyer's confirmation on vessel nomination before officially fixing tanker vessel basis 300
+          MTPH SHINC discharge rate. </p>
+        <p>The Seller has option to substitute vessel if needed but such substitution should be informed to and accepted
+          by Buyer. </p>
+        <p>The Seller shall advise the Buyer of the name of vessel with detailed particulars & schedule and nominate the
+          vessel to Buyer at least fifteen (15) days prior to commencement of lay days in order to enable Buyer to make
+          the necessary preparation for discharging.</p>
+        <p>Vessel must be sea worthy and must have all required valid documents/ certificates. Vessel must be classed in
+          accordance with the Institute Classification Clause of the International Association of Classification Society
+          (IACS). Vessel should be classified by a Society that is a member of International Association of
+          Classification Society (IACS) in force at the time of shipment & all vessel certificates should be valid
+          throughout the voyage; Vessel must have full and valid Protection and Indemnity insurance placed with a P&I
+          Club which is a member of the International Group of P&I Clubs and shall be as approved by DG Shipping, India
+          approved list; Vessel shall have the wreck removal clause specifically indicated under the P & I certificate.
+          Vessel to be max 25 years of age. Performing vessel shall be free from all maritime lien or maritime claim.
+        </p>
+        <p>Vessel and the Vessel's owner will be fully compliant with the international safety management code ("ISM")
+          and Seller, if requested, shall provide Buyer with a copy of the appropriate ISM documentation.</p>
+        <p>Vessel so nominated shall be compliant with the requirements of the International Code for the Security of
+          Ships and Port Facilities and the relevant amendments to Chapter XI of SOLAS (ISPS Code).</p>
+        <p>Vessel with flag of countries under OFAC or US sanctions as declared by Indian banks will not be used by the
+          seller. Vessel shall conform to 100-A.1 classification of Lloyds or equivalent and age of Vessel should not be
+          more than 25 years. The vessel provided shall be submitted to regulations ruling at the unloading port
+          including those relating to fire on board ships.</p>
+        <p>Seller shall comply with the limitations of the discharging port concerning LOA, BEAM, DRAFT Night Navigation
+          and Pilotage rules. Nominated vessel shall be suitable for berthing at Buyer's Discharge Port – Mormugao Port.
+        </p>
+        <p>Seller shall arrange with the carrier to provide on board the vessel all fitting and pumping equipment
+          necessary to permit unloading of the acid so as to achieve the average rate of 300 metric tons of Phos acid
+          solution per hour stipulated in the contract. Buyer shall provide at its own expense suitable unloading line &
+          handling equipment at the port of discharge. </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">LAYTIME
+        AND <br>
+        DEMMURAGE
+      </td>
+      <td style="vertical-align: top; padding: 6px 8px;">Calculation of laytime and demurrage (if any) shall be in
+        accordance with contract terms herein stipulated.
+        The demurrage rate shall be as per the vessel acceptance. If the laytime exceeds the time agreed in vessel
+        acceptance, demurrage at loading port shall be paid by the Seller, demurrage at discharge port shall be paid by
+        the Buyer.
+        <p>Vessel to tender NOR upon entering Mormugao Port confirming the Vessels arrival and readiness for safe
+          discharge of Cargo. If upon entering the Port, the vessel fails to obtain normal free pratique or for any
+          other reason due to fault of vessel found unfit to discharge the cargo except the case due to failure of
+          Buyer, then time shall cease to count as laytime until the vessel is fully ready to proceed for discharge. In
+          such a case, NOR shall be retendered once the vessel is granted normal free pratique or once vessel is made
+          fit and ready for safe discharge of cargo. </p>
+        <p>Lay-time shall commence 6 (six) hours after the receipt of notice of readiness of the vessel or upon all fast
+          whichever occurs first and shall end on disconnection of hoses. Lay-time allowed for discharge shall be
+          determined, holidays included (SHINC).</p>
+        <p>If the vessel be unable to pump out the acid from the vessel to Buyer's terminal tank at so as to achieve the
+          average rate of 300 MT Phos Acid solution per hour stipulated in the contract provided shore facility permits,
+          time lost on account of the slow pumping attributable to the vessel shall not count as used lay-time.</p>
+        <p>All time lost, stoppage of cargo discharge operations, cost & expenses arising due to breakdown of the
+          Vessel's machines or equipment's of Vessel or motive power or any other reasons attributable to the vessel, if
+          the vessel is pulled out of berth on account of Safety by the Port Authorities shall be to Ship Owner's
+          account and such period shall not be counted as lay time.</p>
+        <p>Vessel Owners/ crew to adhere to and comply with all covid-19 quarantine regulations, if any on arrival at
+          disport. Valid NOR can only be tendered/accepted once any quarantine period has concluded at the discharging
+          port.</p>
+        <p>If vessel is placed in quarantine by health authorities for crew health reasons, lay time not to start to
+          count until clearance is given by the concerned authorities up to commencement of cargo discharge operations.
+        </p>
+        <p>Shifting time from Pilot Onboard to until completion of Mooring/All fast shall not be counted as used
+          laytime. However, all subsequent shifting of the vessel will be at Buyer's risk and expense, and time used
+          shall be counted as used laytime. Demurrage to be settled within 30 days of completion of loading</p>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">MARINE
+        TERMS:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">To be mutually agreed upon other terms and conditions except
+        such agreement shall be as per ASBATANKVOY
+        Charter Party. The provisions stipulated in this Agreement shall, however, supersede those of the ASBATANKVOY
+        Charter Party wherever they are found to be at variance to each other. </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">DISPUTE
+        <br>RESOLUTION:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">Amicable Settlement: Any dispute arising from or related to
+        this /Contract including any question regarding
+        its existence, validity or termination, shall be notified in writing by one party to the other(s) within 5 days
+        from the date of dispute, and the parties through their Authorized Representatives shall use their best efforts
+        to settle the dispute on an amicable basis within fifteen (15) days from the date of receipt of such notice. If
+        the parties are unable to reach a mutually acceptable resolution with 15 days, the parties hereby agree to
+        submit such dispute at the request of either part to an Arbitrator.</td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        ARBITRATION:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">In the event of dispute or breach under this contract, which
+        cannot be resolved amicably, shall then be
+        referred to and finally resolved by arbitration as per the Arbitration and Conciliation Act 1996, as amended
+        from time to time and rules framed there under, which Rules are deemed to be incorporated by reference into this
+        clause. The arbitration shall be conducted by a sole arbitrator who shall be mutually appointed by both the
+        parties.
+        <p>The seat and venue of arbitration shall be Bangalore, India. The language of arbitration shall be English.
+          The arbitration award shall be final and binding on both parties. This contract shall be governed by,
+          construed and enforced in accordance with Indian law. The cost of arbitration shall be borne equally by both
+          the parties unless stated otherwise in the Arbitration Award. This clause shall survive the expiration or
+          early termination of this contract.</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        CONFIDENTIALITY:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">For the purpose of securing the interest of all parties under
+        this contract, it is hereby understood and
+        agreed that all parties shall treat this contract as confidential information and shall not disclose or declare
+        any or all details to another third party.
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        ASSIGNMENT:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">Neither this contract nor any right or obligation hereunder may
+        be assigned by either party without the
+        written consent of the other party. This contract, including amendments and annexes, if any, constitute the
+        entire agreement between the parties and supersedes all prior agreements, understandings, negotiations and
+        discussion, whether oral or written. Any amendment, additions and or changes are only valid in case are agreed
+        in written form and signed by both parties.
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">FORCE
+        MAJEURE:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">Should either party be wholly or partially prevented from
+        carrying out its obligations under the Contract
+        (other than the obligations to pay money when due) due to circumstances beyond the reasonable control of the
+        party ("Force Majeure Event"), including without limitation, (i) acts of God, fires, floods, atmospheric
+        disturbances, explosions, lightning, storms, typhoons, tornados, earthquakes, landslides, soil erosion or
+        subsidence, washouts, hurricanes; (ii) wars, riots, civil wars, blockades, insurrections, sabotage, acts of
+        public enemies or civil disturbances; (iii) orders, judgments, rulings, decisions or other acts of any
+        governmental, civil or military authority; (iv) boycotts, strikes, lockouts or other similar industrial
+        disturbances; (v) breakdowns of plant or machinery leading to a shutdown of plant for at least 10 days, or
+        severe weather conditions or earthquake, or acts or threats of terrorism and (vi) any other acts including
+        epidemic , pandemic , endemics or events whatsoever not within the control of both parties which both parties
+        shall not be able to prevent, avoid, resist or overcome, the obligations which cannot be carried out shall be
+        suspended as long as the Force Majeure Event prevails. In the event of Force Majeure, both parties shall
+        mutually consult and agree upon the appropriate measures to be taken in order to eliminate and minimize the
+        unfavorable consequences caused by Force Majeure. The party invoking Force Majeure Event shall promptly so
+        notify within 2 working days the other party in writing. The notice must (a) specify the obligations it cannot
+        perform, (b) describe the event of Force Majeure Event, (c) estimate the time during which the Force Majeure
+        Event will continue; and (d) specify the measures proposed to remedy the Force Majeure Event. Certificate issued
+        by a respective Chamber of Commerce of the incapacitated party's country shall be regarded as the sufficient
+        evidence of existence and duration of Force Majeure. If the situation of Force Majeure continues for more than
+        90 days, either party may terminate this contract with written notice. Buyer recognizes that seller is not the
+        producer of the cargo and any Force Majeure condition affecting the producer of the cargo shall constitute as
+        the Force Majeure condition affecting the seller under this contract. It has been expressly understood that once
+        loading commenced, force majeure is not applicable.
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        ADDITIONAL:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">a) Inco terms 2020 and any revisions to govern contract.<br>
+        b) Charter Party Bills of Lading and third-party documents to be acceptable.</td>
+    </tr>
+  </table>
+
+  <br>
+  <table style="width: 100%; border-collapse: collapse;">
+    <tr>
+      <td style="border: none; text-align: center;">
+        <p>For and on behalf</p>
+        <p>of the Buyer:</p>
+      </td>
+      <td style="border: none; text-align: center;">
+        <p>For and on behalf</p>
+        <p>of the Seller:</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="border: none; text-align: center;">
+        <p>Sanjeev Dhakre</p>
+        <p>Head Strategic Sourcing & Institutional Sales</p>
+      </td>
+      <td style="border: none; text-align: center;">
+        <p>Najmuddin Bhavnagarwala</p>
+        <p>Director & COO</p>
+      </td>
+    </tr>
+  </table>
+
+  <br>
+  <br>
+  <br>
+
+  <h2 style="text-align: center; text-decoration: underline;">Annexure 1</h2>
+  {{#each specifications}}
+  <h3 style="text-align: center;"> TYPICAL SPECS OF {{productName}} </h3>
+  <table style="margin-left: auto; margin-right: auto; width: 80%; border: 1px solid #000; margin-top: 10px; border-collapse: collapse;">
+    <tr>
+      <th style="border: 1px solid #000; padding: 6px; text-align: left;">Parameters</th>
+      <th style="border: 1px solid #000; padding: 6px; text-align: left;">VALUE</th>
+    </tr>
+    {{#each specification}}
+    <tr>
+      <td style="border: 1px solid #000; padding: 6px; text-align: left;">{{name}}</td>
+      <td style="border: 1px solid #000; padding: 6px; text-align: left;">{{value}}</td>
+    </tr>
+    {{/each}}
+  </table>
+  {{/each}}
+</body>
+
+</html>

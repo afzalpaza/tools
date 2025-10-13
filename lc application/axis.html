@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MT 700 Application & Guarantee for Issue of Documentary Credit</title>
+</head>
+<body style="font-family: Arial, sans-serif; font-size: 11px; margin: 20px; line-height: 1.2;">
+    <div style="font-family: Arial, sans-serif; font-size: 14px; margin: 20px; line-height: 1.2; text-align: center; font-weight: normal; text-decoration: underline; margin-bottom: 20px;">
+        MT 700 APPLICATION & GUARANTEE FOR ISSUE OF DOCUMENTARY CREDIT
+    </div>
+
+    <table style="width: 100%; border-collapse: collapse; border: 1px solid black; margin-bottom: 0; font-family: Arial, sans-serif;">
+        <tr>
+            <td style="width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">40 A<span style="color: red; font-weight: normal;">*</span></td>
+            <td style="width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">FORM OF LC</td>
+            <td style="border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">IRREVOCABLE</td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">20</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">TRANSACTION REFERENCE No.</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">XXXXX</td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;"></td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">DOCUMENTARY CREDIT No.</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;"></td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">31 D <span style="color: red; font-weight: normal;">*</span></td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">DATE & PLACE OF EXPIRY</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">
+                <span>{{expiryDate}}</span>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span>PLACE: {{placeOfExpiry}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">31 C</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">DATE OF ISSUE</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">XXXXX</td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">40 E</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">APPLICABLE RULES</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">UCPDC 600 LATEST VERSION</td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">50</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">APPLICANT AND ADDRESS</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">
+                AGRIFIELDS DMCC<br>
+                JBC 4,UNIT 3201,CLUSTER N<br>
+                JUMEIRAH LAKE TOWERS,DUBAI, UAE
+            </td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">59 <span style="color: red; font-weight: normal;">*</span></td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">BENEFICIARY'S NAME AND ADDRESS</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">
+                {{beneficiary.name}},<br>
+                {{# each beneficiary.address}}
+                {{this}}<br>
+                {{/ each}}
+            </td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">32 B <span style="color: red; font-weight: normal;">*</span></td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">CURRENCY & AMOUNT OF CREDIT (IN FIGURES AND WORDS)</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">{{currencyAmount.currency}} {{currencyAmount.amount}} ({{currencyAmount.currency}} {{currencyAmount.amountInWords}})</td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">39A</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">PERCENTAGE CREDIT AMOUNT TOLERANCE</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">{{tolerance}}</td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">41 A <span style="color: red; font-weight: normal;">*</span></td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">CREDIT AVAILABLE WITH</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">
+                {{#each bankDetails}}
+                {{this}}<br>
+                {{/ each}}
+            </td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;"></td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">CREDIT AVAILABLE BY</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">
+                [ ] PAYMENT: [ X ] NEGOTIATION [ ] ACCEPTANCE<br>
+                [ ] DEF PAYMENT
+            </td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">42 C</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">USANCE OF THE DRAFTS</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">{{draftAt}}</td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">42 A</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">DRAFTS TO BE DRAWN ON</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">(EFBKJOAMXXX)</td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">43 P</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">PARTIAL SHIPMENT</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">{{partShipment}}</td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">43 T</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">TRANSSHIPMENT</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">{{transShipment}}</td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">44 A</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">SHIPMENT FROM</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">{{portOfLoading}}</td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">44 B</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">SHIPMENT TO</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">{{portOfDischarge}}</td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">44 C</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">LATEST SHIPMENT DATE</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">{{latestDateOfShipment}}</td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">45 A</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">DESCRIPTION OF GOODS:</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">
+                {{descriptionOfGoods}}
+            </td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">46 A</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">DOCUMENTS REQUIRED:</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">
+                {{#each documentsRequired}}
+                {{this}}<br>
+                {{/ each}}
+            </td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">47 A</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">ADDITIONAL CONDITIONS :</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">
+                {{#each additionalConditions}}
+                {{this}}<br>
+                {{/ each}}
+            </td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">71 B</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">SPECIFY, IF ANY CHARGES ARE TO BENEFICIARY'S A/C</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">
+                {{#each charges}}
+                {{this}}<br>
+                {{/ each}}
+            </td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">48</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">DOCUMENTS TO BE PRESENTED</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">{{periodForPresentation}}</td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">57 A</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">CREDIT TO BE ADVISED TO BENEFICIARY THROUGH (BANK)</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;"></td>
+        </tr>
+        <tr>
+            <td style=" width: 60px; text-align: center; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">78</td>
+            <td style=" width: 200px; border: 1px solid black; padding: 4px; vertical-align: top; font-size: 10px;">INSTRUCTIONS TO PAYING / ACCEPTING / NEGOTIATING BANK</td>
+            <td style=" border: 1px solid black; padding: 4px 6px; vertical-align: top; font-size: 10px;">
+                1. ON RECEIPT OF DOCUMENTS CONFORMING TO THE TERMS OF THE DOCUMENTARY CREDIT, WE UNDERTAKE TO REIMBURSE YOU ON DUE DATE, AS PER YOUR INSTRUCTION.<br><br>
+                2. ALL OTHER COMMUNICATIONS UNDER THIS LC MAY BE DIRECTLY SENT TO AXIS BANK LIMITED, DUBAI SWIFT CODE : AXISAEADXXX.<br><br>
+                3. ALL DOCUMENTS ARE TO BE DISPATCHED IN ONE LOT BY COURIER TO US AT:<br>
+                AXIS BANK LIMITED, UNIT NO. 2804, 28TH FLOOR, DIFC AL FATTAN CURRENCY HOUSE OFFICE <span style="text-decoration: underline; font-weight: normal;">BUILDING</span><br>
+                DIFC , DUBAI, UAE. TEL: +971 04 3735520<br><br>
+                4. EXCEPT AS OTHERWISE EXPRESSLY STATED, THIS DOCUMENTARY CREDIT IS SUBJECT TO UCPDC ( 2007 REV ) ICC BROCHURE No. 600.
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

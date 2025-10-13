@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sales Contract</title>
+</head>
+
+<body style="font-family: 'Arial', sans-serif; font-size: 10pt;">
+  <p>&nbsp;</p>
+  <table style="width: 100%; border-collapse: collapse; margin-top: 25px;">
+    <tr>
+      <td style="width: 50%; vertical-align: top; padding: 0; border: none;">
+        <div><strong>Agrifields</strong></div>
+        <div>TEL: +971 4 2766391</div>
+        <div>FAX: +971 4 2766032</div>
+        <div>EMAIL: naj@agrifields.com</div>
+      </td>
+      <td style="width: 50%; vertical-align: top; text-align: right; padding: 0; border: none;">
+        <strong>AGRIFIELDS DMCC</strong><br>
+        JBC 4, UNIT 3201, CLUSTER N<br>
+        JUMEIRAH LAKE TOWERS<br>
+        DUBAI. <strong>U.A.E.</strong>
+      </td>
+    </tr>
+  </table>
+
+  <h1 style="text-align: center; font-size: 16pt; text-decoration: underline; margin-top: 20px;">
+    SALES CONTRACT</h1>
+
+  <p><strong>Contract Number:</strong> {{contractNumber}}</p>
+  <p><strong>Date:</strong> {{contractDate}}</p>
+
+  <p><strong>Buyer:</strong><br>
+    {{buyer.name}}<br>
+    {{buyer.addressline1}}<br>
+    {{buyer.addressline2}}<br>
+    {{buyer.addressline3}} <br>
+    GST NO. {{buyer.gstNo}} <br>
+    IEC: {{buyer.iec}}
+  </p>
+
+
+  <p><strong>Seller:</strong><br>
+    {{seller.name}}<br>
+    {{seller.addressline1}}<br>
+    {{seller.addressline2}}<br>
+    {{seller.addressline3}}
+  </p>
+
+  <p style="margin-top: 25px; font-weight: bold;">Description of Goods:</p>
+  {{#each products}}
+  <p>{{description}} in {{packing}}: {{quantity}} {{uom}} ({{toleranceSign}} {{tolerancePercentage}}% at Seller's
+    Option)</p>
+  {{/each}}
+
+  <p style="margin-top: 25px; font-weight: bold;">Specification:</p>
+  <p>As per Specifications in Annexure 1</p>
+
+  <p style="margin-top: 25px; font-weight: bold;">Quality, Quantity determination & Claims:</p>
+  <p>Quantity at load port to be final & binding on both parties. In case of any shortages/damages, buyer to put
+    initial notice within 3 days and lodge claim within 15 days from shipment arrival at destination port with all
+    the valid supporting Docs. Both quality & quantity claim should be supported by report issued by international
+    inspection agency acceptable to supplier. Cost of surveyor at the Discharge Port shall be for Buyer’s account.
+    Any shortage in excess of 0.5% in weight shall be reimbursed by the Seller to the Buyer. If the difference in
+    quantity exceeds 0.5%, the Seller will compensate Buyer for the shortfall quantity as per Invoice in excess of
+    0.5%. Such claims shall be settled within 60 days or as per the payment terms agreed whichever comes later date
+    and, on the demand, raised by the Buyer to seller.</p>
+
+  <p style="margin-top: 25px; font-weight: bold;">Product/ Price/Origin/Packing/Quantity & Total Value </p>
+
+  <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+    <tr>
+      <th
+        style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top; background-color: #ffffff;">
+        Product</th>
+      <th
+        style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top; background-color: #ffffff;">
+        Price & Incoterms </th>
+      <th
+        style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top; background-color: #ffffff;">
+        Origin</th>
+      <th
+        style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top; background-color: #ffffff;">
+        Packing</th>
+      <th
+        style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top; background-color: #ffffff;">
+        Quantity</th>
+      <th
+        style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top; background-color: #ffffff;">
+        Total Value in USD</th>
+    </tr>
+    {{#each products}}
+    <tr>
+      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{description}}</td>
+      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{currency}} {{price}}
+        PMT {{incoterms}}</td>
+      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{origin}}</td>
+      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">In {{packing}}</td>
+      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{quantity}} {{uom}}
+        ({{toleranceSign}} {{tolerancePercentage}}% at Seller's Option)</td>
+      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{currency}} {{amount}}
+        ({{toleranceSign}} {{tolerancePercentage}}%)</td>
+    </tr>
+    {{/each}}
+  </table>
+
+  <p style="margin-top: 25px; font-weight: bold;">Shipment:</p>
+  <p>October 2024.</p>
+
+
+  <p style="margin-top: 25px; font-weight: bold;">Payment terms:</p>
+  <p>{{paymentTerms}}</p>
+
+  <p style="margin-top: 25px; font-weight: bold;"><u>Our Bank Details:</u></p>
+  <p>BENEFICIARY NAME: AGRIFIELDS DMCC<br>
+    BENEFICIARY BANK: {{seller.bankName}} SWIFT CODE : {{seller.swiftCode}} <br>
+    ACCOUNT NUMBER: {{seller.accountNumber}} <br>
+    BENEFICIARY IBAN: {{seller.IBAN}} CORRESPONDENT BANK USA : {{seller.correspondingBankName}}<br>
+    ACCOUNT NO. {{seller.correspondingBankAccountNumber}}<br>
+  </p>
+
+  <p>Due to increasing number of international web Hackers’ attacks (Hacker is a person who uses computers to gain
+    unauthorized access to data.) Both parties hereby acknowledge that Agrifields DMCC shall never ask buyer to
+    transfer any monies and/or pay Agrifields DMCC’s invoice to any other banks which are not mentioned in this
+    Contract/Agreement. </p>
+
+  <p style="margin-top: 25px; font-weight: bold;">Documents:</p>
+  <p>The following documents to be sent by seller:</p>
+  <ul>
+    <li>Seller's Invoice. </li>
+    <li>Bill Of Lading</li>
+    <li>Certificate of Origin issued by seller. </li>
+    <li>Packing List issued by seller.</li>
+    <li>Certificate of Quality and Quantity issued by Independent Agency.</li>
+  </ul>
+
+  <p><strong>Loading port:</strong> </p>
+  {{#each loadingPorts}}
+  <p>{{port}}</p>
+  {{/each}}
+  <p><strong>Discharge port:</strong> </p>
+  {{#each dischargePorts}}
+  <p>{{port}}</p>
+  {{/each}}
+  <p><strong>Insurance: </strong> Insurance of cargo will be covered by Buyer.</p>
+
+  <p style="margin-top: 25px; font-weight: bold;"> Title:</p>
+  <p>Title to the goods shall pass to Buyer as the product is progressively loaded. Seller hereby expressly warrants
+    that at the time of the title transfer it will have good title, free and clear of any liens or encumbrances, and
+    that it has and will have the full right and authority to transfer such title and effect delivery to Buyer. </p>
+
+  <p style="margin-top: 25px; font-weight: bold;">Risk:</p>
+  <p>The risk of loss or damage to each installment of the goods shall pass from Seller to Buyer at load port except
+    otherwise mentioned here, other relevant provision of Incoterms 2020 shall apply.</p>
+
+  <p style="margin-top: 25px; font-weight: bold;">Ethical Dealing:</p>
+  <p>Seller represents and warrants that it has not given or received and shall not give or receive any commission,
+    payment, kickback, secret rebate or other thing of value to or from any employee or agent of the other party or
+    to any supplier of services in connection with this contract. Seller acknowledges that the giving or receiving
+    of any such commission, payment, kickback, secret rebate or other thing of value constitutes a breach of ethical
+    standards, is potentially violative of applicable law and may result in immediate termination of this and other
+    outstanding agreements between the parties.</p>
+
+  <p style="margin-top: 25px; font-weight: bold;">Compliance: </p>
+  <p>Each party declares, represents and warrants for itself and its respective affiliates, employees and agents to be
+    aware of all economic sanctions laws, anti-boycott laws and trade restrictions imposed by the United Nations,
+    the United State of America, the member states of the European Union and/or the country/ countries from which
+    the goods may originate be shipped or discharged through which funds paid pursuant to the Contract may
+    originate,
+    pass or be received; as may be amended from time to time (the “Restrictions”). For the purpose of this clause
+    “affiliates” means, in relation to either of the parties, any company controlling, controlled by, or under
+    common control with that party, either directly or indirectly.
+  </p>
+  <p>The parties undertake to comply (or cause their respective affiliates, employees and agents to comply) with the
+    Restriction in all respects in relation to the performance of this Contract and any import acquisition from or
+    export or resale to a third party. The warranty and undertaking contained In this clause refer in particular but
+    not exclusively to the nominated Vessel (and whoever may own, control, operate or have chartered her; directly
+    or indirectly), to Buyer’s documentary instructions to any Intervening banks, and in general to any other
+    person, company or entity involved in the performance of this Contract and any import or acquisition for or
+    export or resale to a third party. </p>
+  <p>Each party (the “Indemnifying Party”) shall fully Indemnify the other (the “Indemnified part”) and hold the
+    Indemnified Party harmless for any loss, cost or damage suffered by its principals, affiliates, employees or
+    agents, as a result of any intentional or unintentional breach of the Restrictions by the Indemnifying Party or
+    any of the person, companies and entities comprised in the indemnifying party warranty and undertaking under the
+    terms of this clause. </p>
+  <p>Nothing in this Contract is meant to require either party to take any action which is likely to place it or any
+    of its respective affiliates, employees and agents in a position of non-compliance with, or in contravention of,
+    the Restrictions. </p>
+  <p>Breach by either party of any warranty or undertaking in this clause shall be deemed to be a breach of condition
+    of this Contract entitling the other party with notice to rectify the breach without prejudice to any of its
+    rights against the party in breach and in respect of which there shall be no waiver unless expressly
+    made in writing.
+  </p>
+
+  <p style="margin-top: 25px; font-weight: bold;">Arbitration:</p>
+  <p>Any dispute arising out of or in connection with this contract, including any question regarding its existence,
+    validity or termination, shall be referred to and finally resolved by arbitration as per the rules of the
+    Singapore International Arbitration Centre (SIAC), which Rules are deemed to be incorporated by reference into
+    this clause. The arbitration shall be conducted by a sole arbitrator who shall be appointed in accordance with
+    the rules of the SIAC.
+  </p>
+  <p>The venue of arbitration shall be Singapore. The language of arbitration shall be English. The arbitration award
+    shall be final and binding on both parties. This agreement shall be governed by, construed and enforced in
+    accordance with English.
+  </p>
+
+  <p style="margin-top: 25px; font-weight: bold;">Taxes, Duties and Import Permit:</p>
+  <p>All taxes, dues, duties, permits and other charges on cargo at the load port to be for Seller's account and All
+    taxes, dues, duties, permits and other charges on cargo at discharging port to be for Buyer's account.</p>
+
+  <p style="margin-top: 25px; font-weight: bold;">Force majeure:</p>
+  <p>Neither party shall be liable for any non-performance or delay in performance caused by acts of God, industrial
+    disturbance, war (declared or undeclared), civil commotion, perils of the sea (herein called ‘force majeure’).
+    The party, whose performance may be impaired by the occurrence of any event of force majeure, shall promptly
+    notify the other party indicating effect on delivery date or delivery schedule. Each party shall make every
+    reasonable effort with all reasonable dispatch to overcome the force majeure event interfering with its
+    performance under this agreement. If Chinese government issues any new policy which will influence the
+    shipment/imposes any additional restrictions towards product, we will rediscuss the contract mutually and if no
+    mutual agreement is achieved, then cancel the contract. Buyer recognizes that seller is not the producer of the
+    cargo and any Force Majeure condition affecting the producer of the cargo shall constitute as the Force Majeure
+    condition affecting the seller under this contract. It has been expressly understood that once loading
+    commenced, force majeure is not applicable.
+  </p>
+
+  <p style="margin-top: 25px; font-weight: bold;">Confidentiality:</p>
+  <p>Buyer is required not to disclose deal done/transaction if any, to any other company, unless so required by the
+    law before shipment made.
+  </p>
+
+  <p style="margin-top: 25px; font-weight: bold;">Assignment: </p>
+  <p>Neither this contract nor any right, duty or obligation of any party hereunder may be assigned or delegated by
+    any party (in whole or in part) without the prior written consent of the other party hereto.
+  </p>
+
+  <p style="margin-top: 25px; font-weight: bold;">Amendment: </p>
+  <p>No provision in this Contract (including this provision) shall be changed or modified in any way either in whole
+    or in part except by an instrument in writing made after the date of this Contract and signed on behalf of both
+    the parties and which expressly states to amend this Contract.
+  </p>
+
+  <p style="margin-top: 25px; font-weight: bold;">Entirety of Contract: </p>
+  <p>This contract shall constitute the entire understanding between Buyer and Seller and supersedes all previous
+    negotiations representations, agreements or commitments with respect to the matters dealt with herein or oral
+    statements which may have been made between the parties. No amendments to this Contract shall be binding unless
+    agreed by the parties in writing. Each Party acknowledges that in entering into this contract it has no reeled
+    on any representations, warranties, statements or undertaking except those which are expressly set out herein.
+  </p>
+
+  <p style="margin-top: 25px; font-weight: bold;">Miscellaneous:</p>
+  <ol>
+    <li>Governing law to be Indian Laws & Jurisdiction of Indian Courts.</li>
+    <li>The seller warrants product will be supplied as per typical specs.</li>
+    <li>Wherever not specified in the contract, incoterms 2020 and amendments to govern.
+    </li>
+  </ol>
+
+  <table style="width: 100%; border-collapse: collapse; margin-top: 25px; font-weight: normal;">
+    <tr>
+      <td style="width: 50%; vertical-align: top; padding: 0; border: none; text-align: center;">
+        <p>Signed & Accepted as seller on this</p>
+        <p>For and on behalf of</p>
+        <p><strong>{{seller.name}}</strong></p>
+      </td>
+      <td style="width: 50%; vertical-align: top; text-align: center; padding: 0; border: none;">
+        <p>Signed & Accepted as buyer on this</p>
+        <p>For and on behalf of </p>
+        <p><strong>{{buyer.name}}</strong></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 50%; vertical-align: top; padding: 0; border: none; padding-top: 1em; text-align: center;">
+        <p>Najmuddin Bhavnagarwala </p>
+        <p>Director & COO</p>
+      </td>
+      <td style="width: 50%; vertical-align: top; text-align: center; padding: 0; border: none; padding-top: 1em;">
+        <p>(Name of signatory)</p>
+        <p>(Designation)</p>
+      </td>
+    </tr>
+  </table>
+
+  <h2 style="text-align: center; text-decoration: underline; font-size: 16pt; font-weight: bold;"><u>Annexure 1</u>
+  </h2>
+  {{#each specifications}}
+  <h3 style="text-align: center; text-decoration: underline; font-size: 16pt; font-weight: bold;"><u>Typical
+      specification of {{productName}}</u></h3>
+  <table style="width: 70%; border-collapse: collapse; margin-top: 30px; margin-left: auto; margin-right: auto;">
+    <tr>
+      <th colspan="2"
+        style="border: 1px solid #000; padding: 12px; text-align: center; vertical-align: top; background-color: #ffffff; font-weight: bold;">
+        Chemical Analysis</th>
+    </tr>
+    <tr>
+      <th
+        style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top; background-color: #ffffff;">
+        Parameter</th>
+      <th
+        style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top; background-color: #ffffff;">
+        Specification</th>
+    </tr>
+    {{#each specification}}
+    <tr>
+      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{name}}</td>
+      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{value}}</td>
+    </tr>
+    {{/each}}
+  </table>
+  {{/each}}
+</body>
+
+</html>

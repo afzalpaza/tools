@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICICI Bank LC Application</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; margin: 20px; color: #000; font-size: 10pt;">
+    <p style="text-align: center; font-size: 10pt; font-weight: bold; color: #8B0000;">
+        APPLICATION FOR ISSUE OF IRREVOCABLE DOCUMENTARY LETTER OF CREDIT
+    </p>
+    <p style="font-size: 9pt; color: #8B0000; font-weight: bold;">To: The Branch Manager, ICICI Bank Limited. DIFC Branch</p>
+    <p style="font-size: 9pt;">Date:24.03.2025</p>
+    <p style="font-size: 8pt; text-align: justify; color: #8B0000;">
+        We, the below mentioned Applicant, hereby request you to open an Irrevocable Documentary Letter of Credit ("Credit") with your correspondents against the limit sanctioned to us, as per details given below. We also duly authorize you to debit our account number 891000040147 for charges and margin (If applicable) as per the sanction terms.
+    </p>
+    <p style="font-size: 8pt; text-align: justify; color: #8B0000;">
+        I/We hereby agree and confirm that the Credit is subject to the terms and conditions as contained herein and those contained in such other documents/undertakings executed/to be executed in this regard.
+    </p>
+
+    <!-- Applicant/Beneficiary Table -->
+    <table style="width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt;">
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px; background-color: #f0f0f0; font-weight: bold; color: #8B0000;">Applicant: Agrifields DMCC</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; background-color: #f0f0f0; font-weight: bold; color: #0000FF;">Beneficiary: {{beneficiary.name}}</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #8B0000;"><strong>Address:</strong> Office 3201, Cluster N, Jumeirah Lake Towers,</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #0000FF;">
+                <strong>Address:</strong> 
+                {{# each beneficiary.address}}
+                {{this}}<br>
+                {{/ each}}
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #8B0000;">Dubai, UAE</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #8B0000;"><strong>Contact Person:</strong></td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #8B0000;"><strong>Contact Person:</strong> Akshat Kapoor</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #8B0000;"><strong>Contact Number:</strong></td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #8B0000;"><strong>Contact Number:</strong> +971 567081163</td>
+            <td style="border: 1px solid #000; padding: 4px 6px;"></td>
+        </tr>
+    </table>
+
+    <!-- General Details Section -->
+    <p style="font-size: 9pt; font-weight: bold; text-decoration: underline;">General Details</p>
+    <table style="width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 8.5pt;">
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px;"><strong>Currency & Amount of Credit</strong></td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #0000FF;">In Figures {{currencyAmount.currency}} {{currencyAmount.amount}}/-</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #0000FF;">In Words {{currencyAmount.currency}} {{currencyAmount.amountInWords}}/-</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px;"><strong>Tolerance Percentage</strong></td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #0000FF;">{{tolerance}}</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #0000FF;">{{tolerance}}</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px;"><strong>Additional Amt (If Any)</strong></td>
+            <td style="border: 1px solid #000; padding: 4px 6px;"></td>
+            <td style="border: 1px solid #000; padding: 4px 6px;"></td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px;"><strong>Trade Terms</strong></td>
+            <td style="border: 1px solid #000; padding: 4px 6px;">{{incoterm}}</td>
+            <td style="border: 1px solid #000; padding: 4px 6px;"></td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px;"><strong>Credit Available by</strong> (Acceptance / Negotiation / Def. Payment)</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #8B0000;">ICICI Bank Limited</td>
+            <td style="border: 1px solid #000; padding: 4px 6px;">
+                <strong>Credit Available with</strong><br>
+                {{# each bankDetails}}
+                {{this}}<br>
+                {{/ each}}
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px;">Usance of Draft (If required)</td>
+            <td style="border: 1px solid #000; padding: 4px 6px;"></td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #0000FF;">{{draftAt}}</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px;">Last Date of Shipment</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #0000FF;">{{latestDateOfShipment}}</td>
+            <td style="border: 1px solid #000; padding: 4px 6px;">Country of Origin: {{countryOfOrigin}}</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px;">Last Date of Negotiation</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #0000FF;">(28/ 04 / 2025)</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #0000FF;">Expiry Place: {{placeOfExpiry}}</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px;">Part shipment</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #8B0000;">Permitted / Prohibited</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #0000FF;">{{partShipment}}</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px;">Transshipment</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #8B0000;">Permitted / Prohibited</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #0000FF;">{{transShipment}}</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px;">Shipment</td>
+            <td style="border: 1px solid #000; padding: 4px 6px;">From <span style="color: #0000FF;">: {{portOfLoading}}</span></td>
+            <td style="border: 1px solid #000; padding: 4px 6px;">To: <span style="color: #0000FF;">{{portOfDischarge}}</span></td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px;">Details of insurance Policy</td>
+            <td style="border: 1px solid #000; padding: 4px 6px;"></td>
+            <td style="border: 1px solid #000; padding: 4px 6px;"></td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px;">LC related charges to the A/C of</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #8B0000;">Applicant : Agrifields DMCC</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #8B0000;">Export Import Code:</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 4px 6px;">Confirmation Required (Yes / No) MAY ADD</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #8B0000;">Confirmation Charges to a/c of</td>
+            <td style="border: 1px solid #000; padding: 4px 6px; color: #8B0000;">Beneficiary</td>
+        </tr>
+    </table>
+
+    <!-- Description of Goods Section -->
+    <p style="font-size: 9pt; font-weight: bold; text-decoration: underline;">Description of Goods</p>
+    <div">
+        <p style="color: #0000FF; margin-bottom: 5px; font-size: 9pt;">
+            {{descriptionOfGoods}}
+        </p>
+        <p style="color: #0000FF; margin-bottom: 10px; font-size: 9pt;">
+            CONTRACTDETAILS:<br>
+            AS MENTIONED ABOVE
+        </p>
+        <p style="color: #8B0000; font-weight: bold; font-size: 9pt;">
+            Please tick mark wherever applicable below
+        </p>
+    </div>
+
+    <!-- Documents Required Section -->
+    <p style="font-size: 9pt; font-weight: bold; text-decoration: underline;">Documents Required</p>
+    {{#each documentsRequired}}
+        <p style="font-size: 9pt;">
+            <span style="width: 12px; height: 12px;">☐</span>
+            <span>&nbsp;</span>
+            {{this}}
+        </p>
+    {{/ each}}
+
+    <!-- 47A: Additional Conditions Section -->
+    <p style="font-size: 9pt; font-weight: bold; text-decoration: underline;">47A: Additional Conditions</p>
+    {{#each additionalConditions}}
+    <p style="font-size: 9pt;">
+        <span style="width: 12px; height: 12px;">☒</span>
+        <span>&nbsp;</span>
+        {{this}}
+    </p>
+    {{/ each}}
+
+    <p style="font-size: 9pt;">
+        <span style="width: 12px; height: 12px;">☒</span>
+        <span>&nbsp;</span>
+        <strong>71D: Charges</strong><br>
+        {{#each charges}}
+        {{this}}<br>
+        {{/ each}}
+    </p>
+
+    <p style="font-size: 9pt;">
+        <span style="width: 12px; height: 12px;">☒</span>
+        <span>&nbsp;</span>
+        <strong>48: Period for Presentation in Days</strong><br>
+        {{periodForPresentation}}
+    </p>
+
+    <p style="font-size: 9pt;">
+        <span style="width: 12px; height: 12px;">☒</span>
+        <span>&nbsp;</span>
+        <strong>49: Confirmation Instructions</strong><br>
+        {{confirmationInstructions}}
+    </p>
+
+    <!-- Signature Section -->
+    <p style="font-size: 10pt;">24.03.2025 DUBAI</p>
+    <table style="width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt;">
+        <tr style="border: none;">
+            <td style="border: none; text-align: center;">______________________________________</td>
+            <td style="border: none; text-align: center;">______________________________________</td>
+        </tr>
+        <tr style="border: none;">
+            <td style="border: none; font-weight: bold; color: #8B0000; text-align: center;">Date and Place</td>
+            <td style="border: none; font-weight: bold; color: #8B0000; text-align: center;">Authorized Signatory & Company Stamp</td>
+        </tr>
+    </table>
+    <p style="color: #8B0000; font-size: 10pt;">
+        The copy of the LC will be send to you by Email.
+    </p>
+</body>
+</html>

@@ -1,10 +1,41 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { saveAs } from 'file-saver';
 import htmlDocx from 'html-docx-js/dist/html-docx';
 import TipTapEditor from './TipTapEditor';
+import AddTemplate from './AddTemplate';
 import './App.css';
 
-function App() {
+function Navigation() {
+  const location = useLocation();
+  
+  return (
+    <nav className="navigation">
+      <div className="nav-container">
+        <div className="nav-brand">
+          <span className="nav-logo">📄</span>
+          HTML to Word Tools
+        </div>
+        <div className="nav-links">
+          <Link 
+            to="/" 
+            className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
+          >
+            🏠 Converter
+          </Link>
+          <Link 
+            to="/add-template" 
+            className={`nav-link ${location.pathname === '/add-template' ? 'active' : ''}`}
+          >
+            📝 Add Template
+          </Link>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+function HomePage() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [htmlContent, setHtmlContent] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -413,7 +444,7 @@ ${tempDiv.innerHTML}
   };
 
   return (
-    <div className="App">
+    <div className="page-content">
       <div className="container">
         <header className="header">
           <h1>HTML to Word Converter</h1>
@@ -545,6 +576,20 @@ ${tempDiv.innerHTML}
         </footer>
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/add-template" element={<AddTemplate />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

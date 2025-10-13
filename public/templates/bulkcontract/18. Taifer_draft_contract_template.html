@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Contract</title>
+</head>
+
+<body style="font-family: 'Arial', sans-serif; font-size: 10pt;">
+    <p>&nbsp;</p>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 25px;">
+        <tr>
+            <td style="width: 50%; vertical-align: top; padding: 0; border: none;">
+                <div><strong>Agrifields</strong></div>
+                <div>TEL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: +971 4 572 5970</div>
+                <div>EMAIL&nbsp;&nbsp;: akshat@agrifieldsfze.com</div>
+            </td>
+            <td style="width: 50%; vertical-align: top; text-align: right; padding: 0; border: none;">
+                <strong>AGRIFIELDS FZE</strong><br>
+                FZJOA2116,<br>
+                JEBEL ALI FREEZONE<br>
+                DUBAI. <strong>U.A.E.</strong>
+            </td>
+        </tr>
+    </table>
+
+    <h2 style="text-align: center; text-decoration: underline; font-size: 16pt; font-weight: bold;">PURCHASE CONTRACT
+    </h2>
+
+    <p>Dated: {{contractDate}}<br>
+        Contract Number: {{contractNumber}}</p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">BUYER</p>
+    <p>{{buyer.name}}<br>
+        {{buyer.addressline1}}<br>
+        {{buyer.addressline2}}<br>
+        {{buyer.addressline3}}
+    </p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">SELLER</p>
+    <p>{{seller.name}}<br>
+        {{seller.addressline1}}<br>
+        {{seller.addressline2}}<br>
+        {{seller.addressline3}}
+    </p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">COMMODITY:</p>
+    {{#each products}}
+    <p>{{description}}</p>
+    {{/each}}
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">QUALITY & SPECIFICATIONS:</p>
+    <p>As per Specifications in Annexure 1</p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">QUANTITY:</p>
+    {{#each products}}
+    <p>Minimum {{quantity}} MTs (+ {{toleranceSign}} {{tolerancePercentage}}% Shipping Tolerance)</p>
+    {{/each}}
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">PACKING:</p>
+    {{#each products}}
+    <p>{{packing}}</p>
+    {{/each}}
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">PRICE:</p>
+    {{#each products}}
+    <p>{{currency}} {{price}} PMT {{incoterms}}, {{dischargePort}}, {{dischargeCountry}}</p>
+    {{/each}}
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">TIME OF SHIPMENT:</p>
+    <p>{{loadingLaycan}}</p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">PAYMENT TERMS:</p>
+    <p>{{paymentTerms}}</p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">DOCUMENTS REQUIRED: </p>
+    <p>The following shipping documents to be sent by Seller to Buyer immediately after the shipment:</p>
+    <ul>
+        <li>Signed Commercial Invoice in in triplicate. [1 Original + 3 Copies]</li>
+        <li>Bills of Lading [3/3 Original Clean Shipped On-board Charter Party Bills of
+            Lading Plus 3 Non-Negotiable
+            Copies.]</li>
+        <li>Original Certificate of Origin issued by an authorized government agency in
+            TRIPLICATE and please indicate:<br>
+            [1 Original + 3 Copies]<br>
+            THIRD COUNTRY INVOICING<br>
+            JUMEIRAK LAKE TOWERS, DUBAI, UAE<br>
+            INVOICE NO: _______________<br>
+            INVOICE DATE_______________<br></li>
+        <li>Certificate of Quality/Analysis issued by independent surveyor at Loading port
+            in triplicate [1 Original + 3
+            Copies]</li>
+        <li>Certificate of Quantity/Weight issued by independent surveyor at Loading port
+            in triplicate [1 Original + 3
+            Copies]</li>
+        <li>Certificate of Cleanliness of Tanks issued by independent surveyor at Loading
+            port in triplicate [1 Original
+            + 3 Copies]</li>
+        <li>Load port survey report and load port survey report-summary report issued by
+            independent surveyor at loading
+            port in triplicate. [1 Original + 3 Copies]</li>
+        <li>Ullage Report Before and After Loading issued by independent surveyor [1
+            Original + 3 Copies]</li>
+    </ul>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">LOADING PORT:</p>
+    {{#each loadingPorts}}
+    <p>{{port}}</p>
+    {{/each}}
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">DISCHARGE PORT:</p>
+    {{#each dischargePorts}}
+    <p>{{port}}</p>
+    {{/each}}
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">TITLE:</p>
+    <p>Title to the goods shall pass to Buyer as the product is progressively loaded. Seller hereby expressly warrants
+        that at the time of the title transfer it will have good title, free and clear of any liens or encumbrances, and
+        that it has and will have the full right and authority to transfer such title and effect delivery to Buyer.</p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">RISKS:</p>
+    <p>The risk of loss or damage to the goods shall pass from Seller to Buyer upon the cargo being loaded on the vessel
+        in accordance with Incoterms 2020.</p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">DETERMINATION OF QUANTITY AND QUALITY AT
+        LOAD / DISCHARGE PORTS:</p>
+    <p>Weighing and sampling shall be carried out at loading Port under the supervision of an internationally recognized
+        supervision company appointed by Seller as per international standard code of practices and procedures and shall
+        form the basis for preparing B/L and Invoicing documents. </p>
+    <p>Buyer shall have the right to be represented at these operations on his own cost.</p>
+    <p>However, quantity and quality as determined at the discharge port by Independent International Surveyor shall
+        form the basis of quality or shortage claims, if any. Cost of surveyor at the Discharge Port shall be for
+        Buyer’s account.</p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">DEMURRAGE:</p>
+    <p>Calculation of laytime and demurrage (if any) shall be in accordance with the contract terms herein stipulated.
+        Demurrage rate shall be as per vessel nomination.</p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">ETHICAL DEALNG</p>
+    <p>Seller represents and warrants that it has not given or received and shall not give or receive any commission,
+        payment, kickback, secret rebate or other thing of value to or from any employee or agent of the other party or
+        to any supplier of services in connection with this contract. Seller acknowledges that the giving or receiving
+        of any such commission, payment, kickback, secret rebate or other thing of value constitutes a breach of ethical
+        standards, is potentially violative of applicable law and may result in immediate termination of this and other
+        outstanding agreements between the parties. </p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">TAXES, DUTIES AND IMPORT PERMIT:</p>
+    <p>All taxes, duties, fees, charges at load port shall be to Sellers account and at discharge port shall be to
+        Buyer’s account.</p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">FORCE MAJEURE:</p>
+    <p>Should either party be wholly or partially prevented from carrying out its obligations under the Contract (other
+        than the obligations to pay money when due) due to circumstances beyond the reasonable control of the party
+        (“Force Majeure Event”), including without limitation, (i) acts of God, acts of governmental authorities, acts
+        or omissions of governmental authorities or epidemics, pandemics, fire, explosion, floods or fires, floods,
+        atmospheric disturbances, explosions, lightning, storms, typhoons, tornados, earthquakes, landslides, soil
+        erosion or subsidence, washouts, hurricanes; (ii) wars, riots, civil wars, blockades, insurrections, sabotage,
+        acts of public enemies or civil disturbances; (iii) orders, judgments, rulings, decisions or other acts of any
+        governmental, civil or military authority; (iv) boycotts, strikes, lockouts or other similar industrial
+        disturbances; (v) breakdowns of plant or machinery leading to a shutdown of plant for at least 5 days, or severe
+        weather conditions or earthquake, or acts or threats of terrorism shortage of labor/ labor strikes, raw
+        materials or fuel or power; and (vi) any other acts or events whatsoever not within the control of the Seller
+        which the Seller shall not be able to prevent, avoid, resist or overcome, the obligations which cannot be
+        carried out shall be suspended as long as the Force Majeure Event prevails. The party invoking Force Majeure
+        Event shall promptly so notify the other party in writing. The notice must (a) specify the obligations it cannot
+        perform, (b) describe the event of Force Majeure Event, (c) estimate the time during which the Force Majeure
+        Event will continue; and (d) specify the measures proposed to remedy the Force Majeure Event. In the event that
+        the Force Majeure Event shall prevail for more than ninety (90) days from the date of its commencement, then
+        either party shall be entitled to cancel the Contract by written notice to the other party, without prejudice to
+        any of the rights of either party accrued prior to the termination date. The party claiming Force Majeure shall
+        notify the other party within 48 hours of occurrence of the force majeure, together with a certificate issued by
+        a government authority or chamber of commerce of the country affected by the force majeure, giving details of
+        the event(s).</p>
+    <p>The provisions in the above Clauses notwithstanding, responsibility for a vessel’s cancellation charges, if any,
+        shall be for account of the party invoking the Force Majeure Event, if the Force Majeure Event commences after a
+        vessel has been fixed and/or a vessel has arrived at the loading port (whether or not loading has commenced).
+        Seller recognizes buyer is not the end receiver of the cargo and any force majeure condition affecting the end
+        receiver of the cargo shall constitute as the force majeure condition affecting the buyer under this contract.
+    </p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">EXCLUSION OF WARRANTIES:</p>
+    <p>Subject to warranties expressly provided under PRODUCT PURCHASE AGREEMENT, the Seller makes no warranty of any
+        kind, expressed or implied, whether of merchantability or fitness for any purpose or otherwise. All warranties
+        or conditions as to quality or description or suitability (whether statutory or otherwise) are hereby excluded
+        to the maximum extent permitted by law. The Buyer assumes all risk and liability for the use of the product,
+        whether used singly or in combination with other substances, and for loss, damage, or injury to persons or
+        property of the Buyer or others arising out of the use of or possession of the product.</p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">GOVERNING LAW: </p>
+    <p>The validity, construction, enforceability and performance of this agreement shall be governed by the construed
+        in accordance with English laws. </p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">DISPUTE RESOLUTION:</p>
+    <p>Any dispute or difference between the parties related to their respective rights and obligations arising out of
+        or in connection with the contract shall be resolved by arbitration to be held in India by International court
+        of arbitration in accordance with the rules of International Chamber of Commerce, Paris. The award of the
+        arbitral tribunal shall be final and binding upon parties.</p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">CONFIDENTIALITY:</p>
+    <p>Parties agree to maintain confidentiality of this transaction.</p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">ASSIGNMENT:</p>
+    <p>Neither this contract nor any right, duty or obligation of any party hereunder may be assigned or delegated by
+        any party (in whole or in part) without the prior written consent of the other party hereto. </p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">AMENDMENT: </p>
+    <p>No provision in this Contract (including this provision) shall be changed or modified in any way either in whole
+        or in part except by an instrument in writing made after the date of this Contract and signed on behalf of both
+        the parties and which expressly states to amend this Contract.</p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">ENTIRETY OF CONTRACT: </p>
+    <p>This contract shall constitute the entire understanding between Buyer and Seller and supersedes all previous
+        negotiations representations, agreements or commitments with respect to the matters dealt with herein or oral
+        statements which may have been made between the parties. No amendments to this Contract shall be binding unless
+        agreed by the parties in writing. Each Party acknowledges that in entering into this contract it has no reeled
+        on any representations, warranties, statements or undertaking except those which are expressly set out herein.
+    </p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">EFFECTIVENESS OF CONTRACT:</p>
+    <p>The contract shall be effective immediately from the date of signing by legal representative or authorized
+        representative of both parties and stamped by both parties.</p>
+
+    <p style="font-weight: bold; margin-top: 15px; text-decoration: underline;">MISCELLANEOUS:</p>
+    <p>1. This contract shall be constructed and the respective rights of the parties thereto will be determined
+        according to the English Law.<br>
+        2. The seller warrants product will be supplied as per typical specs.<br>
+        3. Wherever not specified in the contract, Incoterms 2020 and amendments to govern.<br>
+    </p>
+
+
+    <p><strong>Akshat Kapoor</strong></p>
+    <p>Executive Director </p>
+
+    <br>
+    <br>
+
+    <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <tr>
+            <td>
+                <div>Signed & Accepted as Buyer on this day</div>
+                <div>of {{contractDate}} </div>
+                <div>For and on behalf of</div>
+                <div>Agrifields DMCC </div>
+            </td>
+            <td>
+                Signed & Accepted as Seller on this day <br>
+                of ___________<br>
+                For and on behalf of Peifeng Technology <br>
+                and Fertilizer Co Ltd
+            </td>
+        </tr>
+    </table>
+
+
+    <h2 style="text-align: center; text-decoration: underline; font-size: 18pt; font-weight: bold;">ANNEXURE 1</h2>
+    {{#each specifications}}
+    <h3 style="text-align: center; text-decoration: underline; font-size: 18pt; font-weight: bold;"><u>Typical
+            specification of {{productName}}</u></h3>
+    <table style="width: 70%; border-collapse: collapse; margin-top: 30px; margin-left: auto; margin-right: auto;">
+        <tr>
+            <th
+                style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top; background-color: #ffffff;">
+                Test Items (Unit)</th>
+            <th style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">
+                Specification</th>
+        </tr>
+        {{#each specification}}
+        <tr>
+            <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{name}}</td>
+            <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{value}}</td>
+        </tr>
+        {{/each}}
+    </table>
+    {{/each}}
+
+
+</body>
+
+</html>

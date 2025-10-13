@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sales Contract</title>
+</head>
+
+<body style="font-family: 'Arial', sans-serif; font-size: 10pt;">
+    <p>&nbsp;</p>
+    <h2 style="text-align: center; text-decoration: underline; font-size: 16pt; font-weight: bold;">SALES CONTRACT</h2>
+
+    <p><strong>Contract Number:</strong> {{contractNumber}}</p>
+    <p><strong>Date:</strong> This Contract is made on the {{contractDate}}</p>
+
+    <p><strong>Buyer</strong></p>
+    {{buyer.name}}<br>
+    {{buyer.addressline1}}<br>
+    {{buyer.addressline2}}<br>
+    {{buyer.addressline3}}
+    </p>
+
+    <p><Strong>Seller</Strong></p>
+    <p>{{seller.name}}<br>
+        {{seller.addressline1}}<br>
+        {{seller.addressline2}}<br>
+        {{seller.addressline3}}
+    </p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Commodity:</p>
+    {{#each products}}
+    <p>{{description}}</p>
+    {{/each}}
+
+    <p style="margin-top: 25px; font-weight: bold;">Specification:</p>
+    <p>As per enclosed Annexure I</p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Quantity:</p>
+    {{#each products}}
+    <p>{{quantity}} {{uom}} ({{toleranceSign}} {{tolerancePercentage}}% Shipping tolerance)</p>
+    {{/each}}
+
+    <p style="margin-top: 25px; font-weight: bold;">Quality:</p>
+    <p>As per Specs - Annexure I </p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Packing:</p>
+    {{#each products}}
+    <p>{{packing}}</p>
+    {{/each}}
+
+    <p style="margin-top: 25px; font-weight: bold;">Price</p>
+    {{#each products}}
+    <p>{{currency}} {{price}} PMT {{incoterms}} {{dischargePort}}, {{dischargeCountry}}</p>
+    {{/each}}
+
+    <p style="margin-top: 25px; font-weight: bold;">Shipment Laycan:</p>
+    <p>Loading Laycan at load port: 13th - 20th September 2024, agw, wp, wog</p>
+    <p>Tentative ETA at JNPT: 16th - 20th October 2024, agw, wp, wog</p>
+
+    <p style="margin-top: 25px; font-weight: bold;"> Payment terms:</p>
+    <p>{{paymentTerms}}.
+        L/C to be opened by buyer after acceptance of vessel nomination and at least within 10 working days prior to
+        commencement of loading laycan. L/C to be issued through a first-class bank in India opened in favour of the
+        Seller and must be available with the advice through the Bank stated in Seller’s Proforma Invoice. All bank
+        charges are to be for Buyer’s account excluding LC confirmation charges and beneficiary bank charges which are
+        to Seller’s account.
+    </p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Seller’s Bank Details:</p>
+    <p>Beneficiary Name : Agrifields DMCC<br>
+        Bank Name: {{seller.bankName}} {{seller.bankBranch}}<br>
+        SWIFT: {{seller.swiftCode}}
+    </p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or</p>
+    <p>Beneficiary Name: Agrifields DMCC<br>
+        Bank Name: ICICI BANK LTD, DUBAI, UAE<br>
+        SWIFT: ICICAEADXXX<br>
+    </p>
+
+    <p><strong>Partial Shipment –</strong> not allowed</p>
+    <p><strong>Transshipment –</strong> not allowed</p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Documents: </p>
+    <p>Seller to present the following documents for negotiation under the L/C. </p>
+    <ol>
+        <li>Commercial Invoice.</li>
+        <li>Full Set (3/3) of original clean Bills of lading +3 non-negotiable copies. </li>
+        <li>Certificate of Quality analysis issued by independent surveyor or other internationally recognized
+            Inspection Company.</li>
+        <li>Certificate of quantity issued by Independent Surveyor or other internationally recognized Inspection
+            Company.</li>
+        <li>Certificate of Cleanliness of the tanks issued by Independent Surveyor.</li>
+        <li>Certificate of Origin by Beneficiary.</li>
+        <li>Ullage survey reports at load port to be provided outside LC.</li>
+        <li>Certificate of origin attested by ministry of commerce under least developed countries -duty free tariff
+            preference scheme by lndia (1 Original + 3 Copies) to be couriered directly to the address of Buyer (Outside
+            LC)</li>
+    </ol>
+
+    <p style="margin-top: 25px; font-weight: bold;">Vessel Nomination </p>
+    <p>The Seller shall advise the Buyer of the name of vessel with following items and nominate the vessel to Buyer at
+        least 3 days prior to commencement of lay days in order to enable Buyer to make the necessary preparation for
+        discharging.
+    </p>
+    <p>Vessel must be seaworthy and must have all required valid documents / certificates. Vessel must be classed in
+        accordance with the Institute Classification Clause of the International Association of Classification Society
+        (IACS) in force at the time of shipment & all vessel certificates should be valid throughout the voyage; Vessel
+        must have full and valid protection and indemnity insurance placed with a P&I club which is a member of the
+        International Group of P&I Clubs; Vessel shall have the wreck removal clause specifically indicated under the P
+        & I certificate. Vessel to be max 20 years of age. Vessel and the Vessel’s owner will be fully compliant with
+        the international safety management code (“ISM”) and Seller, if requested, shall provide Buyer with a copy of
+        the appropriate ISM documentation.
+    </p>
+    <p>Vessel so nominated shall be compliant with the requirements of the International Code for the Security of Ships
+        and Port Facilities and the relevant amendments to Chapter XI of SOLAS (ISPS Code) [and where the discharge port
+        is within the USA and US territories or waters, with the US Maritime Transportation Security Act 2002 (MTSA)].
+        Vessel with flag of countries under OFAC or US sanctions as declared by Indian banks will not be used by the
+        seller. Vessel shall conform to 100-A.1 classification of Lloyds or equivalent and age of Vessel should not be
+        more than 20 years. Overage premium applicable on seller’s account in case vessel age is more than 20 Years.
+    </p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Demurrage</p>
+    <p>Calculation of laytime and demurrage (if any) shall be in accordance with vessel acceptance. If the laytime
+        exceeds the time agreed in vessel acceptance, demurrage at discharge port shall be paid by the Buyer. </p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Discharge rate:</p>
+    <p>400 MTPH SHINC</p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Laytime:</p>
+    <ol type="I">
+        <li>Lay time shall commence on the earlier of (i) the berthing of the vessel; or (ii) six (6) hours after the
+            NOR is validly tendered, whichever occurs first, and shall end upon the disconnection of the hoses
+            (regardless of whether or not the vessel is already on demurrage)</li>
+        <li>One (1) shifting of the vessel at the discharge port is allowed as an exemption from lay time to count.
+            Shifting time shall count from pilot on board (POB) until completion of the mooring/all fast berth. However,
+            all subsequent shifting time shall count as lay time</li>
+        <li> Any delay that is incurred (i) due to the connection of buyer’s hoses with the manifold of the vessel; or
+            (ii) in obtaining the free pratique; or (iii) in obtaining the customs clearance; or (iv) due to any other
+            reason attributable to the discharge port’s rules that are beyond buyer’s control, shall not be borne by
+            buyer</li>
+    </ol>
+
+    <p style="margin-top: 25px; font-weight: bold;">Loading port:</p>
+    {{#each loadingPorts}}
+    <p>{{port}}</p>
+    {{/each}}
+
+    <p style="margin-top: 25px; font-weight: bold;">Discharge port:</p>
+    <p>Seller, in the absence of original Bill of Lading, agrees for the Buyer to take Delivery Order from the
+        Owner’s/Seller’s agents at discharge port against submission of Letter of Indemnity on their letter head issued
+        to Seller/Charterer. Seller will issue the Letter of Indemnity to the vessel owners, if required.</p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Title:</p>
+    <p>Title to the goods shall pass to Buyer as the product is progressively loaded. Seller hereby expressly warrants
+        that at the time of the title transfer it will have good title, free and clear of any liens or encumbrances, and
+        that it has and will have the full right and authority to transfer such title and effect delivery to Buyer.</p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Risks:</p>
+    <p>The risk of loss or damage to each installment of the goods shall pass from Seller to Buyer upon shipment i.e.
+        when the goods have effectively passed ships rails at the loading port except otherwise mentioned here, other
+        relevant provision of Incoterms 2020 shall apply.
+    </p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Cargo Insurance:</p>
+    <p>Insurance of the cargo covering all risks shall be arranged by Buyer and at Buyer’s cost. Overage Premium (if
+        any) shall be borne by seller.</p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Quality & Quantity Assessment: </p>
+    <ol type="I" style="padding-left: 20px;">
+        <li>To be conducted by a mutually agreed reputable international inspection company for quality, quantity and
+            analysis, whose findings at country of origin will be basis for invoice and load port documentation. Seller
+            to appoint and bear costs of inspection at load port.</li>
+        <li>Quality, Quantity and analysis findings by reputable international inspection company at discharge port will
+            be final and binding on seller and buyer for final settlement.</li>
+        <li>Any shortage in quantity at discharge port, then quantity shortage, if greater than 0.5% than BL quantity ,
+            then such differences in excess of 0.5% in case of quantity difference shall be settled by Seller to Buyer.
+        </li>
+        <li>At unloading port, the independent, internationally recognized inspection company shall draw one sample each
+            from the Top, bottom and middle portion of each of the ship’s tanks and such samples collected shall be
+            mixed together to form a composite sample, which shall be divided into four equals parts and separately
+            sealed.<br>
+            Distribution of the sealed samples shall be as follows:<br>
+            Sample 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-ship’s Master<br>
+            Sample 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-To seller thro’ ship’s master<br>
+            Sample 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Analyzed by buyer<br>
+            Sample 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-retained by buyer as referee sample<br>
+
+        </li>
+        <li>If the difference in P2O5 concentration received as observed after analysis of the Product sample drawn at
+            discharge port by Buyer appointed Surveyor, is more than 0.15% (absolute terms) of the invoiced P2O5
+            percentage, then, the sample retained by the buyer at the discharge port and the sample retained by the
+            seller at load port shall be submitted to a mutually agreed umpire laboratory of repute for the
+            determination of P2O5 content. Results of this control sample based on the composite sample of load port and
+            unloading port shall be binding on both parties. In case the buyer or seller is not able to send his sample
+            for testing directly to the referee lab within 30 days from the date of communication regarding the
+            difference in quality, then the results of analysis based on the available port sample to be binding on both
+            parties. If the results of the referee analysis indicate that the concentration is more than 0.15% (absolute
+            terms) below the invoiced concentration, seller shall issue corresponding credit note to Buyer within sixty
+            ( 60 days) of the date of receipt of such results to reflect the variation between the concentration set
+            forth on seller’s invoice and the concentration determined by the referee laboratory. If the results of the
+            referee analysis indicate that the concentration is within 0.15% of the invoiced concentration, seller’s
+            invoice shall be determinative, final and binding on Buyer for all purposes.</li>
+        <li>The cost of control analysis shall be borne by Seller if such analysis shall result in seller issuing a
+            credit note to buyer. Otherwise the cost of the control analysis shall be borne by the buyer. </li>
+        <li>The notice for such quality and quantity claims at discharge port (if any) has to be given within 15 days of
+            completion of discharge. </li>
+        <li>The method of analysis of P2O5 shall be the ISO 3706.</li>
+    </ol>
+
+    <p style="margin-top: 25px; font-weight: bold;">Anti-Bribery and Corruption:</p>
+    <p>The parties each agree and undertake to the other that in connection with this Contract they will each
+        respectively comply with the Indian Prevention of Money Laundering 2002 and all applicable laws, rules,
+        regulations, decrees and/ or official government orders of India, UK, USA or other relevant Jurisdiction
+        (including that of a Seller and the countr(ies) of origin and of shipment) relating to anti-bribery and
+        anti-money laundering. The parties each represent, warrant and undertake to the other that they shall not,
+        directly or indirectly:</p>
+    <ol style="list-style-type: decimal;">
+        <li>Pay, offer, give promise to give or authorize the giving of a bribe to any person, Individual or entity
+            (including a public official);</li>
+        <li>Request, agree to receive or accept a bribe from any person, individual or entity; or</li>
+        <li>Engage in any other transaction.</li>
+    </ol>
+
+    <p>In each case of this is in violation of or inconsistent with the anti-bribery and anti-money laundering
+        legislation of any government, including but not limited to the Prevention of Corruption Act, 1988 of India, UK
+        Bribery Act 2010, the Proceeds of Crime Act 2002 and the US Foreign Corrupt Practices Act.</p>
+    <p>Further, the Seller undertakes that he has not given, offered or promised to give directly or indirectly any
+        bribes, commission, gift, consideration, reward or Inducement to any employees of Consignee or their agent or
+        relatives or agreeing to show favor or disfavor to any person in procuring this contract.</p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Compliance:</p>
+    <p>Seller, represents and warrants for itself and its respective affiliates, employees and agents to be aware of all
+        economic sanctions laws, anti-boycott laws and trade restrictions imposed by the United Nations, the United
+        State of America, the member states of the European Union and/or the country/ countries from which the goods may
+        originate be shipped or discharged through which funds paid pursuant to the Contract may originate, pass or be
+        received; as may be amended from time to time (the “Restrictions”). For the purpose of this clause “affiliates”
+        means, in relation to either of the parties, any company controlling, controlled by, or under common control
+        with that party, either directly or indirectly. The Seller undertake to comply (or cause their respective
+        affiliates, employees and agents to comply) with the Restriction in all respects in relation to the performance
+        of this Contract and any import acquisition from or export or resale to a third party. </p>
+    <p>The warranty and undertaking contained in this clause refer in particular but not exclusively to the nominated
+        Vessel (and whoever may own, control, operate or have chartered her; directly or indirectly), to Consignee’s
+        documentary instructions to any Intervening banks, and in general to any other person, company or entity
+        involved in the performance of this Contract and any import or acquisition for or export or resale to a third
+        party.</p>
+    <p>Seller (the “Indemnifying Party”) shall fully Indemnify the Buyer (the “Indemnified part”) and hold the
+        Indemnified Party harmless for any loss, cost or damage suffered by its principals, affiliates, employees or
+        agents, as a result of any intentional or unintentional breach of the Restrictions by the Indemnifying Party or
+        any of the person, companies and entities comprised in the indemnifying party warranty and undertaking under the
+        terms of this clause.</p>
+    <p>Nothing in this Contract is meant to require either party to take any action which is likely to place it or any
+        of its respective affiliates, employees and agents in a position of non-compliance with, or in contravention of,
+        the Restrictions. </p>
+    <p>Breach by the Seller of any warranty or undertaking in this clause shall be deemed to be a breach of condition of
+        this Contract entitling the Buyer with notice to rectify the breach without prejudice to any of its rights
+        against the party in breach and in respect of which there shall be no waiver unless expressly made in writing
+    </p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Taxes, Duties and Import Permit:</p>
+    <p>Any/all taxes /charges on cargo at the load port to be for Seller’s account and Any/all taxes /charges on cargo
+        at discharging port, including India’s GST on freight, to be for Buyer’s account.</p>
+    <p>All taxes, duties and charges on vessel flag, class, age, crew etc. both at load port & discharge port shall be
+        to Seller / Vessel owner’s account. </p>
+    <p>Seller confirms that, all necessary licenses and permits required to export the product contracted herein have
+        been obtained. Buyer’s confirms that all necessary licenses and permits required to import the product
+        contracted herein have been obtained.</p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Force majeure:</p>
+    <p>Should either party be wholly or partially prevented from carrying out its obligations under the Contract (other
+        than the obligations to pay money when due) due to circumstances beyond the reasonable control of the party
+        (“Force Majeure Event”), including without limitation, (i) acts of God, acts of governmental authorities, acts
+        or omissions of governmental authorities or epidemics, pandemics, fire, explosion, floods or fires, floods,
+        atmospheric disturbances, explosions, lightning, storms, typhoons, tornados, earthquakes, landslides, soil
+        erosion or subsidence, washouts, hurricanes; (ii) wars, riots, civil wars, blockades, insurrections, sabotage,
+        acts of public enemies or civil disturbances; (iii) orders, judgments, rulings, decisions or other acts of any
+        governmental, civil or military authority; (iv) boycotts, strikes, lockouts or other similar industrial
+        disturbances; (v) any other acts or events whatsoever not within the control of the Seller which the Seller
+        shall not be able to prevent, avoid, resist or overcome, the obligations which cannot be carried out shall be
+        suspended as long as the Force Majeure Event prevails. The party invoking Force Majeure Event shall promptly so
+        notify within two working days the other party in writing. The notice must (a) specify the obligations it cannot
+        perform, (b) describe the event of Force Majeure Event, (c) estimate the time during which the Force Majeure
+        Event will continue; and (d) specify the measures proposed to remedy the Force Majeure Event</p>
+    <p>In the event that the Force Majeure Event shall prevail for more than ninety (90) days from the date of its
+        commencement, then either party shall be entitled to cancel the Contract by written notice to the other party,
+        without prejudice to any of the rights of either party accrued prior to the termination date.</p>
+    <p>The provisions in the above Clauses notwithstanding, responsibility for a vessel’s cancellation charges, if any,
+        shall be for account of the party invoking the Force Majeure Event, if the Force Majeure Event commences after a
+        vessel has been fixed and/or a vessel has arrived at the loading port (whether or not loading has commenced).
+    </p>
+    <p>Certificate issued by the Chamber of Commerce or any equivalent approved agency in the country of the
+        Seller/Buyer shall be sufficient proof of the existence of the above circumstances and their duration. Buyer
+        recognizes seller is not the producer of the cargo and any Force Majeure condition affecting the producer of the
+        cargo shall constitute as the Force Majeure condition affecting the seller under this contract. It has been
+        expressly understood that once loading is commenced, force majeure is not applicable.</p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Dispute Resolution:</p>
+    <p><u>Amicable Settlement:</u> Any dispute arising from or related to this Agreement/Contract shall be notified in
+        writing by one party to the other(s) within 5 days from the date of dispute, and the parties through their
+        Authorized Representatives shall use their best efforts to settle the dispute on an amicable basis within
+        fifteen (15) days from the date of receipt of such notice. If the parties are unable to reach a mutually
+        acceptable resolution with 15 days, the parties hereby agree to submit such dispute at the request of either
+        party to an Arbitrator.</p>
+    <p>Where a Party is prevented from exercising any rights or performing any obligations under this Agreement due to
+        Force Majeure, the time for the performance of the obligations affected thereby and for performance of any
+        obligation or the exercise of any right dependent thereon may be extended by such additional period as may be
+        agreed between the Parties.</p>
+
+    <p><u>Arbitration:</u> Any dispute arising out of or in connection with this contract, including any question
+        regarding its existence, validity or termination, shall be referred to and finally resolved by arbitration as
+        per the rules of the Singapore International Arbitration Centre (SIAC), which Rules are deemed to be
+        incorporated by reference into this clause. The arbitration shall be conducted by a sole arbitrator who shall be
+        appointed in accordance with the rules of the SIAC. </p>
+    <p>The venue of arbitration shall be Singapore. The language of arbitration shall be English. The arbitration award
+        shall be final and binding on both parties. This agreement shall be governed
+        by, construed and enforced in accordance with English law. This clause shall survive the expiration or early
+        termination of this Agreement.</p>
+
+
+
+    <p style="margin-top: 25px; font-weight: bold;">TERMINATION:</p>
+    <p>This Contract may be terminated prior to the expiration of the Contract’s Term, without any prejudice to any
+        rights or remedies occurring at or before or in connection with such termination, in the following
+        circumstances:</p>
+    <ol style="list-style-type: decimal; padding-left: 20px;">
+        <li>By mutual agreement of the Parties Upon a written notice served at least sixty (60) days prior to the other
+            party with assigning reasons and upon the expiry of the notice; this agreement shall stand terminated; or
+        </li>
+        <li>Upon a written notice served to the other party and effective immediately, if a Force Majeure event, as
+            defined in section 'Force Majeure', has occurred and actually lasts 90 days or more.</li>
+        <li>In case of breach by either party, the party not in breach will issue 30 days notice in writing to the party
+            in breach to rectify the breach. If the breaching party fails to rectify the breach within the notice
+            period, the Contract shall stand terminated.</li>
+    </ol>
+    <p>If the Contract is thus terminated, the Parties shall settle all their accounts and all provisions and terms of
+        the Contract including payment obligations shall be applicable on the agreed shipment(s) of any quantity loaded,
+        supplied or shipped up to the termination date of the Contract. All remaining quantities shall no longer apply
+        to the terminated Contract.</p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Confidentiality:</p>
+    <p>Parties agree to maintain the confidentiality of this transaction.</p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Assignment:</p>
+    <p>Neither this contract nor any right, duty or obligation of any party hereunder may be assigned or delegated by
+        any party (in whole or in part) without the prior written consent of the other party hereto.</p>
+    <p>No consent of the other Party shall be required for an assignment by either Party, to an Affiliate, where such
+        assignment is as a result of and part of a corporate acquisition or investment, merger or reorganization or
+        corporate restructuring with an Affiliate, duly approved by competent court or tribunal.</p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Amendment:</p>
+    <p>No provision in this Contract (including this provision) shall be changed or modified in any way either in whole
+        or in part except by an instrument in writing made after the date of this Contract and signed on behalf of both
+        the parties and which expressly states to amend this Contract.</p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Entirety of Contract: </p>
+    <p>This contract shall constitute the entire understanding between Consignee and Seller and supersedes all previous
+        negotiations representations, agreements or commitments with respect to the matters dealt with herein or oral
+        statements which may have been made between the parties. No amendments to this Contract shall be binding unless
+        agreed by the parties in writing. Each Party acknowledges that in entering into this contract it has not relied
+        on any representations, warranties, statements or undertaking except those which are expressly set out herein.
+    </p>
+
+    <p style="margin-top: 25px; font-weight: bold;">Miscellaneous: </p>
+    <ol style="list-style-type: decimal; padding-left: 20px;">
+        <li>The seller warrants product will be supplied as per specs given in the Annexure-1.</li>
+        <li>Wherever not specified in the contract, Incoterms 2020 and amendments to govern</li>
+    </ol>
+    <table style="width: 100%; border-collapse: collapse;">
+        <tr>
+            <td style="width: 50%;padding: 0; border: none; text-align: center;">
+                <p>Signed & Accepted as seller on this<br>
+                    day of 3rd Sep, 2024<br>
+                    For and on behalf of<br>
+                    Agrifields DMCC</p>
+            </td>
+            <td style="width: 50%;padding: 0; border: none; text-align: center;">
+                <p>Signed & Accepted as buyer on this<br>
+                    day of For and on behalf of M/S<br>
+                    Mahadhan Agritech Ltd</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="width: 50%; padding: 0; border: none; text-align: center;">
+                <p>Najmuddin Bhavnagarwala <br>
+                    Director & COO</p>
+            </td>
+            <td style="width: 50%; padding: 0; border: none; text-align: center;">
+                <p> Bibhu Mishra <br>
+                    Executive Vice President</p>
+            </td>
+        </tr>
+    </table>
+
+    <h2 style="text-align: center; text-decoration: underline; font-size: 18pt; font-weight: bold;">ANNEXURE 1</h2>
+    {{#each specifications}}
+    <h3 style="text-align: center; text-decoration: underline; font-size: 18pt; font-weight: bold;"><u>Typical
+            specification of {{productName}}</u></h3>
+    <table style="width: 70%; border-collapse: collapse; margin-top: 30px; margin-left: auto; margin-right: auto;">
+        <tr>
+            <th
+                style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top; background-color: #ffffff;">
+                Sr. No.</th>
+            <th
+                style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top; background-color: #ffffff;">
+                Properties</th>
+            <th style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">
+                Unit</th>
+            <th style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">
+                Range</th>
+        </tr>
+        {{#each specification}}
+        <tr>
+            <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{@index + 1}}
+            </td>
+            <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{name}}</td>
+            <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">Unit</td>
+            <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{value}}</td>
+        </tr>
+        {{/each}}
+    </table>
+    {{/each}}
+    
+</body>
+
+</html>
