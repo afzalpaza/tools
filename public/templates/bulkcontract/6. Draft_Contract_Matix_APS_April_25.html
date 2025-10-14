@@ -1,3 +1,4 @@
+<!-- https://docs.google.com/document/d/1RaYnc39AjkVsSON8tYSxjnQ4xOj8m57W/edit -->
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +12,7 @@
   <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
     <tr>
       <td style="width: 50%; vertical-align: top; padding: 0; border: none;">
-        <p style="margin: 2px 0;"><strong>Agrifields</strong></p>
+        <img src="https://test.istakapaza.com/users/image?item=newblob1753095306189" width="140" height="40" />
         <p style="margin: 2px 0;">TEL&nbsp;&nbsp;&nbsp;&nbsp;: +971 4 2766391</p>
         <p style="margin: 2px 0;">FAX&nbsp;&nbsp;&nbsp;&nbsp;: +971 4 2766032</p>
         <p style="margin: 2px 0;">EMAIL&nbsp;&nbsp;: naj@agrifields.com</p>
@@ -25,7 +26,7 @@
     </tr>
   </table>
 
-  <h2 style="text-align: center; text-decoration: underline; margin-top: 20px; font-size: 24px;">SALES AND PURCHASE CONTRACT</h2>
+  <h2 style="text-align: center; text-decoration: underline; margin-top: 20px; font-size: 14pt;">SALES AND PURCHASE CONTRACT</h2>
 
   <p style="margin-top: 10px;"><strong>Date:</strong> {{contractDate}}</p>
   <p style="margin-top: 10px;"><strong>Agrifields Contract Number:</strong> {{contractNumber}}</p>
@@ -623,26 +624,55 @@
 
   <table style="width: 100%; border-collapse: collapse; margin-top: 30px;">
     <tr>
-      <td style="width: 50%; vertical-align: top; padding: 0; border: none; text-align: center;">
-        <p style="margin: 2px 0;">For {{seller.name}}</p>
-        <p style="margin: 2px 0;">Seller</p>
+      <td style="width: 50%; vertical-align: top; padding: 0; border: none; text-align: left;">
+        <p style="margin: 2px 0;">For Agrifields DMCC</p>
+        <p style="margin: 2px 0;">(Seller)</p>
       </td>
-      <td style="width: 50%; vertical-align: top; padding: 0; border: none; text-align: center;">
-        <p style="margin: 2px 0;">For {{buyer.name}}</p>
-        <p style="margin: 2px 0;">Buyer</p>
+      <td style="width: 50%; vertical-align: top; padding: 0; border: none; text-align: left;">
+        <p style="margin: 2px 0;">For Matix Fertilisers and</p>
+        <p style="margin: 2px 0;">Chemicals Limited: (Buyer)</p>
       </td>
     </tr>
     <tr>
-      <td style="width: 50%; vertical-align: top; padding: 0; border: none; padding-top: 20px; text-align: center;">
+      <td style="width: 50%; vertical-align: top; padding: 0; border: none; padding-top: 20px; text-align: left;">
+        <p style="margin: 2px 0;"></p>
         <p style="margin: 2px 0;">Najmuddin Bhavnagarwala</p>
         <p style="margin: 2px 0;">Director & COO</p>
-        <p style="margin: 2px 0;">{{seller.name}}</p>
       </td>
-      <td style="width: 50%; vertical-align: top; padding: 0; border: none; padding-top: 20px; text-align: center;">
-        <p style="margin: 2px 0;">{{buyer.name}}</p>
+      <td style="width: 50%; vertical-align: top; padding: 0; border: none; padding-top: 20px; text-align: left;">
+        <p style="margin: 2px 0;"></p>
+        <p style="margin: 2px 0;">____________________</p>
       </td>
     </tr>
   </table>
+
+  <div style="page-break-before: always;"></div>
+  <h2 style="text-align: center; text-decoration: underline; font-size: 14pt; font-weight: bold;"><u>Annexure 1</u>
+  </h2>
+  {{#each specifications}}
+  <h3 style="text-align: center; text-decoration: underline; font-size: 12pt; font-weight: bold;"><u>Typical
+          specification of {{productName}}</u></h3>
+  <table style="width: 70%; border-collapse: collapse; margin-top: 30px; margin-left: auto; margin-right: auto;">
+      <tr>
+          <th
+              style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top; background-color: #ffffff;">
+              Sr. No.</th>
+          <th
+              style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top; background-color: #ffffff;">
+              Elements</th>
+          <th
+              style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top; background-color: #ffffff;">
+              Percentage</th>
+      </tr>
+      {{#each specifications}}
+      <tr>
+          <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{sn}}</td>
+          <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{name}}</td>
+          <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{value1}}</td>
+      </tr>
+      {{/each}}
+  </table>
+  {{/each}}
 </body>
 
 </html>

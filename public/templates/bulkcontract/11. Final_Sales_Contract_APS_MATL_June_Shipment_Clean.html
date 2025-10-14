@@ -1,3 +1,4 @@
+<!-- https://docs.google.com/document/d/1fP5uFTFbLg_RJPknDm5Oj85gzwME6AOY/edit -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
   <table style="width: 100%; border-collapse: collapse; margin-top: 25px;">
     <tr>
       <td style="width: 50%; vertical-align: top; padding: 0; border: none;">
-        <div><strong>Agrifields</strong></div>
+        <img src="https://test.istakapaza.com/users/image?item=newblob1753095306189" width="140" height="40" />
         <div>TEL: +971 4 2766391</div>
         <div>FAX: +971 4 2766032</div>
         <div>EMAIL: naj@agrifields.com</div>
@@ -25,7 +26,7 @@
     </tr>
   </table>
 
-  <h2 style="text-align: center; text-decoration: underline; font-size: 16px; font-weight: bold;">SALES CONTRACT</h2>
+  <h2 style="text-align: center; text-decoration: underline; font-size: 12pt; font-weight: bold;">SALES CONTRACT FOR SUPPLY OF AMMONIUM PHOSPHATE SULPHATE GRADE IN BULK</h2>
 
   <p><strong>Contract Number:</strong> {{contractNumber}} <br><strong>Date:</strong> {{contractDate}}</p>
 
@@ -154,13 +155,13 @@
   </ul>
 
   <p><strong>Loading ports:</strong> </p>
-  {{#each products}}
-  <p>{{loadingPort}}</p>
+  {{#each loadingPorts}}
+  <p>{{port}}, {{country}}</p>
   {{/each}}
 
   <p><strong>Discharge port:</strong> </p>
-  {{#each products}}
-  <p>{{dischargePort}}</p>
+  {{#each dischargePorts}}
+  <p>{{port}}, {{country}}</p>
   {{/each}}
 
   <p><Strong>Delivery of Goods:</Strong> Seller, in the absence of original Bill of Lading, agrees for the Buyer to take
@@ -468,13 +469,13 @@
 
   <table style="width: 100%; border-collapse: collapse; margin-top: 25px; font-weight: normal;">
     <tr>
-      <td style="width: 50%; vertical-align: top; padding: 0; border: none; text-align: center;">
+      <td style="width: 50%; vertical-align: top; padding: 0; border: none; text-align: left;">
         <p>Signed & Accepted as seller on this</p>
         <p>day of {{contractDate}}</p>
         <p>For and on behalf of</p>
         <p><strong>{{seller.name}}</strong></p>
       </td>
-      <td style="width: 50%; vertical-align: top; text-align: center; padding: 0; border: none;">
+      <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none;">
         <p>Signed & Accepted as buyer on this</p>
         <p>day of {{contractDate}} </p>
         <p>For and on behalf of </p>
@@ -482,24 +483,23 @@
       </td>
     </tr>
     <tr>
-      <td style="width: 50%; vertical-align: top; padding: 0; border: none; padding-top: 1em; text-align: center;">
+      <td style="width: 50%; vertical-align: top; padding: 0; border: none; padding-top: 1em; text-align: left;">
         <p>Najmuddin Bhavnagarwala </p>
         <p>Director & COO</p>
       </td>
-      <td style="width: 50%; vertical-align: top; text-align: center; padding: 0; border: none; padding-top: 1em;">
+      <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none; padding-top: 1em;">
         <p>(Name of signatory)</p>
         <p>(Designation)</p>
       </td>
     </tr>
   </table>
 
-  <br>
+  <div style="page-break-before: always;"></div>
 
-  <h2 style="text-align: center; text-decoration: underline; font-size: 18pt; font-weight: bold;"><u>Annexure 1</u>
+  <h2 style="text-align: center; text-decoration: underline; font-size: 12pt; font-weight: bold;"><u>Annexure 1</u>
   </h2>
   {{#each specifications}}
-  <h3 style="text-align: center; text-decoration: underline; font-size: 18pt; font-weight: bold;"><u>Typical
-      specification of {{productName}}</u></h3>
+  <h3 style="text-align: center; text-decoration: underline; font-size: 12pt; font-weight: bold;"><u>Typical specification of {{productName}}</u></h3>
   <table style="width: 70%; border-collapse: collapse; margin-top: 30px; margin-left: auto; margin-right: auto;">
     <tr>
       <th
@@ -509,10 +509,10 @@
         style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top; background-color: #ffffff;">
         Specification</th>
     </tr>
-    {{#each specification}}
+    {{#each specifications}}
     <tr>
       <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{name}}</td>
-      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{value}}</td>
+      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{value1}}</td>
     </tr>
     {{/each}}
   </table>

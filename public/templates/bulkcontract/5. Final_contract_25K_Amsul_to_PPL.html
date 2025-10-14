@@ -1,3 +1,4 @@
+<!-- https://docs.google.com/document/d/1GiqNoN3RKbL67NmS1f8_RcITkSiBev13/edit -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
     <table style="width: 100%; border-collapse: collapse; margin-top: 25px;">
         <tr>
             <td style="width: 50%; vertical-align: top; padding: 0; border: none;">
-                <div><strong>Agrifields</strong></div>
+                <img src="https://test.istakapaza.com/users/image?item=newblob1753095306189" width="140" height="40" />
                 <div>TEL: +971 4 2766391</div>
                 <div>FAX: +971 4 2766032</div>
                 <div>EMAIL: naj@agrifields.com</div>
@@ -25,7 +26,7 @@
         </tr>
     </table>
 
-    <h2 style="text-align: center; text-decoration: underline; font-size: 18pt; font-weight: bold; margin-top: 25px;">SALES CONTRACT FOR
+    <h2 style="text-align: center; text-decoration: underline; font-size: 14pt; font-weight: bold; margin-top: 25px;">SALES CONTRACT FOR
         SUPPLY OF ROCK PHOSPHATE</h2>
 
     <p style="margin-top: 15px;">Contract Number:{{contractNumber}}</p>
@@ -35,16 +36,16 @@
 
     <p style="margin-top: 15px;"><strong>Seller</strong><br>
         {{seller.name}}<br>
-        {{seller.addressLine1}}<br>
-        {{seller.addressLine2}} <br>
-        {{seller.addressLine3}}
+        {{seller.addressline1}}<br>
+        {{seller.addressline2}} <br>
+        {{seller.addressline3}}
     </p>
 
     <p style="margin-top: 15px;"><strong>Buyer</strong><br>
         {{buyer.name}}<br>
-        {{buyer.addressLine1}}<br>
-        {{buyer.addressLine2}}<br>
-        {{buyer.addressLine3}}<br>
+        {{buyer.addressline1}}<br>
+        {{buyer.addressline2}}<br>
+        {{buyer.addressline3}}<br>
 
     </p>
 
@@ -436,37 +437,41 @@
 
     <table style="width: 100%; border-collapse: collapse; margin-top: 25px;">
         <tr>
-            <td style="width: 50%; vertical-align: top; text-align: center; padding: 0; border: none;">
+            <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none;">
                 <p>For and on behalf of <br>
                     {{seller.name}}
                 </p>
             </td>
-            <td style="width: 50%; vertical-align: top; text-align: center; padding: 0; border: none;">
+            <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none;">
                 <p>For and on behalf of <br>
                     {{buyer.name}}
                 </p>
             </td>
         </tr>
         <tr>
-            <td style="width: 50%; vertical-align: top; text-align: center; padding: 0; border: none; padding-top: 25px;">
+            <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none; padding-top: 25px;">
+                <p>&nbsp;</p><br>
                 Signed &amp; Accepted <br>
                 on this day of {{contractDate}} <br>
                 Najmuddin Bhavnagarwala <br>
                 Director & COO
             </td>
-            <td style="width: 50%; vertical-align: top; text-align: center; padding: 0; border: none; padding-top: 25px;">
+            <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none; padding-top: 25px;">
+                <p>&nbsp;</p><br>
                 Signed & Accepted<br>
-                on this day of<br>
-                {{buyerSignatoryName}}<br>
-                {{buyerSignatoryTitle}}
+                on this day of _________________<br>
+                Rajkumar Gupta<br>
+                Chief Procurement Officer
             </td>
         </tr>
     </table>
 
-    <h2 style="text-align: center; text-decoration: underline; font-size: 18pt; font-weight: bold;"><u>Annexure 1</u>
+    <div style="page-break-before: always;"></div>
+
+    <h2 style="text-align: center; text-decoration: underline; font-size: 14pt; font-weight: bold;"><u>Annexure 1</u>
     </h2>
     {{#each specifications}}
-    <h3 style="text-align: center; text-decoration: underline; font-size: 18pt; font-weight: bold;"><u>Typical
+    <h3 style="text-align: center; text-decoration: underline; font-size: 12pt; font-weight: bold;"><u>Typical
             specification of {{productName}}</u></h3>
     <table style="width: 70%; border-collapse: collapse; margin-top: 30px; margin-left: auto; margin-right: auto;">
         <tr>

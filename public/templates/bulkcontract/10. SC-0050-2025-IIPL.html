@@ -1,3 +1,4 @@
+<!-- https://docs.google.com/document/d/1Mbb_LcJbIQxNAo2MEo5TElZXd1MJLLco/edit -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
   <table style="width: 100%; border-collapse: collapse; margin-top: 25px;">
     <tr>
       <td style="width: 50%; vertical-align: top; padding: 0; border: none;">
-        <div><strong>Agrifields</strong></div>
+        <img src="https://test.istakapaza.com/users/image?item=newblob1753095306189" width="140" height="40" />
         <div>TEL: +971 4 2766391</div>
         <div>FAX: +971 4 2766032</div>
         <div>EMAIL: naj@agrifields.com</div>
@@ -25,7 +26,7 @@
     </tr>
   </table>
 
-  <h2 style="text-align: center; text-decoration: underline; font-size: 18pt; font-weight: bold;">SALES CONTRACT FOR
+  <h2 style="text-align: center; text-decoration: underline; font-size: 14pt; font-weight: bold;">SALES CONTRACT FOR
     SUPPLY OF ROCK PHOSPHATE</h2>
 
   <div style="margin-top: 20px;">
@@ -416,23 +417,23 @@
   <br>
   <table style="width: 100%; border-collapse: collapse;">
     <tr>
-      <td style="width: 50%;padding: 0; border: none; text-align: center;">
+      <td style="width: 50%;padding: 0; border: none; text-align: left;">
         <p>Seller :</p>
         <p>AGRIFIELDS DMCC</p>
       </td>
-      <td style="width: 50%;padding: 0; border: none; text-align: center;">
+      <td style="width: 50%;padding: 0; border: none; text-align: left;">
         <p>Buyer :</p>
-        <p>{{buyer.name}}</p>
+        <p>Indorama India Private Limited</p>
       </td>
     </tr>
 
     <tr>
-      <td style="width: 50%; padding: 0; border: none; text-align: center;">
+      <td style="width: 50%; padding: 0; border: none; text-align: left;">
         <p>Mr. Mahadevan G.</p>
         <p>Director </p>
         <p>Date : {{contractDate}}</p>
       </td>
-      <td style="width: 50%; padding: 0; border: none; text-align: center;">
+      <td style="width: 50%; padding: 0; border: none; text-align: left;">
         <p>Name: Mr. Bidhan Sinha</p>
         <p>Chief Supply Chain Officer</p>
         <p>Date:</p>
@@ -440,9 +441,11 @@
     </tr>
   </table>
 
-  <h2 style="text-align: center; text-decoration: underline; font-size: 18pt; font-weight: bold;">ANNEXURE 1</h2>
+  <div style="page-break-before: always;"></div>
+
+  <h2 style="text-align: center; text-decoration: underline; font-size: 12pt; font-weight: bold;">ANNEXURE 1</h2>
   {{#each specifications}}
-  <h3 style="text-align: center; text-decoration: underline; font-size: 18pt; font-weight: bold;"><u>Typical
+  <h3 style="text-align: center; text-decoration: underline; font-size: 12pt; font-weight: bold;"><u>Typical
       specification of {{productName}}</u></h3>
   <table style="width: 70%; border-collapse: collapse; margin-top: 30px; margin-left: auto; margin-right: auto;">
     <tr>
@@ -455,11 +458,11 @@
       <th style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">
         Specification</th>
     </tr>
-    {{#each specification}}
+    {{#each specifications}}
     <tr>
-      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{@index + 1}}</td>
+      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{sn}}</td>
       <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{name}}</td>
-      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{value}}</td>
+      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{value1}}</td>
     </tr>
     {{/each}}
   </table>

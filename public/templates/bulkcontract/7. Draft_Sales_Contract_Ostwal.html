@@ -1,3 +1,4 @@
+<!-- https://docs.google.com/document/d/1a8jkL2HPEU1vxZAW_fAHZqp1HELm-thi/edit -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
     <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
         <tr>
             <td style="width: 50%; vertical-align: top; padding: 0; border: none;">
-                <p style="margin: 2px 0;"><strong>Agrifields</strong></p>
+                <img src="https://test.istakapaza.com/users/image?item=newblob1753095306189" width="140" height="40" />
                 <p style="margin: 2px 0;">TEL: +971 4 2766391</p>
                 <p style="margin: 2px 0;">FAX: +971 4 2766032</p>
                 <p style="margin: 2px 0;">EMAIL: naj@agrifields.com</p>
@@ -25,7 +26,7 @@
         </tr>
     </table>
 
-    <h2 style="text-align: center; text-decoration: underline; margin-top: 20px; font-size: 18pt;">SALES CONTRACT</h2>
+    <h2 style="text-align: center; text-decoration: underline; margin-top: 20px; font-size: 14pt;">SALES CONTRACT</h2>
 
     <p style="margin-top: 10px;"><strong>Contract Number:</strong> {{contractNumber}}</p>
     <p style="margin-top: 10px;">This Contract is made on the {{contractDate}}</p>
@@ -445,30 +446,57 @@
 
     <table style="width: 100%; border-collapse: collapse; margin-top: 25px; font-weight: normal;">
         <tr>
-            <td style="width: 50%; vertical-align: top; padding: 0; border: none; text-align: center;">
+            <td style="width: 50%; vertical-align: top; padding: 0; border: none; text-align: left;">
                 <p>Signed & Accepted as seller on this</p>
                 <p>day of {{contractDate}}</p>
                 <p>For and on behalf of</p>
-                <p><strong>{{seller.name}}</strong></p>
+                <p>Agrifields DMCC</p>
             </td>
-            <td style="width: 50%; vertical-align: top; text-align: center; padding: 0; border: none;">
+            <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none;">
                 <p>Signed & Accepted as buyer on this</p>
                 <p>day of {{contractDate}} </p>
                 <p>For and on behalf of </p>
-                <p><strong>{{buyer.name}}</strong></p>
+                <p>Ostwal Phoschem (India) Limited</p>
             </td>
         </tr>
         <tr>
-            <td style="width: 50%; vertical-align: top; padding: 0; border: none; padding-top: 1em; text-align: center;">
+            <td style="width: 50%; vertical-align: top; padding: 0; border: none; padding-top: 1em; text-align: left;">
+                <p>&nbsp;</p>
                 <p>Najmuddin Bhavnagarwala </p>
                 <p>Director & COO</p>
             </td>
-            <td style="width: 50%; vertical-align: top; text-align: center; padding: 0; border: none; padding-top: 1em;">
+            <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none; padding-top: 1em;">
+                <p>&nbsp;</p>
                 <p>(Name of signatory)</p>
                 <p>(Designation)</p>
             </td>
         </tr>
     </table>
+
+    <div style="page-break-before: always;"></div>
+
+    <h2 style="text-align: center; text-decoration: underline; font-size: 14pt; font-weight: bold;"><u>Annexure 1</u>
+    </h2>
+    {{#each specifications}}
+    <h3 style="text-align: center; text-decoration: underline; font-size: 12pt; font-weight: bold;"><u>Typical
+            specification of {{productName}}</u></h3>
+    <table style="width: 70%; border-collapse: collapse; margin-top: 30px; margin-left: auto; margin-right: auto;">
+        <tr>
+            <th
+                style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top; background-color: #ffffff;">
+                Particulars</th>
+            <th
+                style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top; background-color: #ffffff;">
+                Specification as per latest amended FCO, 1985</th>
+        </tr>
+        {{#each specifications}}
+        <tr>
+            <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{name}}</td>
+            <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{value1}}</td>
+        </tr>
+        {{/each}}
+    </table>
+    {{/each}}
 
 </body>
 
