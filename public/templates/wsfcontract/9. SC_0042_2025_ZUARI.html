@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Purchase Order</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; margin: 40px; line-height: 1.6;">
+
+  <table style="width:100%; border-collapse:collapse;border:none;">
+    <tr>
+      <td style="width:50%; vertical-align:top; text-align:left; border:none; padding:5px;">
+        <strong>Agrifields</strong><br>
+        TEL: +971 4 2766391<br>
+        FAX: +971 4 2766032<br>
+        EMAIL: naj@agrifields.com
+      </td>
+
+      <td style="width:50%; vertical-align:top; text-align:right; border:none; padding:5px;">
+        <strong>AGRIFIELDS DMCC</strong><br>
+        JBC 4, UNIT 3201, CLUSTER N<br>
+        JUMEIRAH LAKE TOWERS<br>
+        DUBAI. <strong>U.A.E.</strong>
+      </td>
+    </tr>
+  </table>
+
+  <h2 style="margin-bottom: 5px; text-align: center;">SALES CONTRACT </h2>
+  <table style="width:100%; border-collapse:collapse;border:none;">
+    <tr>
+      <td style="width:50%; vertical-align:top; text-align:left; border:none; padding:5px;">
+        Contract Number: {{contractNumber}}
+      </td>
+
+      <td style="width:50%; vertical-align:top; text-align:right; border:none; padding:5px;">
+        Contract Dated: {{contractDate}}
+
+      </td>
+    </tr>
+  </table>
+
+
+  <ol>
+    <li><b>{{buyer.name}} </b>(“the Buyer”)<br>
+      {{buyer.addressline1}}<br>
+      {{buyer.addressline2}}<br>
+      {{buyer.addressline3}}<br>
+    </li>
+    <li><b>{{seller.name}} </b>(the “Seller”)<br>
+      {{seller.addressline1}}<br>
+      {{seller.addressline2}}<br>
+      {{seller.addressline3}}<br>
+    </li>
+  </ol>
+
+  <p><b>Description of Goods: </b></p>
+  {{#each products}}
+  <p>{{description}} as per Indian FCO
+  </p>
+  {{/each}}
+
+  <p><b>Specifications:</b></p>
+  <p>As per FCO Specifications in Annexure 1.</p>
+
+
+  <p><b>Product/ Price/Port/Origin/Packing/Quantity & Total Value</b></p>
+  <table style="width: 80%; border-collapse: collapse; margin-top: 15px; border: 1px solid black;">
+    <tr>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Product</th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Price CIF, Nhava Sheva </th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Origin</th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Packing</th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Quantity (+/- 10% Seller's option)</th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Total Value in USD (+/- 10%)</th>
+    </tr>
+    {{#each products}}
+    <tr>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{description}} as per Indian FCO</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{currency}} {{price}} P{{uom}},
+        {{incoterms}}, {{dischargePort}}.</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{origin}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">In {{packing}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{quantity}} {{uom}}S</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{amount}}/-</td>
+    </tr>
+    {{/each}}
+  </table>
+
+  <p><b>Time of shipment:</b></p>
+  <p>April/May 2025</p>
+  <p>Shipment is subject to China customs inspection and confirmed shipping space.</p>
+  <p>Contract extension beyond June 2025 subject to Manufacturer reconfirmation. </p>
+
+  <p><b>PAYMENT TERMS:</b></p>
+  <p>1. {{paymentTerms}} LC to be issued atleast 7-15 days before the tentative shipment date advise by seller. ZFHL can
+    avail RA financing / Supplier’s Credit at their cost. If the product is declared non-standard by CFQCTI / RFCL
+    following is applicable</p>
+  <p>a. Seller to return 100% Invoice amount on 120th day from BL Date to ZFHL for the cargo which is declared
+    non-standard.</p>
+  <p>b. ZFHL to remit 100% payment to seller only after the cargo is declared standard in re-analysis for the cargo
+    which was initially declared non-standard by CFQCTI/ RFCL.
+  </p>
+
+  <p><b>Agrifields DMCC Bank Details:</b></p>
+  {{#if seller.bankName}}
+  <p>{{seller.bankName}}<br>
+    Dubai, U.A.E.<br>
+    A/C No. {{seller.accountNumber}}<br>
+    IBAN No. {{seller.IBAN}}<br>
+    Swift: {{seller.swiftCode}}<br>
+  </p>
+  {{else}}
+  <p>Emirates NBD<br>
+    Dubai, U.A.E.<br>
+    A/C No. 1025245143002<br>
+    IBAN No. AE450260001025245143002<br>
+    Swift: EBILAEAD<br>
+  </p>
+  {{/if}}
+
+  <p><b><u>SHIPPING DOCUMENTS:</u></b></p>
+  <p>The following shipping documents are to be sent through the bank by the seller to the banker of the buyer for the
+    shipment:</p>
+  <ul>
+    <li>Full set of 3/3 Bill of Ladings marked as “Freight Prepaid and Shipped on Board” [3 Original + 3 Copies]</li>
+    <li>Signed Commercial invoice. [3 Original + 3 copies]</li>
+    <li>Certificate of Quantity issued by seller [1 Original + 3 copies] </li>
+    <li>Certificate of Quality analysis issued by seller [1 Original + 3 copies].</li>
+    <li>Certificate of Origin issued by seller. [1 Original + 3 copies].</li>
+    <li>Certificate of Insurance [1 original + 3 copies]</li>
+    <li>Packing List [1 original + 3 copies]</li>
+  </ul>
+
+
+  <p><b><u>LOADING PORTS:</u></b></p>
+  {{#each loadingPorts}}
+  <p>{{port}}</p>
+  {{/each}}
+
+  <p><b><u>DISCHARGE PORT:</u></b></p>
+  {{#each loadingPorts}}
+  <p>{{productName}}<br>
+    {{quantity}} {{unit}} - {{port}},{{country}}<br>
+  </p>
+  {{/each}}
+
+  <p><b><u>CARGO INSURANCE:</u></b></p>
+  <p>The seller to insure the goods for all risks with an A-Clause Policy including WAR & SRCC and excess clause of 0%
+    with a first-class insurance company for 110% of cargo value payable in India.</p>
+
+  <p><b><u>TITLE:</u></b></p>
+  <p>Title to the goods/product shall pass on to Buyer as the product is progressively loaded. Seller hereby expressly
+    warrants that at the time of the title transfer it will have good title, free and clear of any liens or
+    encumbrances, and that it has and will have the full right and authority to transfer such title and effect delivery
+    to Buyer.
+  </p>
+
+  <p><b><u>RISK:</u></b></p>
+  <p>The risk of loss or damage to the goods is transferred from the seller to the buyer when the goods shall have
+    effectively passed progressively the ship’s rail at the port of loading except otherwise mentioned here, other
+    relevant provision of Incoterms 2020 shall apply.</p>
+
+  <p><b><u>COMPENSATION FOR NON-CONFORMITY</u></b></p>
+  <p>In case the quality, quantity or weight of the goods be found not in conformity with those stipulated in this
+    contract, the seller be liable for compensating the Buyer for total CIF price paid plus other costs incurred by the
+    Buyer for such non- conformity. Seller to settle the claim within 30 Days from the date of receipt of such claim.
+  </p>
+  <p><b>As Regards Quantity:</b> BL quantity shall be the basis of invoicing and payment. The quantity will be
+    determined based on the weight assessment by joint third-party inspection agency at the buyer’s factory during
+    de-stuffing of containers. In case the buyer receives the bags in short weighment, buyer will claim the
+    re-standardization cost @ USD 3.40 PMT on actual quantity re-standardized. Further buyer shall have the right to
+    make shortage claim on short receipt quantity. The claim should be supported by report issued by joint international
+    inspection agency acceptable to supplier. Cost of independent Surveyor nominated by buyer at Discharge port shall be
+    for Buyers account and cost of independent surveyor nominated by seller for joint survey shall be for sellers
+    account. Any shortage in excess of 0.5% in weight shall be reimbursed by the Seller to the Buyer. If the difference
+    in quantity exceeds 0.5%, the Seller will compensate Buyer for the shortfall quantity as per Invoice in excess of
+    0.5%. Such claims shall be settled within 30 days of the demand raised by the Buyer to seller. </p>
+  <p><b>As Regards Quality:</b> The seller shall supply the material strictly as per the specification in the Indian
+    Fertilizer Control Order (FCO). The analysis report from Central Fertilizer Quality Control and Training Institute
+    (CFQCTI)/ Regional Fertilizer Control Laboratory (RFCL)/ Fertilizer Control Laboratory (FCL) would be final and
+    binding on both the Seller and Buyer. Seller Undertakes to compensate buyer for all the losses owing to
+    non-conformity of the product to quality standards subject to that buyer must claim for compensation from the seller
+    within 60 days from the arrival of vessel at discharge port or 60 days from date of issue of report from
+    CFQCTI/RFCL/FCL whichever is later. The claims for losses to be supported with the report of CFQCTI/RFCL/FCL in
+    India, within 60 days from the date of arrival of vessel at the discharge port or 60 days date of issue of report
+    from CFQCTI/RFCL/FCL whichever is later. Seller undertakes to compensate Buyer for all losses owing to the
+    non-conformity of the product to quality standards</p>
+  <p>Seller may opt to replace the entire/part cargo which is declared as sub-standard with the standard product or,
+    upon Buyer obtaining approval from the Indian Government, arrange for parties to purchase the Non-Standard product
+    at a rate agreeable to the Buyer and thereafter compensate the Buyer for the difference in the amount received by
+    the Buyer against the amount paid by the buyer to the Seller for the product and any direct losses incurred by the
+    Buyer till such point. In the event of a return of non -standard cargo, in addition to the refund of CIF price as
+    per Payment terms clause above the Seller will also compensate the Buyer for all such costs incurred towards the
+    importation of Goods viz, Customs Duty & taxes paid for clearance of Cargo, Surveyor Charges, and Handling &
+    Transportation costs from Port/CFS till de-stuffing at Buyer Works.</p>
+  <p>If Buyer has claimed duty drawback with Indian Customs, then Seller shall compensate the Buyer, for the short
+    receipt amount from Indian Customs against the actual Drawback claimed also the Seller will bear the costs incurred
+    by the Buyer towards port storage, warehousing, costs for re-lifting material which has been dispatched on an actual
+    basis.The seller shall assist the Buyer for the speedy resolution of the claims for which the insurers or owners of
+    the carrying vessel are liable.</p>
+
+  <p><b><u>ETHICAL DEALING:</u></b></p>
+  <p>
+    Seller represents and warrants that it has not given or received and shall not give or receive any commission,
+    payment, kickback, secret rebate or other thing of value to or from any employee or agent of the other party or to
+    any supplier of services in connection with this contract. Seller acknowledges that the giving or receiving of any
+    such commission, payment, kickback, secret rebate or other thing of value constitutes a breach of ethical standards,
+    is potentially violative of applicable law and may result in immediate termination of this and other outstanding
+    agreements between the parties.
+  </p>
+
+  <p><b>Compliance:</b></p>
+  <p>Each party declares, represents and warrants for itself and its respective affiliates, employees and agents to be
+    aware of all economic sanctions laws, anti-boycott laws and trade restrictions imposed by the United Nations, the
+    United State of America, the member states of the European Union and/or the country/ countries from which the goods
+    may originate be shipped or discharged through which funds paid pursuant to the Contract may originate, pass or be
+    received; as may be amended from time to time (the “Restrictions”). For the purpose of this clause “affiliates”
+    means, in relation to either of the parties, any company controlling, controlled by, or under common control with
+    that party, either directly or indirectly. The parties undertake to comply (or cause their respective affiliates,
+    employees and agents to comply) with the Restriction in all respects in relation to the performance of this Contract
+    and any import acquisition from or export or resale to a third party.
+  </p>
+  <p>The warranty and undertaking contained In this clause refer in particular but not exclusively to the nominated
+    Vessel (and whoever may own, control, operate or have chartered her; directly or indirectly), to Buyer’s documentary
+    instructions to any Intervening banks, and in general to any other person, company or entity involved in the
+    performance of this Contract and any import or acquisition for or export or resale to a third party.
+  </p>
+  <p>Each party (the “Indemnifying Party”) shall fully Indemnify the other (the “Indemnified part”) and hold the
+    Indemnified Party harmless for any loss, cost or damage suffered by its principals, affiliates, employees or agents,
+    as a result of any intentional or unintentional breach of the Restrictions by the Indemnifying Party or any of the
+    person, companies and entities comprised in the indemnifying party warranty and undertaking under the terms of this
+    clause.
+  </p>
+  <p>Nothing in this Contract is meant to require either party to take any action which is likely to place it or any of
+    its respective affiliates, employees and agents in a position of non-compliance with, or in contravention of, the
+    Restrictions. </p>
+  <p>Breach by either party of any warranty or undertaking in this clause shall be deemed to be a breach of condition of
+    this Contract entitling the other party with notice to rectify the breach without prejudice to any of its rights
+    against the party in breach and in respect of which there shall be no waiver unless expressly made in writing.
+  </p>
+
+  <p><b><u>EXCLUSION OF WARRANTIES:</u></b></p>
+  <p>Subject to warranties expressly provided under PRODUCT SALES AGREEMENT, the Seller makes no warranty of any kind,
+    expressed or implied, whether of merchantability or fitness for any purpose or otherwise.
+  </p>
+  <p>All warranties or conditions as to quality suitability (whether statutory or otherwise) are hereby excluded to the
+    maximum extent permitted by law. The Buyer assumes all risk and liability for the use of the product, whether used
+    singly or in combination with other substances, and for loss, damage, or injury to persons or property of the Buyer
+    or others arising out of the use of or possession of the product.</p>
+
+  <p><b><u>DISPUTE RESOLUTION:</u></b></p>
+  <p>Amicable Settlement: Any dispute arising from or related to this Agreement/Contract shall be notified in writing by
+    one party to the other(s) within 5 days from the date of dispute, and the parties through their Authorized
+    Representatives shall use their best efforts to settle the dispute on an amicable basis within fifteen (15) days
+    from the date of receipt of such notice. IF the parties are unable to reach a mutually acceptable resolution with 15
+    days, the parties hereby agree to submit such dispute at the request of either part to an Arbitrator.
+  </p>
+
+  <p>Arbitration: “Any dispute arising out of or in connection with this contract, including any question regarding its
+    existence, validity or termination, shall be referred to and finally resolved by arbitration as per the rules of the
+    international chamber of commerce (ICC), which rules are deemed to be incorporated by reference into this clause.
+    The arbitration shall be conducted by a sole arbitrator who shall be appointed in accordance with the rules of the
+    ICC. The venue of arbitration shall be Singapore/Dubai. The language of the arbitration shall be English. The
+    arbitration award shall be final and binding on both parties. This agreement shall be governed by, construed and
+    enforced in accordance with English/Indian law. This clause shall survive the expiration or early termination of
+    this agreement.”
+  </p>
+
+  <p><b><u>TAXES, DUTIES AND IMPORT PERMIT:</u></b></p>
+  <p>Any/all taxes /charges on cargo at the load port to be for Seller's account and Any/all taxes /charges on cargo at
+    discharging port, including India's GST on freight, to be for Buyer's account.
+    Seller confirms that, all necessary licenses and permits required to export the product contracted herein have been
+    obtained. Buyer's confirms that all necessary licenses and permits required to import the product contracted herein
+    have been obtained. Seller to furnish Freight Invoice to Buyer for remittance of GST on Freight at discharge Port,
+    as per Government regulations.
+  </p>
+
+  <p><b><u>FORCE MAJEURE:</u></b></p>
+  <p>The force majeure clause of the international chamber of commerce (ICC PUBLICATION NUMBER 650) is hereby
+    incorporated in this contract. The Buyer and Seller shall not be responsible for any delay, failure or loss
+    resulting from causes beyond their control due to Epidemic, Pandemic, Endemic, acts of God, Acts of War, War
+    insurrection, fire, explosion, floods, strikes, riots, civil commotion, natural disasters compliance with any valid
+    laws, rules or regulations or acts of any other causes beyond the Buyer's or Seller's control. If any of the above
+    circumstances affects the terms execution of the contract directly, these terms will be extended for a period equal
+    to the time while such circumstances exist. Any party involving force majeure shall notify in writing to the other
+    party within 15 days of occurrence of the force majeure together with a certificate issued by an official entity of
+    the country affected by force majeure. Buyer recognizes that seller is not the producer of the cargo and any Force
+    Majeure condition affecting the producer of the cargo shall constitute as the Force Majeure condition affecting the
+    seller under this contract. It has been expressly understood that once loading completed, force majeure is not
+    applicable. In such a case where Force Majeure situation occurs at Buyer’s end after vessel loading is completed,
+    the Parties (Buyer & Seller) shall consult with a view to ending the Force Majeure and/or to mitigating the effects
+    thereof and/or the course of action to be adopted in the circumstances to mitigate the effects thereof.
+  </p>
+
+  <p><b><u>CONFIDENTIALITY:</u></b></p>
+  <p>Buyer is required not to disclose deal done/transaction if any, to any other company, unless so required by the law
+    before shipment made.
+  </p>
+
+  <p><b><u>ASSIGNMENT:</u></b></p>
+  <p>Neither this contract nor any right, duty or obligation of any party hereunder may be assigned or delegated by any
+    party (in whole or in part) without the prior written consent of the other party hereto.
+  </p>
+
+  <p><b><u>AMENDMENT: </u></b></p>
+  <p>No provision in this Contract (including this provision) shall be changed or modified in any way either in whole or
+    in part except by an instrument in writing made after the date of this Contract and signed on behalf of both the
+    parties and which expressly states to amend this Contract.
+  </p>
+
+  <p><b><u>ENTIRETY OF CONTRACT: </u></b></p>
+  <p>This contract shall constitute the entire understanding between Buyer and Seller and supersedes all previous
+    negotiations representations, agreements or commitments with respect to the matters dealt with herein or oral
+    statements which may have been made between the parties. No amendments to this Contract shall be binding unless
+    agreed by the parties in writing. Each Party acknowledges that in entering into this contract it has no reeled on
+    any representations, warranties, statements or undertaking except those which are expressly set out herein
+  </p>
+  <p><b><u>MISCELLANEOUS:</u></b></p>
+  <ol>
+    <li>This contract shall be constructed and the respective rights of the parties thereto will be determined
+      according to the laws of India.</li>
+    <li>The seller warrants product will be supplied as per typical specs.</li>
+    <li> Wherever not specified in the contract, incoterms 2020 and amendments to govern.</li>
+  </ol>
+
+
+
+  <p>Najmuddin Bhavnagarwala<br>
+    Director & COO<br>
+  </p>
+
+
+
+
+  <table style="width:100%; border-collapse:collapse;border:none;">
+    <tr>
+      <td style="width:50%; vertical-align:top; text-align:left; border:none; padding:5px;">
+        Signed & Accepted as Seller on this day of <br>
+        26TH February 2025 <br>
+        For and on behalf of <br>
+        Agrifields DMCC
+      </td>
+
+      <td style="width:50%; vertical-align:top; text-align:right; border:none; padding:5px;">
+        Signed & Accepted as Buyer on this day of<br>
+        _________________________________<br>
+        For and on behalf of<br>
+        {{buyer.name}}
+      </td>
+    </tr>
+  </table>
+
+
+
+  <h3 style="margin-bottom: 5px; text-align: center;"><u>Annexure 1</u> </h3>
+  {{#each specifications}}
+  <h3 style="margin-bottom: 5px; text-align: center;"><u>Typical Specification of {{productName}} as per the
+      Fertiliser (Inorganic, Organic or Mixed) Control Order, 1985 of India and its latest amendments (FCO) </u></h3>
+
+  <table style="width: 80%; border-collapse: collapse; margin-top: 15px; margin-left: auto; margin-right: auto;">
+    <tr>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;"><u>ITEMS</u></th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;"><u>SPECIFICATION</u></th>
+    </tr>
+    {{#each specifications}}
+    <tr>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{name}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{value}}</td>
+    </tr>
+    {{/each}}
+  </table>
+  {{/each}}
+
+</body>
+
+</html>
