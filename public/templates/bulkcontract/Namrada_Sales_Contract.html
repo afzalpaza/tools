@@ -6,35 +6,42 @@
   <title>Sales Contract</title>
 </head>
 
-<body>
-  <div style="display: flex; justify-content: space-between; margin-top: 25px;">
-    <div style="width: 50%;">
-      <div><strong>Agrifields</strong></div>
-      <div>TEL: +971 4 2766391</div>
-      <div>FAX: +971 4 2766032</div>
-      <div>EMAIL: naj@agrifields.com</div>
-    </div>
-    <div style="text-align: right; width: 50%;">
-      <strong>AGRIFIELDS DMCC</strong><br>
-      JBC 4, UNIT 3201, CLUSTER N<br>
-      JUMEIRAH LAKE TOWERS<br>
-      DUBAI. <strong>U.A.E.</strong>
-    </div>
-  </div>
+<body style="font-family: 'Arial', sans-serif; font-size: 10pt;">
+  <p>&nbsp;</p>
+  <table style="width: 100%; border-collapse: collapse; margin-top: 25px;">
+      <tr>
+          <td style="width: 50%; vertical-align: top; padding: 0; border: none;">
+              <img src="https://test.istakapaza.com/users/image?item=newblob1753095306189" width="140" height="40" />
+              <div>TEL: +971 4 2766391</div>
+              <div>FAX: +971 4 2766032</div>
+              <div>EMAIL: naj@agrifields.com</div>
+          </td>
+          <td style="width: 50%; vertical-align: top; text-align: right; padding: 0; border: none;">
+              <strong>AGRIFIELDS DMCC</strong><br>
+              JBC 4, UNIT 3201, CLUSTER N<br>
+              JUMEIRAH LAKE TOWERS<br>
+              DUBAI. <strong>U.A.E.</strong>
+          </td>
+      </tr>
+  </table>
 
-  <h2 style="text-align: center; text-decoration: underline; font-size: 20px; font-weight: bold; margin-top: 25px;">SALES CONTRACT FOR SUPPLY OF ROCK PHOSPHATE</h2>
+  <h2 style="text-align: center; text-decoration: underline; font-size: 12pt; font-weight: bold;">SALES CONTRACT FOR SUPPLY OF MURIATE OF POTASH IN BULK</h2>
 
-  <p style="margin-top: 20px;"><strong>Contract Number:</strong> {{contractNumber}}
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <p><strong>Contract Number:</strong> {{contractNumber}}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <strong>Date:</strong> {{contractDate}}</p>
 
-  <p style="margin-top: 20px;"><strong>1. {{buyer.name}} ("the Buyer")</strong><br>
+  <p><strong>1. {{buyer.name}} ("the Buyer")</strong><br>
     {{buyer.addressline1}}<br>
     {{buyer.addressline2}}<br>
     {{buyer.addressline3}}
   </p>
 
-  <p style="margin-top: 20px;"><strong>2.{{seller.name}} (the "Seller")</strong><br>
+  <p><strong>2.{{seller.name}} (the "Seller")</strong><br>
     {{seller.addressline1}}<br>
     {{seller.addressline2}}<br>
     {{seller.addressline3}}
@@ -53,8 +60,8 @@
     {{#each products}}
     <tr>
       <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{description}} (Source: {{origin}})</td>
-      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{quantity}} MT ({{toleranceSign}} {{tolerancePercentage}}%) at Seller's option.</td>
-      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{Currency}}</td>
+      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{quantity}} {{uom}} ({{toleranceSign}} {{tolerancePercentage}}%) at Seller's option.</td>
+      <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{currency}}</td>
       <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{price}}</td>
       <td style="border: 1px solid #000; padding: 12px; text-align: left; vertical-align: top;">{{incoterms}}</td>
     </tr>
@@ -62,11 +69,11 @@
   </table>
 
   <p style="margin-top: 25px;">
-    <strong>*Price –</strong> The agreed price for the goods is {{Currency}} {{price}} per metric ton ({{UOM}}), based
+    <strong>*Price –</strong> The agreed price for the goods is {{currency}} {{price}} per metric ton, based
     on a Letter of Credit (LC) with a credit period of 175 days.
     If the Buyer issues an LC with a reduced credit period of 90 days, the Seller shall grant a discount based on an
     annual interest rate of 4.5% per annum for
-    85-day reduction which shall be {{Currency}} 2.96 {{UOM}}, after receipt of funds under the LC and settled outside
+    85-day reduction which shall be {{currency}} {{price}}, after receipt of funds under the LC and settled outside
     the LC.
   </p>
 
@@ -88,14 +95,14 @@
   <p style="margin-top: 25px; font-weight: bold;">Loading ports:</p>
   <ul>
     {{#each loadingPorts}}
-    <li>{{productName}} - {{port}}, ({{quantity}} {{unit}})</li>
+    <li>{{port}}</li>
     {{/each}}
   </ul>
 
   <p style="margin-top: 25px; font-weight: bold;">Discharge ports:</p>
   <ul>
     {{#each dischargePorts}}
-    <li>{{productName}} - {{port}}, ({{quantity}} {{unit}})</li>
+    <li>{{port}}</li>
     {{/each}}
   </ul>
 
@@ -114,8 +121,8 @@
   <div style="text-align: center;">Or</div>
 
   <ol>Beneficiary Name: Agrifields DMCC<br>
-    Bank Name: ICICI BANK LTD, DUBAI, UAE<br>
-    SWIFT: ICICAEADXXX
+    Bank Name: {{seller.bankName}}, {{seller.bankBranch}}<br>
+    SWIFT: {{seller.swiftCode}}
   </ol>
 
   <p style="margin-top: 25px; font-weight: bold;">Shipping Documents:</p>
@@ -344,37 +351,35 @@
     3. The contract shall become effective from the day it is signed by both Buyer & Seller.<br>
   </p>
 
-  <div style="display: flex; justify-content: space-between; margin-top: 40px;">
-    <div style="width: 45%;">
-      <p style="margin-bottom: 30px; font-weight: bold;">For and on behalf of<br>
-        {{seller.name}}
-      </p>
-    </div>
-    <div style="width: 45%; text-align: right;">
-      <p style="margin-bottom: 30px; font-weight: bold;">For and on behalf of {{buyer.name}}
-      </p>
-    </div>
-  </div>
+  <table style="width: 100%; border-collapse: collapse; margin-top: 25px; font-weight: normal;">
+    <tr>
+      <td style="width: 50%; vertical-align: top; padding: 0; border: none; text-align: left;">
+        <p>For and on behalf of</p>
+        <p><strong>{{seller.name}}</strong></p>
+      </td>
+      <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none;">
+        <p>For and on behalf of </p>
+        <p><strong>{{buyer.name}}</strong></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 50%; vertical-align: top; padding: 0; border: none; padding-top: 1em; text-align: left;">
+        <p><strong>Signed & Accepted</strong></p>
+        <p>on this day of</p>
+        <p><strong>{{contractDate}}</strong></p>
+        <p><strong>Najmuddin Bhavnagarwala</strong></p>
+        <p><em>Director & COO</em></p>
+      </td>
+      <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none; padding-top: 1em;">
+        <p><strong>Signed & Accepted</strong></p>
+        <p>on this day of</p>
+        <p><strong>{{buyerSignatoryName}}</strong></p>
+        <p><em>{{buyerSignatoryTitle}}</em></p>
+      </td>
+    </tr>
+  </table>
 
-  <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-    <div style="width: 45%;">
-      <div style="border: 1px solid #000; padding: 25px; text-align: center;">
-        <div style="margin-bottom: 10px;"><strong>Signed & Accepted</strong></div>
-        <div style="margin-bottom: 10px;">on this day of</div>
-        <div style="margin-bottom: 10px;"><strong>{{contractDate}}</strong></div>
-        <div style="margin-bottom: 8px;"><strong>Najmuddin Bhavnagarwala</strong></div>
-        <div><em>Director & COO</em></div>
-      </div>
-    </div>
-    <div style="width: 45%;">
-      <div style="border: 1px solid #000; padding: 25px; text-align: center;">
-        <div style="margin-bottom: 10px;"><strong>Signed & Accepted</strong></div>
-        <div style="margin-bottom: 10px;">on this day of</div>
-        <div style="margin-bottom: 10px;"><strong>{{buyerSignatoryName}}</strong></div>
-        <div><em>{{buyerSignatoryTitle}}</em></div>
-      </div>
-    </div>
-  </div>
+  <div style="page-break-before: always;"></div>
 
   <h2 style="text-align: center; text-decoration: underline; font-size: 20px; font-weight: bold; margin-top: 25px;"><u>Annexure 1</u></h2>
   {{#each specifications}}

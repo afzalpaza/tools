@@ -10,7 +10,7 @@
   <table style="width: 100%; border-collapse: collapse; margin-top: 25px; border: none;">
     <tr>
       <td style="width: 50%; vertical-align: top; padding: 0; border: none;">
-        <div><strong>Agrifields</strong></div>
+        <img src="https://test.istakapaza.com/users/image?item=newblob1753095306189" width="140" height="40" />
         <div>TEL: +971 4 2766391</div>
         <div>FAX: +971 4 2766032</div>
         <div>EMAIL: naj@agrifields.com</div>
@@ -51,7 +51,11 @@
   </tr>
   <tr>
     <td style="font-weight: bold; width: 130px; white-space: nowrap; vertical-align: top; padding: 6px 8px;">Product:</td>
-    <td style="vertical-align: top; padding: 6px 8px; font-weight: normal;">{{productName}} (Caprolactam Grade)</td>
+    <td style="vertical-align: top; padding: 6px 8px; font-weight: normal;">
+      {{#each products}}
+        <p>{{description}}</p>
+      {{/each}}
+    </td>
   </tr>
   <tr>
     <td style="font-weight: bold; width: 130px; white-space: nowrap; vertical-align: top; padding: 6px 8px;">Packing:</td>
@@ -65,35 +69,20 @@
     <td style="font-weight: bold; width: 130px; white-space: nowrap; vertical-align: top; padding: 6px 8px;">Specification:</td>
     <td style="vertical-align: top; padding: 6px 8px; font-weight: normal;">
       Goods shall be shipped in good condition complying with the Contract description and the following typical specifications:
-
+      {{#each specifications}}
       <table style="width: 100%; border: 1px solid #000; margin-top: 10px; border-collapse: collapse;">
         <tr>
           <th style="border: 1px solid #000; padding: 6px; text-align: left; width: 100%; border-collapse: collapse; background-color: hsl(0, 1%, 51%);">Particulars</th>
           <th style="border: 1px solid #000; padding: 6px; text-align: left; width: 100%; border-collapse: collapse; background-color: hsl(0, 1%, 51%);">Specification</th>
         </tr>
+        {{#each specifications}}
         <tr>
-          <td style="border: 1px solid #000; padding: 6px; text-align: left;">Moisture per cent by weight</td>
-          <td style="border: 1px solid #000; padding: 6px; text-align: left;">1 % (Max)</td>
+          <td style="border: 1px solid #000; padding: 6px; text-align: left;">{{name}}</td>
+          <td style="border: 1px solid #000; padding: 6px; text-align: left;">{{value1}}</td>
         </tr>
-        <tr>
-          <td style="border: 1px solid #000; padding: 6px; text-align: left;">Ammoniacal Nitrogen per cent by weight</td>
-          <td style="border: 1px solid #000; padding: 6px; text-align: left;">20.5 %(Min)</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #000; padding: 6px; text-align: left;">Sulphate Sulphur (as S) per cent by weight</td>
-          <td style="border: 1px solid #000; padding: 6px; text-align: left;">23 %(Min)</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #000; padding: 6px; text-align: left;">
-            Free Acidity (as H2SO4) per cent by weight (0.04 for material obtained from by – product ammonia and by – product gypsum)
-          </td>
-          <td style="border: 1px solid #000; padding: 6px; text-align: left;">0.025%(Max)</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #000; padding: 6px; text-align: left;">Arsenic (as As2O3) per cent by weight</td>
-          <td style="border: 1px solid #000; padding: 6px; text-align: left;">0.01%(Max)</td>
-        </tr>
+        {{/each}}
       </table>
+      {{/each}}
     </td>
   </tr>
   <tr>
@@ -198,8 +187,6 @@ Buyer shall have the right to reject the Vessel on reasonable grounds but must d
          SWIFT: HDFCBHBMXXX / ICICAEADXXX / AXISAEADXXX</ul><br>
        </p>
        <p>Due to increasing number of international web Hackers’ attacks (Hacker is a person who uses computers to gain unauthorized access to data), both parties hereby acknowledge that Agrifields DMCC shall never ask buyer to transfer any monies and/or pay Agrifields DMCC’s invoice to any other banks which are not mentioned in this Contract/Agreement. </p>
-
-
     </td>
   </tr>
 
@@ -429,29 +416,28 @@ Clause:
 </tr>
 </table>
 
-<div style="display: flex; justify-content: space-between;">
-  <div style="max-width: 60%;">
-    <p style="margin: 2px 0;">Seller:</p>
-  </div>
-  <div style="max-width: 60%;">
-    <p style="margin: 2px 0;">For Buyer</p>
-  </div>
-</div>
-<br>
-<br>
-<br>
 <br>
 
-<div style="display: flex; justify-content: space-between;">
-  <div style="max-width: 60%;">
-    <p style="margin: 2px 0;">Najmuddin Bhavnagarwala</p>
-    <p style="margin: 2px 0;">Director & COO</p>
-    <p style="margin: 2px 0;">Agrifields DMCC</p>
-  </div>
-  <div style="max-width: 60%;">
-    <p style="margin: 2px 0;">..................</p>
-  </div>
-</div>
+<table style="width: 100%; border-collapse: collapse; margin-top: 25px; font-weight: normal;">
+  <tr>
+    <td style="width: 50%; vertical-align: top; padding: 0; border: none; text-align: left;">
+      <p><strong>Seller:</strong></p>
+    </td>
+    <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none;">
+      <p><strong>Buyer:</strong></p>
+    </td>
+  </tr>
+  <tr>
+    <td style="width: 50%; vertical-align: top; padding: 0; border: none; padding-top: 1em; text-align: left;">
+      <p><strong>Najmuddin Bhavnagarwala</strong></p>
+      <p><strong>Director & COO</strong></p>
+      <p><strong>Agrifields DMCC</strong></p>
+    </td>
+    <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none; padding-top: 1em;">
+      <p><strong></strong>..................</strong></p>
+    </td>
+  </tr>
+</table>
 
 </body>
 </html>
