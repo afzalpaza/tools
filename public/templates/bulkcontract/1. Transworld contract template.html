@@ -8,7 +8,7 @@
         <title>Document</title>
 </head>
 <body>
-        <h1 style="font-size: 11pt; font-weight: bold; text-decoration: underline; text-align: center; font-size: 14pt; text-transform: uppercase; letter-spacing: 1px;">SALES CONTRACT</h1>
+        <h1 style="font-size: 11pt; font-weight: bold; text-decoration: underline; text-align: center; font-size: 14pt; text-transform: uppercase; letter-spacing: 1px;">SALES CONTRACT FOR SUPPLY OF MURIATE OF POTASH IN BULK</h1>
         <div style="display: flex; justify-content: space-between;">
                 <p style="font-size: 11pt;">Contract Number: {{contractNumber}}</p>
                 <p style="font-size: 11pt;">Contract Dated: {{contractDate}}</p>
@@ -126,18 +126,34 @@
         <p style="font-size: 11pt; text-align: justify;">a) Inco terms 2020 and any revisions to govern contract.</p>
         <p style="font-size: 11pt; text-align: justify;">b) Partial and combination shipment allowed.</p>
         <p style="font-size: 11pt; text-align: justify;">c) Charter Party Bills of Lading and third-party documents to be acceptable.</p>
-        <div style="display: flex; justify-content: space-between; margin-top: 2em;">
-                <div style="width: 45%;">
-                <p style="font-size: 11pt;">Signed &amp; Accepted as Seller on this<br>day of {{contractDate}}<br>For and on behalf of<br>{{seller.name}}</p>
-                <br><br>
-                <p style="font-size: 11pt;">Najmuddin Bhavnagarwala<br>Director &amp; COO</p>
-                </div>
-                <div style="width: 45%;">
-                <p style="font-size: 11pt;">Signed &amp; Accepted as Buyer on this<br>day of {{contractDate}}<br>For and on behalf of<br>{{buyer.name}}</p>
-                <br><br>
-                <p style="font-size: 11pt;">Authorized Signatory</p>
-                </div>
-        </div>
+        
+        <table style="width: 100%; border-collapse: collapse; margin-top: 25px;">
+                <tr>
+                        <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none;">
+                                Signed &amp; Accepted as Seller on this<br>
+                                day of {{contractDate}}<br>
+                                For and on behalf of<br>
+                                {{seller.name}} 
+                        </td>
+                        <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none;">
+                                Signed &amp; Accepted as Buyer on this<br>
+                                day of {{contractDate}}<br>
+                                For and on behalf of<br>
+                                {{buyer.name}}
+                        </td>
+                </tr>
+                <tr>
+                        <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none; padding-top: 25px;">
+                                Najmuddin Bhavnagarwala<br>
+                                Director &amp; COO
+                        </td>
+                        <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none; padding-top: 25px;">
+                                Authorized Signatory
+                        </td>
+                </tr>
+        </table>
+
+        <div style="page-break-before: always;"></div>
         <h2 style="font-size: 11pt; font-weight: bold; text-decoration: underline; text-align: center;">Annexure 1</h2>
         {{#each specifications}}
         <h3 style="font-size: 11pt; font-weight: bold; text-decoration: underline; text-align: center;">Typical specification of {{productName}}</h3>
