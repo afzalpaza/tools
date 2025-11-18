@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Purchase Order</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; margin: 40px; line-height: 1.6;">
+
+  <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+    <div>
+      <p><b>PO NO. HIL/BC/SPF/FRZ/APR/2025-26</b><br>
+        BUYER:<br>
+        {{buyer.name}}</p>
+
+      <p>SELLER:<br>
+        Agrifields DMCC<br>
+        OFFICE 3201, JBC 4, CLUSTER N, JUMEIRAH LAKE TOWERS, DUBAI, UAE</p>
+    </div>
+    <div>
+      <p>{{contractDate}}</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 30px; margin-bottom: 20px;">
+    <p><b>Subject</b> : Purchase Order for supply of Mono Ammonium Phosphate (12-61-0) As Per Indian FCO</p>
+    <p><b>Reference</b> : Your revised Offer dated 8<sup>th</sup> Apr‘25</p>
+  </div>
+
+  <p>Dear Sir,</p>
+
+  <p>We are pleased to confirm our order for supply of Water-Soluble Fertilizer – Mono Ammonium Phosphate as per
+    following terms &amp; conditions:</p>
+
+  <h3 style="margin-bottom: 5px;">I/ ARTICLE 1 : ORIGIN / PACKING / MARKING</h3>
+  {{#each products}}
+    <p>
+      1) Commodity : {{description}}<br>
+      2) Origin : {{origin}}<br>
+      3) Packing : {{packing}}<br>
+      4) Specifications: As per Indian FCO
+    </p>
+  {{/each}}
+
+  {{#each specifications}}
+    <table style="width: 80%; border-collapse: collapse; margin-top: 15px; border: 1px solid black;">
+      <tr>
+        <th style="border: 1px solid black; padding: 8px; text-align: left;">Parameters</th>
+        <th style="border: 1px solid black; padding: 8px; text-align: left;">%</th>
+      </tr>
+      {{#each specifications}}
+      <tr>
+        <td style="border: 1px solid black; padding: 8px; text-align: left;">{{name}}</td>
+        <td style="border: 1px solid black; padding: 8px; text-align: left;">{{value1}}</td>
+      </tr>
+      {{/each}}
+    </table>
+  {{/each}}
+
+  <table style="width: 80%; border-collapse: collapse; margin-top: 15px; border: 1px solid black;">
+    <tr>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">No</th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Description</th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Quantity (+/-10% acceptable) MT</th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Unit Price CFR Mundra, India USD/MT</th>
+    </tr>
+    {{#each products}}
+    <tr>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{slNo}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;"><b>{{description}} As Per
+          Indian FCO</b></td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{quantity}} MT</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{price}} {{currency}}/{{uom}}</td>
+    </tr>
+    {{/each}}
+  </table>
+
+  <h3 style="margin-bottom: 5px;">III/ ARTICLE 3 : SHIPMENT/ DOCUMENT</h3>
+  <p>
+    SHIPMENT : May/June 2025 subject to CIQ approval<br>
+    Partial Shipment : Not Permitted<br>
+    Port of Loading : 
+    {{#each loadingPorts}}
+    <p>{{port}}</p>
+    {{/each}}<br>
+    Port of Discharge : {{#each loadingPorts}}
+      {{port}}<br>
+    {{/each}}
+  </p>
+
+  <p><b>SHIPPING DOCS</b></p>
+  <ul>
+    <li>01 original - Original/Surrendered Bill of Lading/ Telex released copy</li>
+    <li>02 original - Duly signed commercial invoice issued by Seller</li>
+    <li>01 original - Packing list issued by Seller</li>
+    <li>01 original - Certificate of Analysis issued by Seller</li>
+    <li>01 original - Certificate of Origin issued by beneficiary</li>
+    <li>01 original - Certificate of Quantity</li>
+  </ul>
+
+  <h3 style="margin-bottom: 5px;">IV/ ARTICLE 4 : PAYMENT</h3>
+  <p>
+    <b>Payment:</b> 100% by telegraphic transfer on 60<sup>th</sup> day from shipped on board/ BL date.
+  </p>
+
+  <div>
+    <p><b>The Seller's Bank:</b></p>
+    {{#if seller.bankName}}
+      <p>Beneficiary Name : AGRIFIELDS DMCC</p>
+      <p>Beneficiary Bank : {{seller.bankName}}</p>
+      <p>Beneficiary’s Account No : {{seller.accountNumber}}</p>
+      <p>IBAN NO. : {{seller.IBAN}}</p>
+      <p>Bank Address : DUBAI, U.A.E</p>
+      <p>SWIFT CODE : {{seller.swiftCode}}</p>
+    {{else}}
+      <p>Beneficiary Name : AGRIFIELDS DMCC</p>
+      <p>Beneficiary Bank : Emirates NBD</p>
+      <p>Beneficiary’s Account No : 1025245143002</p>
+      <p>IBAN NO. : AE450260001025245143002</p>
+      <p>Bank Address : DUBAI, U.A.E</p>
+      <p>SWIFT CODE : EBILAEAD</p>
+    {{/if}}
+  </div>
+
+  <p>a) Payment will be done within timeline. The time shall be of essence in the payment obligation of the Buyer. <br>
+    b) All remitting bank charges including any corresponding bank charges are on account of Remitter’s. Any bank
+    charges within the UAE will be on Seller’s account.<br>
+    c) In case of delay in payments, interest will be applicable at the rate of 12% p.a. on Invoice value.<br>
+  </p>
+
+  <h3 style="margin-bottom: 5px;">V/ Other terms & conditions:</h3>
+  <p>Inspection: Quality determined by Central Fertilizer Quality Control & Training Institute (CFQC & TI), Faridabad,
+    India and/or Regional Fertilizer Control Laboratory (RFCQL) at disport in accordance with provisions of Fertilizer
+    (Control) Order 1985 & it’s subsequent amendments, if any, and its report shall be final and binding on both
+    parties.</p>
+
+  <p>If the product sample fails in FCO / CFQCTI referee analysis the Seller on demand shall either: <br>
+    I. Replace equal quantity of the product without any additional cost to the Buyer within a reasonable time subject
+    to availability of the product /vessel and pay all expenses including custom duty. <br>
+    ii. Pay compensation to the buyer in an amount equivalent to the value of the consignment returned to the seller and
+    interest on paid payment, at buyer’s sole option and pay all expenses including custom duty. <br>
+  </p>
+
+  <p>Quantity received at discharge port at CFS weighbridge will be final and binding on both the parties. </p>
+
+  <p>In case of any shortages/damages, buyer to put initial notice within 3 days of release of containers from CFS and
+    lodge claim within 10 days from shipment arrival at destination port with all the valid supporting Docs. </p>
+
+  <p>If buyer fails to make the payment as per contract, the seller reserves the right to protect his interest to
+    transfer or resell the goods to alternate buyer and charge existing buyer the additional costs incurred in doing so.
+  </p>
+
+  <p>This agreement represents the entire agreement between the parties and no amendments to or modifications of this
+    agreement will be effective unless they are produced in writing and signed and stamped by a duly authorised
+    representative of both parties.</p>
+
+  <p><b>Shipping Terms:</b> In lots of 20 FT containers. 12/14 days free demurrage and detention at discharge port from
+    container line after arrival of vessel. Allocation of free days at Disport for demurrage and detention is defined by
+    rules of used container line. After that, demurrage/detention shall be incurred as per relevant shipping line's
+    demurrage/detention rate to buyer's account.</p>
+
+  <p><b>Insurance:</b> Insurance of the cargo to be on Buyer’s account </p>
+
+  <p><b>Other terms and conditions:</b> Third party documents should be acceptable.
+  <ol type="a">
+    <li>+/- 10% in quantity and value should be acceptable.</li>
+    <li>All bank charges except beneficiary's bank to buyer's account</li>
+    <li>Partial shipment and transshipment acceptable</li>
+    <li>Non-negotiable set of documents to be emailed to buyer before 5 days of arrival.</li>
+    <li>Buyer has to arrange for Import license, etc as per the laws of country of import. Any Tax, Duty
+      (Actual custom duty) at discharge port on cargo shall be to buyer account.</li>
+    <li>THC and other charges, insurance, local taxes and duties, etc at discharge port to buyer’s account.</li>
+  </ol>
+  </p>
+
+  <p>The seller will make every endeavor to negotiate the documents at the earliest but in any case, if the same is not
+    available before the arrival of the vessel, then the buyer has to arrange the discharge of cargo immediately against
+    their Letter of Indemnity to container line agent.</p>
+
+  <p><b>i. Notices:</b> Any notices required to be given by buyer to the seller in terms of this Agreement shall be
+    given in writing and shall be deemed to be properly forwarded if sent by airmail, fax, email or telex to the
+    following addresses of seller: Naj@agrifields.com</p>
+
+  <p><b>Force Majeure:</b> Both Buyer and Seller shall not be liable for delay or non-performance in whole or in part of
+    his contractual obligations in consequence of war, blockades, revolution, insurrection, civil commotion, riot,
+    mobilization, act of Government or public enemy, act of God, plague or other epidemic, fire, flood, sabotage,
+    quarantine, restriction, explosion or embargo, non-availability of suitable vessel, including any
+    change/modification in commercial laws rules and regulations by the Government.
+  </p>
+
+  <p><b>Arbitration:</b> Dispute, if any, arising out of or in connection with this contract shall be resolved either by
+    arbitration in Singapore, in accordance with the Arbitration Rules of the Singapore International Arbitration Centre
+    (SIAC Rules) and any amendments thereof, or in the Court of Law at Singapore.</p>
+
+  <p><b>Risk and tittle:</b> The risk of loss or damage to the goods is transferred from the seller to the buyer when
+    the goods shall have effectively passed progressively the ship’s rail at the port of loading and ownership of the
+    goods delivered shall pass to buyer upon payment of the full purchase value in respect of the terms of this
+    agreement.
+  </p>
+
+  <p><b>Governing Law: </b>The contract shall be governed and construed as per Indian Laws and place of jurisdiction in
+    Indian courts .</p>
+
+  <p><b>Warranty: </b>Unless otherwise Specified, the seller warrants that the goods will be fit for the ordinary
+    purposes for which such goods are normally used. The seller does not warrant that the goods are suitable for any
+    particular purpose for which they may be required, whether or not seller has reason to know of any such
+    requirements. There are no warranties, which extend beyond the description of the face hereof. Except as expressly
+    set forth herein, seller makes no warranties express of implied. The seller will assist in obtaining compliance with
+    any warranties of the Manufacturer and in effecting prompt settlement of any just claims, but without responsibility
+    or liability for any such compliance or effecting such settlement. The seller shall not be liable for consequential
+    damages.
+  </p>
+
+  <p><b>Entirety: </b>The entire contract between the parties is contained in this written agreement and no
+    representation, not oral agreement nor understanding not contained in this contract shall affect or alter same.
+  </p>
+
+  <p><b>Confidentiality Clause: </b>This contract and information related thereto, shall be held strictly confidential
+    by the parties and shall not be disclosed by the buyer/seller to any third party unless specifically authorized in
+    writing by the seller/buyer respectively, or required/requested by Law or Arbitration/ Competent Authority in case
+    of dispute.</p>
+
+  <p><b>Termination: </b> Either party may terminate or suspend its performance of all or any of its obligations under
+    this contract, and at any time, if the other party commits any material breach of the conditions of Contract and
+    fails to rectify the breach within thirty (30) days of such first party’s written notice, or where the material
+    breach is not capable of being rectified within thirty (30) days if the breaching party fails to commence reasonable
+    actions to rectify the breach within thirty (30) days of receiving such notice.
+  </p>
+
+  <p><b>Liabilities: </b>In so far as these conditions do not provide for other liability clauses, a party (non-affected
+    party) shall be liable for material breach or damage directly caused to the other party (affected party) as a result
+    of willful negligence, violation of agreed safety regulations or for any other legal reason, attributable to the
+    non-affected party only. Neither party shall in any event be
+    liable to the other party for any special, indirect, incidental, consequential, exemplary, punitive, tort or strict
+    liability damages of any nature or kind whatsoever, however caused including but not limited to lost profits, loss
+    of production, loss of business, whether or not the possibility of such damages could have been reasonably foreseen
+    and even if advised of the possibility of such damages.
+  </p>
+
+  <p><b>Indemnity: </b>Either Party (“Indemnifying Party”) agrees to indemnify and hold harmless the other Party
+    (“Indemnified Party”) from any and all liabilities, damages, losses, expenses (including, reasonable attorneys’ and
+    technical consultants’ fees and also all costs, charges and expenses in connection with any suit, action, claim or
+    demand, which may be required to be defended by Indemnified Party) and amounts paid in judgment or settlement,
+    incurred or sustained by or asserted against the Indemnified Party with respect to or arising after the signing of
+    this Agreement out of the material breach of any of Indemnifying Party’s representations and/or warranties,
+    covenants or other obligations to the Indemnified Party under this Agreement or against all costs, actions and/or
+    losses and/or damages incurred or suffered or as a result of or arising from the non-performance or material breach
+    of the provisions of any contract to be performed by Indemnifying Party. However, in no event Seller’s or Buyer’s
+    liability shall exceed 100% of the value of goods as per this shipment mentioned in the Order. And shall be valid
+    for 60 days from the date of arrival at the Buyer’s port.</p>
+
+  <p><b>Representations and warranties: </b>Each Party represents and warrants to the other that:
+    a. the execution, delivery and performance of the Agreement has been duly authorized by all necessary corporate or
+    other organizational action on its part and does not violate or conflict with any law applicable to its respective
+    jurisdiction of incorporation, its organizational documents or any order or judgment or a court or other agency of
+    government applicable to it or its assets; and
+  </p>
+
+  <p>b. it has all necessary material governmental and other third-party permits, approvals and licenses required in
+    connection with the execution, delivery and performance of the Agreement, such permits, approvals and licenses are
+    in full force and effect and all conditions thereto have been materially complied with, in each case to the extent
+    required at the time of this representation.
+  </p>
+
+  <p><b>REMEDIES: </b> MAP is currently under export restriction from China. Hence, the actual time of the shipment is
+    dependent on the timing of those restrictions being lifted by Chinese government authorities. Hence, for MAP, LDS is
+    being kept in abeyance. As a responsible supplier, Agrifields shall ship the cargo as soon as possible on a best
+    effort basis.</p>
+
+  <p><b>No waiver; </b> No waiver by either Party or any breach of the terms or conditions of this Purchase order to be
+    performed by the other Party shall be construed as a waiver of any succeeding breach of the same or any other terms
+    or conditions.
+  </p>
+
+  <p><b>Notice: </b>All communication, notices, or information to be given under this contract shall be so given in
+    writing and must be delivered personally, by registered post or to registered email address to the addresses as set
+    out in the invoice/contract.</p>
+
+  <p><b>Severability:</b> Should one of the provisions of these conditions of contract or of any additional stipulations
+    agreed upon be or become invalid, the validity of the remaining part of these conditions shall not be affected
+    thereby. The contracting parties are committed to replace the invalid provision by another equivalent term, in so
+    far as this is possible, with respect to the commercial effect. </p>
+
+  <p><b>Amendment:</b> Any amendment to these conditions of contract shall be mutually discussed and agreed in writing
+    between the Parties. </p>
+
+  <p><b>Ethical Dealing:</b> Seller represents and warrants that it has not given or received and shall not give or
+    receive any commission, payment, kickback, secret rebate or other thing of value to or from any employee or agent of
+    the other party or to any supplier of services in connection with this contract. Seller acknowledges that the giving
+    or receiving of any such commission, payment, kickback, secret rebate or other thing of value constitutes a breach
+    of ethical standards, is potentially violative of applicable law and may result in immediate termination of this and
+    other outstanding agreements between the parties.
+  </p>
+
+  <p><b>Compliance:</b>Each party declares, represents and warrants for itself and its respective affiliates, employees
+    and agents to be aware of all economic sanctions laws, anti-boycott laws and trade restrictions imposed by the
+    United Nations, the United State of America, the member states of the European Union and/or the country/ countries
+    from which the goods may originate be shipped or discharged through which funds paid pursuant to the Contract may
+    originate, pass or be received; as may be amended from time to time (the “Restrictions”). For the purpose of this
+    clause “affiliates” means, in relation to either of the parties, any company controlling, controlled by, or under
+    common control with that party, either directly or indirectly.
+  </p>
+
+  <p>The parties undertake to comply (or cause their respective affiliates, employees and agents to comply) with the
+    Restriction in all respects in relation to the performance of this Contract and any import acquisition from or
+    export or resale to a third party. The warranty and undertaking contained In this clause refer in particular but not
+    exclusively to the nominated Vessel (and whoever may own, control, operate or have chartered her; directly or
+    indirectly), to Buyer’s documentary instructions to any Intervening banks, and in general to any other person,
+    company or entity involved in the performance of this Contract and any import or acquisition for or export or resale
+    to a third party. </p>
+
+  <p>Nothing in this Contract is meant to require either party to take any action which is likely to place it or any of
+    its respective affiliates, employees and agents in a position of non-compliance with, or in contravention of, the
+    Restrictions. </p>
+
+  <p>Breach by either party of any warranty or undertaking in this clause shall be deemed to be a breach of condition of
+    this Contract entitling the other party with notice to rectify the breach without prejudice to any of its rights
+    against the party in breach and in respect of which there shall be no waiver unless expressly made in writing. </p>
+
+  <p>All communications referred to in this contract shall be made in writing and will be sent by registered
+    airmail/Scan copy/Email copy/Electronic copy to the addresses of Buyer and Seller to serve the purpose of originals
+    in all respect. Please send us the Countersigned copy of the Contract</p>
+
+
+  <table style="width:100%; border-collapse:collapse;border:none;">
+    <tr>
+      <!-- Left side -->
+      <td style="width:50%; vertical-align:top; text-align:left; border:none; padding:5px;">
+        AS BUYER <br>
+        {{buyer.name}}<br>
+      </td>
+
+      <!-- Right side -->
+      <td style="width:50%; vertical-align:top; text-align:left; border:none; padding:5px;">
+        AS SELLER<br>
+        AGRIFIELDS DMCC<br>
+      </td>
+    </tr>
+    <tr>
+      <!-- Left side -->
+      <td style="width:50%; vertical-align:top; text-align:left; border:none; padding:5px;">
+        (Authorised Signatory) <br>
+        Name : Ajay Kumar <br>
+        Designation : Sr. Vice President
+      </td>
+
+      <!-- Right side -->
+      <td style="width:50%; vertical-align:top; text-align:left; border:none; padding:5px;">
+        (Authorised Signatory)<br>
+        Name : Mr. NAJMUDDIN BHAVNAGARWALA<br>
+        Designation : DIRECTOR AND COO
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html>
