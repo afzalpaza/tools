@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sales and Purchase Contract</title>
+</head>
+
+<body style="font-family: 'Arial', sans-serif; font-size: 10pt;">
+  <p>&nbsp;</p>
+  <table style="width: 100%; border-collapse: collapse; margin-top: 25px;">
+    <tr>
+      <td style="width: 50%; vertical-align: top; padding: 0; border: none;">
+        <img src="https://test.istakapaza.com/users/image?item=newblob1753095306189" width="140" height="40" />
+        <div>TEL: +971 4 2766391</div>
+        <div>FAX: +971 4 2766032</div>
+        <div>EMAIL: naj@agrifields.com</div>
+      </td>
+      <td style="width: 50%; vertical-align: top; text-align: right; padding: 0; border: none;">
+        <strong>AGRIFIELDS DMCC</strong><br>
+        JBC 4, UNIT 3201, CLUSTER N<br>
+        JUMEIRAH LAKE TOWERS<br>
+        DUBAI. <strong>U.A.E.</strong>
+      </td>
+    </tr>
+  </table>
+
+  <h2 style="text-align: center; text-decoration: underline; font-size: 12pt; font-weight: bold;">SALES AND PURCHASE CONTRACT</h2>
+
+  <p><strong>Date:</strong> {{contractDate}}</p>
+  <p><strong>Agrifields Contract Number:</strong> {{contractNumber}}</p>
+  <p>The following Sale and Purchase Contract (the “Contract”) concluded on this {{contractDate}}.</p>
+
+  <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Buyer:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">
+        {{buyer.name}}<br>
+        {{buyer.addressline1}}<br>
+        {{buyer.addressline2}}<br>
+        {{buyer.addressline3}}<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Seller:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">
+        {{seller.name}}<br>
+        {{seller.addressline1}}<br>
+        {{seller.addressline2}}<br>
+        {{seller.addressline3}}<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Product:</td>
+      {{#each products}}
+      <td style="vertical-align: top; padding: 6px 8px;">{{description}}</td>
+      {{/each}}
+    </tr>
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Packing:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">In bulk</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Origin:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">
+        {{#each products}}
+        <span>{{origin}}</span>
+        {{/each}}
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Specification:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">
+        <span>Goods shall be shipped in good condition complying with the Contract description and the following typical specifications:</span>
+        {{#each specifications}}
+        <table style="width: 100%; border: 1px solid #000; margin-top: 10px; border-collapse: collapse;">
+          <tr>
+            <th
+              style="width: 100%; border-collapse: collapse; background-color: hsl(0, 1%, 51%); border: 1px solid #000; padding: 6px; text-align: left;">
+              Particulars</th>
+            <th
+              style="width: 100%; border-collapse: collapse; background-color: hsl(0, 1%, 51%); border: 1px solid #000; padding: 6px; text-align: left;">
+              Specification</th>
+          </tr>
+          {{#each specifications}}
+          <tr>
+            <td style="border: 1px solid #000; padding: 6px; text-align: left;">{{name}}</td>
+            <td style="border: 1px solid #000; padding: 6px; text-align: left;">{{value1}}</td>
+          </tr>
+          {{/each}}
+        </table>
+        {{/each}}
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Quantity:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">
+        {{#each products}}
+        <span>{{quantity}} {{uom}}S ({{toleranceSign}} {{tolerancePercentage}}%) at Seller's option.</span>
+        {{/each}}
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Tentative Loading Laycan:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">{{loadingLaycan}}</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Price:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">
+        {{#each products}}
+        <span>{{currency}} {{price}} P{{uom}} {{incoterms}} Free Out {{dischargePort}}, {{dischargeCountry}}.</span>
+        {{/each}}
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Vessels:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">The Vessel carrying the goods shall comply with the following
+        characteristics:<br>
+
+        1. First class mechanically self-propelled single deck, self-trimming bulk carrier, with minimum under-deck
+        spaces, suitable for the carriage of the Contract goods;<br>
+
+        2. Classed in accordance with the Institute Classification Clause of the International Underwriting Association
+        in force at the time of shipment;<br>
+
+        3. Unless Buyer has notified Seller in writing that discharge is not to be by grab, suitable for grab
+        discharge;<br>
+
+        4. Full and valid protection and indemnity insurance placed with a P&I club which is a member of the
+        International Group of P&I Clubs;<br>
+
+        5. Less than 25 years of age;<br>
+
+        6. LOA: max. 189 m;<br>
+
+        7. Beam overall: max. 32m;<br>
+
+        8. Summer draught: max. 10.06m for Kakinada.<br>
+
+        9. Vessel and the Vessel’s owner will be fully compliant with the international safety management code (“ISM”)
+        and Seller, if requested, shall provide Buyer with a copy of the appropriate ISM documentation.<br>
+
+        10. Vessel will be compliant with the requirements of the International Code for the Security of Ships and Port
+        Facilities and the relevant amendments to Chapter XI of SOLAS (ISPS Code).<br>
+
+        11. Vessels with flag of countries under OFAC or US sanctions as declared by Indian banks will not be used by
+        the Seller. In the event of such usage any delay in payments restricted by the Buyer’s Indian bank will not
+        entitle the Seller to interest for delayed payment.<br>
+
+        12. The Seller shall ensure that vessel so nominated shall NOT have any crew of Pakistani nationality / passport
+        holder on board.<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Vessels'
+        Nominations:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">Seller to give to Buyer not less than 10 business days' advance
+        notice of the Vessel's arrival at the load port, specifying:<br>
+
+        1. ETA (which shall be updated each day thereafter);<br>
+
+        2. Load port (and, if required by the Buyer, berth or terminal);<br>
+
+        3. Load port agents, with their contact details;<br>
+
+        4. Name, IMO number, flag and date of build of the Vessel, together with the particulars in the “Vessel” clause
+        above;<br>
+
+        5. Details of any other cargo on board the Vessel if a part cargo has been or will be loaded, including but not
+        limited to its nature, quality and quantity;<br>
+
+        6. Demurrage and dispatch rates.<br>
+
+        Buyer shall have the right to reject the Vessel on reasonable grounds but must do so within 1 business day of
+        receipt of the nomination. Seller is entitled to substitute the nomination provided that the substituting Vessel
+        complies with the terms of this clause. Buyer shall have the same right to reject the Vessel any such
+        substitute.<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Documentary Instructions:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">Buyer shall give full and final documentary instructions to at
+        least 3 business day before the start of loading laycan or within (1) business day after receiving the relevant
+        vessels nomination whichever is earlier.</td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Ascertainment of <br>
+        Quality/Condition:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">Quality, compliance with specification and condition are to be
+        determined upon shipment as per Indian FCO typical specification mentioned in the contract and sampling done at
+        discharge port by two agencies who can jointly make composite sample of the cargo discharged, Buyer to appoint
+        SGS and Seller shall appoint SGS/Inspectorate/Baltic Control. Its report shall be final and binding on both
+        Seller and Buyer absent fraud or manifest error.<br>
+
+        <p>The findings of the inspection company shall be determined from a composite sample of the goods taken by the
+          inspectors at discharge port. The Joint Inspection of sampling by the companies will prepare 4 samples (umpire
+          samples), sign/seal the same. One sample each will be held by the Seller’s and Buyers Inspection company. One
+          Sealed/signed sample each will be held by the Buyer and Seller. The inspection company shall carry out
+          continuous sampling during loading of the vessel in increments of 500 MT. </p>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Ascertainment<br>
+        of Quantity:
+      </td>
+      <td style="vertical-align: top; padding: 6px 8px;">Quantity is to be determined by draught survey at the load port
+        upon shipment by an independent, internationally recognised inspection company previously approved by Buyer
+        (such approval not to be unreasonably withheld) but appointed and paid by Seller. Its report shall be final and
+        binding on both Seller and Buyer absent fraud or manifest error. Buyer shall have the option to appoint at its
+        own cost its own inspection company to attend and observe the draught survey jointly with the inspection company
+        appointed by Seller. Any shortage in excess of 0.5% in weight shall be reimbursed by the Seller to the Buyer.
+        Such claims shall be settled within 15 days of the demand raised by the Buyer on seller.
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Payment:
+      </td>
+      <td style="vertical-align: top; padding: 6px 8px;">Coromandel will open the LC for 25,000 MTS (+/-10%) shipping
+        tolerance at the agreed price of CFR USD 166.75 per MT. Payment shall be by irrevocable and workable letter of
+        credit, which shall incorporate ICC Uniform Customs and Practice for Documentary Credits (UCP 600), to be opened
+        by any reputed scheduled bank in India and in a form reasonably acceptable to Seller before five working day of
+        the relative shipment period and payable at 30 days from the Bill of Lading date against production of the
+        following documents:<br>
+        <p>1. Seller’s commercial invoice;<br>
+
+          2. Full set 3/3 originals of clean Bills of Lading plus 3 non-negotiable copies, issued “TO ORDER” marked
+          “Freight payable by Charter Party” and blank endorsed;<br>
+
+          3. Quality certificate issued by the independent inspection company;<br>
+
+          4. Quantity certificate issued by the independent inspection company;<br>
+
+          5. Certificate of Origin from Beneficiary;<br>
+
+          6. Tank/Hatch/Holds cleanliness certificate issued by the independent inspection company;<br></p>
+
+        <p>All banking charges incurred in Buyer’s country are for Buyer’s account. All banking charges incurred outside
+          Buyer’s country are for Seller’s account.</p>
+
+        <p>In the event of shipping documents not being available when called for by the Buyer, or on arrival of the
+          vessel at destination, the Seller shall provide other documents or an indemnity entitling the Buyer to obtain
+          delivery of the goods. Should the Seller fail to present shipping documents or other documents or an indemnity
+          entitling the Buyer to take delivery, the Buyer shall take delivery under an indemnity provided by it and
+          shall pay for the documents when presented. Any reasonable extra expenses, including the costs of such
+          indemnity or extra charges incurred by reason of the failure of the Seller to provide such documents, shall be
+          borne by the Seller, but such payment shall not prejudice the Buyer’s rights under the Contract when shipping
+          documents are eventually available. </p>
+        <p><b>
+            <ul>Seller’s Bank Details:</ul>
+          </b>
+        <ul>Beneficiary Name: Agrifields DMCC<br>
+          Bank Name: HDFC Bank Ltd, Manama, Bahrain/ ICICI Bank Limited, Dubai, UAE/ Axis Bank Limited, Dubai, UAE<br>
+          SWIFT: HDFCBHBMXXX / ICICAEADXXX / AXISAEADXXX</ul>
+        </p>
+        <p>Due to increasing number of international web Hackers’ attacks (Hacker is a person who uses computers to gain
+          unauthorized access to data), both parties hereby acknowledge that Agrifields DMCC shall never ask buyer to
+          transfer any monies and/or pay Agrifields DMCC’s invoice to any other banks which are not mentioned in this
+          Contract/Agreement. </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Title:
+      </td>
+      <td style="vertical-align: top; padding: 6px 8px;">Title in the goods shall pass to Buyer once full payment
+        received by the Seller. Seller hereby expressly warrants that at the time of title transfer it will have good
+        title, free and clear of any liens or encumbrances, and that it has and will have the full right and authority
+        to transfer such title and effect delivery to Buyer.
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Risk:
+      </td>
+      <td style="vertical-align: top; padding: 6px 8px;">The risk of loss or damage to each instalment of the goods
+        shall pass from Seller to Buyer upon cargo passing the ship's rail upon shipment.
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Insurance:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">Insurance of the goods is to be covered by the Buyer.
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Appropriation:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">Within 2 business days of the date of the bill of lading,
+        Seller shall serve on Buyer a notice of appropriation stating the Vessel's name, the weight shipped, and the
+        date of the bill of lading. The bill of lading date stated in the notice of appropriation shall be for
+        information only and shall not be binding, but in fixing the period laid down by this clause for serving the
+        notice of appropriation the actual date of the bill of lading shall prevail. Every notice of appropriation shall
+        be open to correction of any errors occurring in transmission, provided that the sender is not responsible for
+        such errors, and for any previous error in transmission which has been repeated in good faith. Should the Vessel
+        arrive before receipt of the appropriation and any extra expenses are incurred thereby, such expenses shall be
+        borne by Sellers. When a valid notice of appropriation has been received by Buyer, it shall not be withdrawn
+        except with its consent.</td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">ETA at
+        <br> dis-charge port:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">Seller shall give, or shall procure that the Vessel gives, to
+        Buyer or other person at Buyer's written request the ETA at the discharge port at least 72, 48 and 24 hours
+        prior to arrival, advising any variation of more than 4 hours to the last ETA given.</td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Discharge
+        Rate,<br> Tendering NOR &<br> Laytime.</td>
+      <td style="vertical-align: top; padding: 6px 8px;">At discharge port, NOR to be tendered only during office hours
+        from Monday to Friday, between 08:00 and 17:00 hours, and Saturday between 08:00 and 12:00 hours, excluding
+        holidays. The Vessel shall tender NOR only when she is berthed and, in all respects, ready to discharge the
+        cargo. If the discharging berth or place is occupied, the Vessel may tender NOR once she has anchored at waiting
+        berth/place within the port limits or she has anchored at the port's customary waiting place as directed by the
+        local authorities, whether customs cleared or not, whether in free pratique or not. In case discharging berth is
+        occupied, Master to tender notice on arrival but has the option to sail to a safe area (up to 200 miles off port
+        limits) if he deems it is unsafe to stay at the port anchorage. All time for steaming to/from the drifting zone
+        not to count as laytime even if on demurrage.
+        <p>If after berthing, free pratique and/or customs clearance is refused, time not to count as laytime time,
+          until the moment free pratique and/or customs clearance is granted, related to vessel directly, even if Vessel
+          is already on demurrage. If Vessel is not ready to discharge upon tendering, Owners are to be responsible for
+          Stevedores charges first shift only, if any, and any other directly related charge incurred or payable by
+          reason of such delay, force majeure excepted.</p>
+        <p>Cargo to be discharged by Charterers’/Shippers’/Receiver’s Stevedores free of expense to the Owners at an
+          average rate as stated in this clause. All such rates being per weather working day of 24 consecutive hours.
+        </p>
+        <p>Discharge Rates: 7,500 metric tons per weather working day of 24 consecutive hours, SHEX EIU</p>
+        <p>In case Charterers/Shippers can arrange to discharge the cargo during excluded periods or holidays, or before
+          laytime commences to count, Captain to allow work to be done. At discharge, 12 hours turn time/free time to
+          apply even if used at first discharge port only in case 2 discharge ports. 12 hours turn time/free time to
+          apply even if used in case 1 discharge port. At discharge, where SHEX terms, time not to count from Sunday
+          0001 hrs until 23:59 hrs and from 0001 hrs until 23:59 hrs on a holiday. Laytime to be non-reversible between
+          all ports. At discharging ports, if Vessel has to wait for a discharging berth or anchorage, excepted periods
+          to apply in the same way as if the Vessel was in the final discharging berth or anchorage. Laytime shall not
+          count where loading or discharging is suspended due to actual bad weather. At discharging ports, time used to
+          shift the Vessel from the waiting place to the discharging berth, and first opening and last closing hatches
+          and make the ship ready in all respects to load/discharge shall not count as laytime or time on demurrage.
+          Shifting, if any, between discharge berths/anchorages to be for Receiver’s account, and time to count as
+          laytime or time on demurrage. Shifting from waiting anchorage/place to discharge berth not to count as laytime
+          or time on demurrage. First opening and Last closing of hatches to be for Owners’ time and account. Time lost
+          by inability of the Vessel to discharge in accordance with this Charter shall not count as used laytime or
+          time on demurrage.</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Demurrage/<br>
+        Dispatch:
+      </td>
+      <td style="vertical-align: top; padding: 6px 8px;">Demurrage and dispatch rates as per governing charter party. In
+        the event of a time charter, the daily hire rate shall be taken as the rate of demurrage, and half such rate as
+        despatch. Any claim for demurrage or despatch shall be deemed to be waived and be absolutely time barred unless
+        submitted to Buyer or, as the case may be, Seller in writing with proper supporting documentation not later than
+        30 days after the completion of discharge.
+      </td>
+    </tr>
+
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Vessel's
+        Agent:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">Vessel's agent at port of discharge to be for
+        Seller's/Charterers'/Shipowners' account.
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Duties
+        <br>and<br>Taxes:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">Seller shall customs clear the goods for export and
+        unconditionally guarantees that all necessary export licence(s) are for its account and risk and failure for any
+        reason whatsoever to obtain such licence(s) shall not amount to force majeure. All duties, taxes, dues or
+        charges of whatsoever nature on the goods at the country of origin and/or shipment are for the account of
+        Seller. All duties, taxes, dues or charges of whatsoever nature on the goods at the country of destination are
+        for the account of Buyer. Seller to provide Buyer with such documentation as it may require in order to comply
+        with import and customs regulations at destination.
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Anti-bribery<br>
+        and Corruption:
+      </td>
+      <td style="vertical-align: top; padding: 6px 8px;">The parties each agree and undertake to the other that in
+        connection with this Contract, they will each respectively comply with the Indian Prevention of Money Laundering
+        Act 2002 and all applicable laws, rules, regulations, decrees and/or official government orders of India, UK,
+        USA or other relevant jurisdiction (including that of Seller and the countr(ies) of origin and of shipment)
+        relating to anti-bribery and anti-money laundering. The parties each represent, warrant and undertake to the
+        other that they shall not, directly or indirectly:
+        <p>1. pay, offer, give, promise to give or authorise the giving of a bribe to any person, individual or entity
+          (including a public official);</p>
+
+        <p>2. request, agree to receive or accept a bribe from any person, individual or entity; or</p>
+
+        <p>3. engage in any other transaction</p>
+
+        <p>in each case if this is in violation of or inconsistent with the anti-bribery and anti-money laundering
+          legislation of any government, including but not limited to the UK Bribery Act 2010, the Proceeds of Crime Act
+          2002 and the US Foreign Corrupt Practices Act.</p>
+        <p>Further, the Seller undertakes that he has not given, offered or promised to give directly or indirectly any
+          bribes, commission, gift, consideration, reward or inducement to any employees of Buyer or their agent or
+          relatives or agreeing to show favour or disfavor to any person in procuring this contract.</p>
+        <p>Further, if at any point of execution of this Agreement, Seller through any demand, request for
+          gratification, favour, etc., from any of the employees or representatives of Coromandel in connection with
+          this Agreement, it shall promptly report the same to Coromandel’s Whistle Blower at his email ID:
+          ombudsman@corp.murugappa.com.</p>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Compliance:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">Each party declares, represents and warrants for itself and its
+        respective affiliates, employees and agents to be aware of all economic sanctions laws, anti-boycott laws and
+        trade restrictions imposed by the United Nations, the United States of America, the member states of the
+        European Union and/or the country or countries from which the goods may originate, be shipped or discharged or
+        through which funds paid pursuant to the Contract may originate, pass or be received, as may be amended from
+        time to time (the "Restrictions"). For the purposes of this clause "affiliates" means, in relation to either of
+        the parties, any company controlling, controlled by, or under common control with that party, either directly or
+        indirectly.
+        <p>The parties undertake to comply (or cause their respective affiliates, employees and agents to comply) with
+          the Restrictions in all respects in relation to the performance of this Contract and any import or acquisition
+          from or export or resale to a third party. The warranty and undertaking contained in this clause refer in
+          particular but not exclusively to the nominated Vessel (and whoever may own, control, operate or have
+          chartered her, directly or indirectly), to Buyer’s documentary instructions, to any intervening banks, and in
+          general to any other person, company or entity involved in the performance of this Contract and any import or
+          acquisition from or export or resale to a third party.</p>
+        <p>Each party (the “Indemnifying Party”) shall fully indemnify the other (the “Indemnified Party”) and hold the
+          Indemnified Party harmless for any loss, cost or damage suffered by it and its principals, affiliates,
+          employees or agents, as a result of any intentional or unintentional breach of the Restrictions by the
+          Indemnifying Party or any of the persons, companies and entities comprised in the Indemnifying Party’s
+          warranty and undertaking under the terms of this clause.</p>
+        <p>Nothing in this Contract is meant to require either party to take any action which is likely to place it or
+          any of its respective affiliates, employees and agents in a position of non-compliance with, or in
+          contravention of, the Restrictions.</p>
+        <p>Breach by either party of any warranty or undertaking in this clause shall be deemed to be a breach of
+          condition of this Contract entitling the other party to terminate this Contract at any time without prejudice
+          to any of its rights against the party in breach and in respect of which there shall be no waiver unless
+          expressly made in writing.</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Force
+        Majeure:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">Neither Seller nor Buyer shall be liable for a failure to
+        perform any of its obligations hereunder insofar as that party proves that the failure was due to an impediment
+        beyond its control. Such impediment shall include delay, hindrance, reduction in, interference with, curtailment
+        or prevention of a party's performance of its obligations hereunder resulting from events such as the following,
+        this enumeration not being exhaustive:
+        <ul>(a) war, whether declared or not, civil war, riots and revolutions, acts of piracy, acts of sabotage;</ul>
+        <ul>(b) natural disasters such as violent storms, cyclones, earthquakes, tidal waves, floods, destruction by
+          lightning;</ul>
+        <ul>(c) explosions, fires, destruction of storage facilities or terminals and any kind of installations;</ul>
+        <ul>(d) boycotts, strikes, lock-outs, labour disputes of all kinds, go-slows, occupation of factories and
+          premises;</ul>
+        <ul>(e) any compliance with any law, regulation or ordinance, or with any order, demand or request of an
+          international, national, port, transportation, local or other authority or agency or of anybody or person
+          purporting to be or to act for any such authority or agency or any corporation directly or indirectly
+          controlled by any of them;</ul>
+        <ul>(f) provided that (i) the Seller is not the manufacturer of the goods but has purchased direct from such
+          manufacturer and (ii) the Seller has disclosed details of such manufacturer to the Buyer prior to conclusion
+          of the Contract, any of the above impediments which the Seller proves caused the failure to perform by such
+          manufacturer.</ul>
+
+        <p>Any such impediment shall not include delay, hindrance, interference with, curtailment or prevention of a
+          party's accrued obligation to make payment under this Agreement whether in respect of price, demurrage,
+          despatch or any other financial obligation whatsoever where the impediment is solely caused by lack of funds.
+        </p>
+        <p>The party seeking relief (the "Relying Party") shall within 5 business days of the impediment occurring give
+          notice in writing to the other party of such impediment and the effects, or the reasonably anticipated
+          effects, on its ability to perform in as much detail as possible (supported where appropriate by all
+          reasonably available documentation) along with declaration from relevant Statutory Authority for declaration
+          of Force Majeure and the appropriate relief sought, and of its intention to rely on this term. The Relying
+          Party shall use all reasonable endeavours to mitigate and overcome the effects of the impediment and shall,
+          during the continuation of the impediment, provide the other party with reasonable updates (supported where
+          appropriate by all reasonably available documentation), when and if available, of the extent and expected
+          duration of the impediment. Delay or failure to comply with this requirement shall not deprive the Relying
+          Party of the right to claim relief but may make the Relying Party liable in damages to the other party for
+          loss which otherwise could reasonably have been avoided.</p>
+        <p>The appropriate relief under this term shall be as follows:</p>
+
+        <ul>1. In respect of an impediment that renders impossible the Relying Party's performance of its obligations,
+          immediate termination of the affected delivery obligation(s) without liability for damages, penalties and
+          other contractual remedies;</ul>
+        <ul>2. In respect of an impediment that delays, hinders, reduces or interferes with the performance of the
+          delivery obligation(s), immediate postponement of those obligations without liability for damages, penalties
+          and other contractual remedies for a period until midnight local time on the last date of the delivery period
+          of the relevant instalment, or until such time as the impediment is removed, whichever is the earlier. The
+          impediment shall not, however, operate to extend the term of such delivery period. Further, should the
+          impediment continue beyond midnight local time on the last day of such delivery period then either party may
+          terminate this Contract with reference to such instalment only without liability for damages, penalties and
+          other contractual remedies by and upon giving written notice to the other party;</ul>
+        <ul>3. In respect of an impediment that delays, hinders, reduces or interferes with the performance of an
+          obligation other than the delivery obligation(s), immediate postponement of those obligations without
+          liability for damages, penalties and other contractual remedies until such time as the impediment is removed.
+        </ul>
+
+        <p>The Relying Party, if the Seller, shall not be obliged to purchase afloat or otherwise from other suppliers
+          to make good shortages or deficiency of delivery resulting from an impediment.</p>
+        <p>Nothing in this term shall be taken to limit or prevent the operation of the Common Law doctrine of
+          frustration (including frustration of the adventure, of purpose or of this Contract). Notice of FM to be given
+          promptly within 2 working days of the occurrence of the FM event.</p>
+
+      </td>
+    </tr>
+
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Covid
+        Clause</td>
+      <td style="vertical-align: top; padding: 6px 8px;">1. Sellers guarantee that, at the time of discharge, the
+        vessel/ crew/ cargo shall meet with all phytosanitary, health and safety requirements applicable there. Buyers
+        shall not be liable to the vessel and/ or the Sellers for any damage/ delay/ demurrage/ detention/ damages
+        arising out of termination or postponement incurred at the discharge port/ berth/ anchorage or any other
+        location arising out of quarantine/ embargo/ other measures taken by local authorities relating to the spread of
+        the coronavirus. This shall apply even if this is only one of several causes for any delay experienced by the
+        vessel and/ or if demurrage/ detention has otherwise commenced.
+        <p>In relation to Covid-19, in case the berthing or discharging operations of the vessel are delayed or
+          suspended due to the vessel failing to obtain free pratique or due to health or other authorities imposing any
+          type of restrictions at any time during her stay in port; the time thereby lost will not count as laytime or
+          time on demurrage and the costs of extra shiftings, if any, will be for Owner’s time and account. If, after
+          tendering NOR, the vessel fails to obtain free pratique, such time shall not count until the vessel obtains
+          Free Pratique.</p>
+        <p>In case of any suspicion of contagious disease among the crew during the discharging operation and vessel is
+          ordered to vacate the berth by the port authority, time not to count from such instruction given until the
+          vessel is re-berthed and any shifting cost/expense/time to be for sellers/owners account.</p>
+        <p>Should any other provision in this contract conflict with this clause then this clause shall be considered
+          paramount and as such will override any contrary provision.</p>
+        <p>2. If any authority at the discharge port/ country issues any notification/ circular/ communique relating to
+          the spread of the coronavirus which, in the Buyers’ reasonable judgment, shall result in measures being
+          imposed against the vessel/ cargo/ crew by such/ any other authority and is capable of delaying the receipt of
+          the cargo at discharge port by Buyers:</p>
+        <p>a. Buyers shall be entitled to terminate this contract or postpone this contract to a mutually acceptable
+          date without any liability to either party if the vessel has not commenced the loading operation or the vessel
+          has been clean fixed but not reached the load port</p>
+        <p>b. If cargo loading has commenced at the date of exercising the option, the Buyers have the right to require
+          the Sellers to unload the cargo, at buyer’s cost.</p>
+        <p>Such rights as above said shall be considered as having been validly exercised if, on the date of such
+          exercise, the notification/ circular/ communique are in force.</p>
+        <p>Should any other provision in this contract conflict with this clause then this clause shall be considered
+          paramount and as such will override any contrary provision.</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Notices:
+      </td>
+      <td style="vertical-align: top; padding: 6px 8px;">All notices required to be served on the parties pursuant to
+        this Contract shall be served rapidly in legible form. Methods of rapid communication for the purposes of this
+        clause are defined and mutually recognised as: - letter if delivered by hand on the date of delivery, or
+        telefax, or email, or other electronic means, always subject to the proviso that if receipt of any notice is
+        contested, the burden of proof of transmission shall be on the sender who shall, in the case of a dispute,
+        establish, to the satisfaction of the arbitrator(s) appointed pursuant to the Arbitration Clause that the notice
+        was actually transmitted to the addressee.
+        <p>Contact details for notices to Buyer are as follows: Mr. Dhananjay Krishna</p>
+        <p>Contact details for notices to Seller are as follows: Mr. Najmuddin Bhavnagarwala</p>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Non-business <br>
+        days:
+      </td>
+      <td style="vertical-align: top; padding: 6px 8px;">Saturdays, Sundays and the officially recognised and/or legal
+        holidays of the respective countries shall be Non-Business Days. Should the time limit for doing any act or
+        serving any notice expire on a Non-Business Day, the time so limited shall be extended until the first Business
+        Day thereafter. The period for each shipment shall not be affected by this clause.
+
+      </td>
+    </tr>
+
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Insolvency:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">If before the fulfilment of this Contract either party shall
+        suspend payments, notify any of the creditors that it is unable to meet debts or that it has suspended or that
+        it is about to suspend payments of its debts, convene, call or hold a meeting of creditors, propose a voluntary
+        arrangement, have an administration order made, have a winding up order made, have a receiver or manager
+        appointed, convene, call or hold a meeting to go into liquidation (other than for reconstruction or
+        amalgamation), or have a Bankruptcy Petition presented against it (any of which acts being hereinafter called an
+        "Act of Insolvency") then the party committing such Act of Insolvency shall forthwith serve a notice of the
+        occurrence of such Act of Insolvency on the other party to this Contract and upon proof (by either the other
+        party to this Contract or the Receiver, Administrator, Liquidator or other person representing the party
+        committing the Act of Insolvency) that such notice was thus served within 2 business days of the occurrence of
+        the Act of Insolvency, this Contract shall be automatically terminated on the business day following the serving
+        of the Notice. If such notice has not been served, then the other party, on learning of the occurrence of the
+        Act of Insolvency, shall have the option of declaring this Contract terminated. Any such termination shall be
+        without prejudice to any rights to damages.
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Confidentiality:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">This Contract is to be kept strictly private and confidential.
+        Save as otherwise specified in this Contract, all information acquired or received under this Contract shall be
+        maintained by the parties as strictly confidential and shall not be divulged without the prior written consent
+        of the other party, except to the extent required to comply with laws, rules or regulations of any stock
+        exchange or customs or regulatory authority to which either party may be subject.
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Assignment: </td>
+      <td style="vertical-align: top; padding: 6px 8px;">Neither this contract nor any right, duty or obligation of any
+        party hereunder may be assigned or delegated by any party (in whole or in part) without the prior written
+        consent of the other party hereto.
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Amendment: </td>
+      <td style="vertical-align: top; padding: 6px 8px;">No provision in this contract (including this provision) shall
+        be changed or modified in any way either in whole or in part except by an instrument in writing made after the
+        date of this Contract and signed on behalf of both the parties and which expressly states to amend this
+        Contract.
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Waiver:
+      </td>
+      <td style="vertical-align: top; padding: 6px 8px;">Any waiver of a provision or of a particular breach of any
+        obligation, or the failure to exercise any of the rights herein provided by a party, shall not be deemed to
+        constitute a waiver of any other provision or subsequent breach or to prejudice the exercise in future of any
+        right by that party.
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">Entirety
+        of<br>
+        Contract:
+
+      </td>
+      <td style="vertical-align: top; padding: 6px 8px;">This Contract shall constitute the entire understanding between
+        Buyer and Seller and supersedes all previous negotiations, representations, agreements or commitments with
+        respect to the matters dealt with herein or oral statements which may have been made between the parties. No
+        amendment to this Contract shall be binding unless agreed by the parties in writing. Each party acknowledges
+        that in entering into this Contract it has not relied on any representations, warranties, statements or
+        undertakings except those which are expressly set out herein.
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Governing<br>
+        Law:
+      </td>
+      <td style="vertical-align: top; padding: 6px 8px;">This Contract shall be deemed to have been made in England and
+        to be performed in England, notwithstanding any contrary provision, and this Contract shall be construed and
+        take effect in accordance with the laws of England.
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Arbitration:</td>
+      <td style="vertical-align: top; padding: 6px 8px;">Any and all disputes arising out of or under this Contract or
+        any claim regarding the interpretation or execution of this Contract shall be determined by arbitration by three
+        persons in DIFC, Dubai but in accordance with the Arbitration Rules of the London Court of International
+        Arbitration. The language of the arbitration shall be English.
+        <p>Neither party hereto, nor any persons claiming under either of them, shall bring any action or other legal
+          proceedings against the other in respect of any such dispute, or claim until such dispute or claim shall first
+          have been heard and determined by the arbitrator(s) and it is expressly agreed and declared that the obtaining
+          of an award from the arbitrator(s) shall be a condition precedent to the right of either party hereto or of
+          any persons claiming under either of them to bring any action or other legal proceedings against the other of
+          them in respect of any such dispute or claim.</p>
+        <p>Nothing contained in this Arbitration clause shall prevent the parties from seeking to obtain security in
+          respect of their claim or counterclaim via legal proceedings in any jurisdiction, provided such legal
+          proceedings shall be limited to applying for and/or obtaining security for a claim or counterclaim, it being
+          understood and agreed that the substantive merits of any dispute or claim shall be determined solely by
+          arbitration.</p>
+      </td>
+
+    </tr>
+    <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+      International <br> Conventions, etc.:
+
+    </td>
+    <td style="vertical-align: top; padding: 6px 8px;">The following shall not apply to this Contract:
+      <p>1. The Uniform Law on Sales and the Uniform Law on Formation to which effect is given by the Uniform Laws on
+        International Sales Act 1967;</p>
+      <p>2. The United Nations Convention on Contracts for the International Sale of Goods of 1980;</p>
+      <p>3. The United Nations Convention on Prescription (Limitation) in the International Sale of Goods of 1974 and
+        the amending Protocol of 1980;</p>
+      <p>4. Unless this Contract contains any statement expressly to the contrary (for example, without limitation, the
+        Compliance clause), a person who is not a party to this Contract has no right under the Contract (Rights of
+        Third Parties) Act 1999 to enforce any term of it.</p>
+    </td>
+    <tr>
+
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Confirmation <br>
+        Clause:
+
+      </td>
+      <td style="vertical-align: top; padding: 6px 8px;">If any of the above is contrary to your understanding of the
+        terms of this Contract, please respond immediately via email (to the aforesaid contact(s) specified in the
+        Notices clause) with your specific points of disagreement.
+        <p>In the event that no such notification is received by us within 3 business days of this confirmation of the
+          Contract being sent, the provisions set forth in this confirmation shall be binding upon both parties without
+          modification or substitution.</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; padding: 6px 8px; font-weight: bold; width: 130px; white-space: nowrap;">
+        Declaration: </td>
+      <td style="vertical-align: top; padding: 6px 8px;">Each signatory to this Contract declares and confirms that they
+        have been duly authorized by the competent authority/authorities of their respective companies to negotiate,
+        finalize and enter into this Contract. The respective companies on whose behalf this Contract has been signed
+        unequivocally undertake to abide by & honour all terms and conditions without any demur, protest and delay under
+        all circumstances.
+      </td>
+    </tr>
+  </table>
+  
+  <table style="width: 100%; border-collapse: collapse; margin-top: 25px; font-weight: normal;">
+    <tr>
+      <td style="width: 50%; vertical-align: top; padding: 0; border: none; text-align: left;">
+        <p><strong>Seller:</strong></p>
+      </td>
+      <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none;">
+        <p><strong>Buyer:</strong></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 50%; vertical-align: top; padding: 0; border: none; padding-top: 1em; text-align: left;">
+        <p style="margin: 2px 0;">Najmuddin Bhavnagarwala</p>
+        <p style="margin: 2px 0;">Director & COO</p>
+        <p style="margin: 2px 0;">Agrifields DMCC</p>
+      </td>
+      <td style="width: 50%; vertical-align: top; text-align: left; padding: 0; border: none; padding-top: 1em;">
+        <p style="margin: 2px 0;">..................</p>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+</body>
+
+</html>
