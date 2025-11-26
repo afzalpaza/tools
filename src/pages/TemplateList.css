@@ -138,12 +138,15 @@
 }
 
 .template-name {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #333;
   margin: 0;
   flex: 1;
-  margin-right: 15px;
+  margin-right: 30px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 
 .template-actions {

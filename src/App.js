@@ -34,7 +34,7 @@ function Navigation() {
         <div className="nav-container">
           <div className="nav-brand">
             <span className="nav-logo">📄</span>
-            HTML to Word Tools
+            Istaka Tools
           </div>
           <div className="nav-links">
             <Link 

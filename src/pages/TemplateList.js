@@ -14,6 +14,7 @@ function TemplateList() {
   const fetchTemplates = async () => {
     try {
       setIsLoading(true);
+      setError('');
       const token = localStorage.getItem('apiToken');
       const apiUrl = localStorage.getItem('apiUrl');
       
@@ -23,7 +24,7 @@ function TemplateList() {
         return;
       }
 
-      const response = await fetch(`${apiUrl}/businesses/trade/templates`, {
+      const response = await fetch(`${apiUrl}/businesses/trade/template`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -36,7 +37,7 @@ function TemplateList() {
       }
 
       const data = await response.json();
-      setTemplates(data);
+      setTemplates(data.data);
     } catch (error) {
       console.error('Error fetching templates:', error);
       setError('Failed to fetch templates. Please check your connection and try again.');
@@ -132,19 +133,19 @@ function TemplateList() {
         ) : (
           <div className="templates-grid">
             {templates.map((template) => (
-              <div key={template.id} className="template-card">
+              <div key={template._id} className="template-card">
                 <div className="template-header">
-                  <h3 className="template-name">{template.name}</h3>
+                  <h4 className="template-name">{template.templateName}</h4>
                   <div className="template-actions">
                     <Link 
-                      to={`/edit-template/${template.id}`} 
+                      to={`/edit-template/${template._id}`} 
                       className="action-btn edit-btn"
                       title="Edit Template"
                     >
                       ✏️
                     </Link>
                     <button 
-                      onClick={() => handleDeleteTemplate(template.id)}
+                      onClick={() => handleDeleteTemplate(template._id)}
                       className="action-btn delete-btn"
                       title="Delete Template"
                     >
@@ -182,7 +183,7 @@ function TemplateList() {
 
                 <div className="template-footer">
                   <Link 
-                    to={`/edit-template/${template.id}`} 
+                    to={`/edit-template/${template._id}`} 
                     className="edit-link"
                   >
                     Edit Template →

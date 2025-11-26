@@ -29,7 +29,7 @@ function TemplateEdit() {
         return;
       }
 
-      const response = await fetch(`${apiUrl}/templates/${id}`, {
+      const response = await fetch(`${apiUrl}/businesses/trade/template/${id}`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -42,11 +42,11 @@ function TemplateEdit() {
       }
 
       const data = await response.json();
-      setTemplate(data);
+      setTemplate(data.data);
       
       // Get content from first section as specified
-      if (data.sections && data.sections.length > 0) {
-        setContent(data.sections[0].content || '');
+      if (data.data.sections && data.data.sections.length > 0) {
+        setContent(data.data.sections[0].content || '');
       }
     } catch (error) {
       console.error('Error fetching template:', error);
@@ -78,7 +78,7 @@ function TemplateEdit() {
         ]
       };
 
-      const response = await fetch(`${apiUrl}/templates/${id}`, {
+      const response = await fetch(`${apiUrl}/businesses/trade/template`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -183,10 +183,10 @@ function TemplateEdit() {
         </div>
 
         <div className="preview-section">
-          <div className="section-header">
+          <div className="section-header" style={{ marginBottom: '0px' }}>
             <h3>👁️ Preview</h3>
           </div>
-          <div className="preview-wrapper">
+          <div className="preview-wrapper" style={{ padding: '5px' }}>
             <div className="a4-preview">
               <div 
                 className="preview-content"
