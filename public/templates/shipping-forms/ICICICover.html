@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICICI Cover Letter</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 20mm;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            line-height: 1.6;
+            color: #000;
+            background: white;
+        }
+
+        @media print {
+            body {
+                width: 210mm;
+                height: 297mm;
+            }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        table th, table td {
+            border: 1px solid #000;
+            padding: 6px 8px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        table th {
+            font-weight: bold;
+            background-color: #ffffff;
+        }
+
+        .checkbox {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #000;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .checkbox.checked::before {
+            content: '☒';
+            font-size: 16px;
+            line-height: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div style="font-family: Arial, sans-serif; font-size: 11px; line-height: 1.5; color: #000; margin: 0 auto;">
+        <!-- Header -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; max-width: 50%;">
+                <img src="https://test.istakapaza.com/users/image?item=newblob1753095306189" style="max-width: 140px; box-sizing: border-box;" alt="Company Logo">
+                <div style="display: flex; flex-direction: row; align-items: flex-start; gap: 12px; margin-top: 8px;">
+                    <div>
+                        <p style="font-size: 11px; margin: 0; margin-bottom: 3px; font-weight: 600;">TEL</p>
+                        <p style="font-size: 11px; margin: 0; margin-bottom: 3px; font-weight: 600;">FAX</p>
+                        <p style="font-size: 11px; margin: 0; margin-bottom: 3px; font-weight: 600;">EMAIL</p>
+                    </div>
+                    <div>
+                        <p style="font-size: 11px; margin: 0; margin-bottom: 3px; font-weight: 400;">: +971 4 2766391</p>
+                        <p style="font-size: 11px; margin: 0; margin-bottom: 3px; font-weight: 400;">: + 971 4 2766032</p>
+                        <p style="font-size: 11px; margin: 0; margin-bottom: 3px; font-weight: 400;">: naj@agrifields.com</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: left; max-width: 45%; font-size: 11px;">
+                <p style="font-weight: bold; font-size: 12px; margin: 0 0 4px 0;">AGRIFIELDS DMCC</p>
+                <p style="margin: 0 0 2px 0;">JBC 4, UNIT 3201, CLUSTER N</p>
+                <p style="margin: 0 0 2px 0;">JUMEIRAH LAKE TOWERS</p>
+                <p style="margin: 0 0 2px 0;">DUBAI, <span style="font-weight: 700;">U.A.E.</span></p>
+            </div>
+        </div>
+
+        <!-- Date -->
+        <div style="text-align: right; margin-bottom: 25px; font-size: 11px;">
+            <span style="font-weight: 600;">DATE: <span contenteditable="true">{{date}}</span></span>
+        </div>
+
+        <!-- Recipient -->
+        <div style="margin-bottom: 20px; font-size: 11px; line-height: 1.5;">
+            <p style="margin: 0 0 2px 0;">To,</p>
+            <p style="margin: 0 0 2px 0;">The Branch Manager,</p>
+            <p style="margin: 0 0 2px 0;" contenteditable="true">ICICI Bank Ltd.</p>
+            <p style="margin: 0 0 2px 0;" contenteditable="true">DIFC Branch, DUBAI</p>
+        </div>
+
+        <!-- Salutation and Subject -->
+        <div style="margin-bottom: 15px; font-size: 11px;">
+            <p style="margin: 0 0 10px 0;">Dear Sir,</p>
+            <p style="margin: 0; font-weight: 700; text-decoration: underline;">Subject: Submission of Export Documents for USD <span contenteditable="true">{{amount}}</span></p>
+        </div>
+
+        <!-- Main Content -->
+        <div style="font-size: 11px; line-height: 1.6; margin-bottom: 15px;">
+            <p style="margin: 0 0 15px 0;">We enclose herewith the following export documents for USD <span contenteditable="true">{{amount}}</span></p>
+            
+            <!-- Options with checkboxes -->
+            <div style="margin-bottom: 12px; text-align: justify;">
+                <span class="checkbox"></span><span style="font-weight: 400;">Kindly discount the documents in case the same are credit compliant, post discounting we request you to kindly credit the export bill proceeds to our current account <span contenteditable="true">{{accountNumber}}</span> maintained with your branch.</span>
+            </div>
+
+            <div style="margin-bottom: 12px; text-align: justify;">
+                <span class="checkbox"></span><span style="font-weight: 400;">Kindly forward the documents on approval basis in case the same are discrepant, once you receive the acceptance from the LC issuing bank, kindly discount the same and post discounting we request you to kindly credit the export bill proceeds to our current account <span contenteditable="true">{{accountNumber}}</span> maintained with your branch.</span>
+            </div>
+
+            <div style="margin-bottom: 15px; text-align: justify;">
+                <span class="checkbox"></span><span style="font-weight: 400;">Kindly send a cable negotiation swift in case the documents are discrepant, once you receive the acceptance from the LC issuing Bank, kindly discount the same and post discounting we request you to kindly credit the export bill proceeds to our current account <span contenteditable="true">{{accountNumber}}</span> maintained with your branch.</span>
+            </div>
+        </div>
+
+        <!-- Bank Details -->
+        <div style="margin-bottom: 15px; font-size: 11px; line-height: 1.5;">
+            <p style="margin: 0 0 5px 0; font-weight: 600;">Details as below:</p>
+            <p style="margin: 0 0 2px 0;" contenteditable="true">ICICI BANK LIMITED</p>
+            <p style="margin: 0 0 2px 0;" contenteditable="true">Address - EMGEE SQUARE, MG ROAD, ERNAKULAM, KOCHI, KERALA, 682035, INDIA</p>
+            <p style="margin: 0 0 2px 0;" contenteditable="true">Swift Code: ICICINBB010</p>
+            <p style="margin: 0 0 10px 0;" contenteditable="true">LC NO. {{lcNumber}} AND DATE - {{lcDate}}</p>
+            
+            <p style="margin: 0 0 2px 0; font-weight: 700;">NOTE: REMITTANCE INSTRUCTION TO LC ISSUING BANK</p>
+            <p style="margin: 0 0 2px 0;" contenteditable="true">PLEASE USE OUR INTERMEDIARY BANK DETAILS: CITI BANK N.A, NY USA (CITIUS33XXX)</p>
+            <p style="margin: 0 0 2px 0;">(DO NOT USE STANDARD CHARTERED BANK, USA AS INTERMEDIARY BANK).</p>
+        </div>
+
+        <!-- Documents Enclosed Table -->
+        <div style="margin-bottom: 15px;">
+            <p style="font-size: 11px; font-weight: 600; margin: 0 0 8px 0;">Documents Enclosed:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="text-align: left; font-size: 10px;">Documents</th>
+                        <th style="font-size: 10px;">Drafts</th>
+                        <th style="font-size: 10px;">Commercial Invoice</th>
+                        <th style="font-size: 10px;">Bill of Lading</th>
+                        <th style="font-size: 10px;">Certificate of Origin</th>
+                        <th style="font-size: 10px;">Certificate Of Analysis/ Quality</th>
+                        <th style="font-size: 10px;">Certificate Of Quantity or Weight</th>
+                        <th style="font-size: 10px;">Certificate from beneficiary 1</th>
+                        <th style="font-size: 10px;">Certificate from beneficiary 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: left; font-weight: 600;">Original</td>
+                        <td contenteditable="true">4</td>
+                        <td contenteditable="true">3</td>
+                        <td contenteditable="true">3</td>
+                        <td contenteditable="true">1</td>
+                        <td contenteditable="true">1</td>
+                        <td contenteditable="true">1</td>
+                        <td contenteditable="true">1</td>
+                        <td contenteditable="true">1</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; font-weight: 600;">Duplicate</td>
+                        <td contenteditable="true">0</td>
+                        <td contenteditable="true">3</td>
+                        <td contenteditable="true">3NN</td>
+                        <td contenteditable="true">3</td>
+                        <td contenteditable="true">4</td>
+                        <td contenteditable="true">4</td>
+                        <td contenteditable="true">1</td>
+                        <td contenteditable="true">1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Authorization -->
+        <div style="margin-bottom: 15px; font-size: 11px;">
+            <p style="margin: 0;">We also authorize you to debit our account towards charges if any.</p>
+        </div>
+
+        <!-- Signature Section -->
+        <div style="margin-top: 40px; font-size: 11px;">
+            <p style="margin: 0 0 80px 0;">For Agrifields DMCC</p>
+            <p style="margin: 0;">Authorized Signatory</p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+<!-- Variables:
+{
+    "date": "16.11.2025",
+    "amount": "100000",
+    "accountNumber": "1234567890",
+    "lcNumber": "2841NMLC0022226",
+    "lcDate": "06.11.2025",
+} -->
