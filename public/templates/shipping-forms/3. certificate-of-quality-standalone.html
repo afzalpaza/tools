@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate of Quality</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 20mm;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.2;
+            color: #000;
+            background: white;
+        }
+
+        @media print {
+            body {
+                width: 210mm;
+                height: 297mm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="font-family: Arial, sans-serif; font-size: 12px; line-height: 1.2; color: #000; margin: 0 auto;">
+        <!-- Header -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 6px; max-width: 55%;">
+                <img src="https://test.istakapaza.com/users/image?item=newblob1753095306189" style="max-width: 160px; box-sizing: border-box;" alt="Company Logo">
+                <div style="display: flex; flex-direction: row; align-items: flex-start; gap: 10px;">
+                    <div>
+                        <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 600; text-align: start;">TEL</p>
+                        <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 600; text-align: start;">FAX</p>
+                        <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 600; text-align: start;">EMAIL</p>
+                    </div>
+                    <div>
+                        <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 400; text-align: start;">+971 4 2766391</p>
+                        <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 400; text-align: start;">+971 4 2766032</p>
+                        <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 400; text-align: start;">naj@agrifields.com</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: left; max-width: 40%; font-size: 12px;">
+                <p style="font-weight: bold; font-size: 14px; margin: 0 0 6px 0;">AGRIFIELDS DMCC</p>
+                <p style="margin: 0 0 3px 0;">JBC 4, UNIT 3201, CLUSTER N,</p>
+                <p style="margin: 0 0 3px 0;">JUMEIRAH LAKE TOWERS</p>
+                <p style="margin: 0;">DUBAI <span style="font-weight: 700;">U.A.E</span></p>
+            </div>
+        </div>
+
+        <!-- Title -->
+        <div style="text-align: center; margin-bottom: 14px;">
+            <p style="font-size: 18px; font-weight: bold; margin: 0;">Certificate of Quality</p>
+        </div>
+
+        <!-- Reference & Date -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <div style="display: flex; gap: 10px; font-size: 12px;">
+                <span style="font-weight: 600; min-width: 70px;" contenteditable="true">Ref No</span>
+                <span style="font-weight: 600;">:</span>
+                <span contenteditable="true">{{refNo}}</span>
+            </div>
+            <div style="display: flex; gap: 10px; font-size: 12px;">
+                <span style="font-weight: 600; min-width: 50px;" contenteditable="true">Date</span>
+                <span style="font-weight: 600;">:</span>
+                <span contenteditable="true">{{date}}</span>
+            </div>
+        </div>
+
+        <!-- Buyer -->
+        <div style="margin-bottom: 14px; font-size: 12px;">
+            <div style="font-weight: bold; margin-bottom: 4px;" contenteditable="true">To</div>
+            <div style="line-height: 1.4;" contenteditable="true">
+                <div>{{buyer.name}}</div>
+                <div>{{buyer.addressline1}}</div>
+                <div>{{buyer.addressline2}}</div>
+                <div>{{buyer.addressline3}}</div>
+            </div>
+        </div>
+
+        <!-- Statement -->
+        <div style="margin-bottom: 14px; font-size: 12px;" contenteditable="true">
+            This is to certify that the analysis of subject material is as follows :
+        </div>
+
+        <!-- Specification Title -->
+        <div style="font-weight: 700; margin-bottom: 8px; font-size: 12px;" contenteditable="true">
+            GUARANTEED SPECIFICATION AS PER FCO
+        </div>
+
+        <!-- Specification Table -->
+        <table style="width: 100%; margin-bottom: 20px; margin-top: 0; border-collapse: collapse; font-size: 10px;">
+            <thead style="color: #000;">
+                <tr>
+                    <th style="border: 1px solid #000; padding: 8px; font-weight: bold; text-align: left; font-size: 12px; color: #000; background-color: #ffffff;" contenteditable="true">ITEM</th>
+                    <th style="border: 1px solid #000; padding: 8px; font-weight: bold; text-align: right; width: 160px; font-size: 12px; color: #000; background-color: #ffffff;" contenteditable="true">SPECIFICATION</th>
+                    <th style="border: 1px solid #000; padding: 8px; font-weight: bold; text-align: right; width: 160px; font-size: 12px; color: #000; background-color: #ffffff;" contenteditable="true">RESULT</th>
+                </tr>
+            </thead>
+            <tbody style="color: #000;">
+                {{#each specifications}}
+                <tr>
+                    <td style="border: 1px solid #000; padding: 5px 8px; line-height: 1; font-size: 12px;" contenteditable="true">{{description}}</td>
+                    <td style="border: 1px solid #000; padding: 5px 8px; text-align: right; font-size: 12px;" contenteditable="true">{{specification}}</td>
+                    <td style="border: 1px solid #000; padding: 5px 8px; text-align: right; font-size: 12px;" contenteditable="true">______</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+        <!-- Remarks -->
+        <div style="margin-top: 100px; font-size: 12px; line-height: 1;" contenteditable="true">
+            {{remarks}}
+        </div>
+
+        <!-- Commodity & Vessel Details -->
+        <div style="margin: 10px 0 15px 0;">
+            <div style="height: 3px; background: #1f2a7c; margin-bottom: 12px;"></div>
+            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px; margin-bottom: 6px;">
+                <div style="display: flex; gap: 10px; align-items: flex-start;">
+                    <span style="font-weight: 600; min-width: 150px;" contenteditable="true">COMMODITY</span>
+                    <span style="font-weight: 600;">:</span>
+                    <span contenteditable="true">{{commodity}}</span>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <span style="font-weight: 600; min-width: 150px;" contenteditable="true">PACKING</span>
+                    <span style="font-weight: 600;">:</span>
+                    <span contenteditable="true">{{packing}}</span>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <span style="font-weight: 600; min-width: 150px;" contenteditable="true">ORIGIN</span>
+                    <span style="font-weight: 600;">:</span>
+                    <span contenteditable="true">{{origin}}</span>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <span style="font-weight: 600; min-width: 150px;" contenteditable="true">VESSEL NAME</span>
+                    <span style="font-weight: 600;">:</span>
+                    <span contenteditable="true">{{vesselName}}</span>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <span style="font-weight: 600; min-width: 150px;" contenteditable="true">PORT OF LOADING</span>
+                    <span style="font-weight: 600;">:</span>
+                    <span contenteditable="true">{{loadingPort}}</span>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <span style="font-weight: 600; min-width: 150px;" contenteditable="true">PORT OF DISCHARGE</span>
+                    <span style="font-weight: 600;">:</span>
+                    <span contenteditable="true">{{dischargePort}}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signature -->
+        <div style="margin-top: 20px;">
+            <div style="font-weight: 700; margin-bottom: 80px;" contenteditable="true">For AGRIFIELDS DMCC</div>
+            <div style="margin-top: 15px; font-weight: 400;" contenteditable="true">Authorised Signatory</div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!-- 
+{
+    "refNo": "CI/0108/2025",
+    "date": "01-Mar-2025",
+    "buyer": {
+        "name": "Munara Agro Technologies Pvt. Ltd.",
+        "addressline1": "Urja Heights",
+        "addressline2": "Begumpet, Hyderabad"
+        "addressline3": "Telangana, 500016"
+    },
+    segment: "wsf", // "bulk"
+    specifications: [
+        {
+            "description": "Total Nitrogen (Ammoniacal and Nitrate Form) percent by weight Minimum",
+            "specification": "15.5 %",
+            "result": "15.53"
+        }
+        {
+            "description": "Water soluble Calcium (as Ca) percent by weight Minimum",
+            "specification": "18.5 %",
+            "result": "18.51"
+        }
+        {
+            "description": "Matter insoluble in water percent by weight Maximum",
+            "specification": "1.5 %",
+            "result": "0.05"
+        }
+    ]
+
+    commodity: "CALCIUM NITRATE GRANULAR 100% WATER SOLUBLE FERTILIZER AS PER INDIAN FCO FOR AGRICULTURAL USE ONLY",
+    packing: "25 Kg Bag - Neutral Marking",
+    origin: "CHINA",
+    remarks: "As per Indian FCO",
+    vesselName: "MSC DILETTA",
+    loadingPort: "Tianjinxingang , China",
+    dischargePort: "Nhava Sheva , India"
+}
+-->
+

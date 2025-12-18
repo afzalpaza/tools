@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draft</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 20mm;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.2;
+            color: #000;
+            background: white;
+        }
+
+        @media print {
+            body {
+                width: 210mm;
+                height: 297mm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+    {{#each types}}
+    <div style="font-family: Arial, sans-serif; font-size: 12px; line-height: 1.2; color: #000; margin: 0 auto;">
+        <!-- Header -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px;">
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 6px; max-width: 55%;">
+                <img src="https://test.istakapaza.com/users/image?item=newblob1753095306189" style="max-width: 160px; box-sizing: border-box;" alt="Company Logo">
+                <div style="display: flex; flex-direction: row; align-items: flex-start; gap: 10px;">
+                    <div>
+                        <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 600; text-align: start;">TEL</p>
+                        <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 600; text-align: start;">FAX</p>
+                        <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 600; text-align: start;">EMAIL</p>
+                    </div>
+                    <div>
+                        <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 400; text-align: start;">: +971 4 2766391</p>
+                        <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 400; text-align: start;">: + 971 4 2766032</p>
+                        <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 400; text-align: start;">: naj@agrifields.com</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: left; max-width: 40%; font-size: 12px;">
+                <p style="font-weight: bold; font-size: 14px; margin: 0 0 6px 0;">AGRIFIELDS DMCC</p>
+                <p style="margin: 0 0 3px 0;">JBC 5, UNIT 705, CLUSTER W</p>
+                <p style="margin: 0 0 3px 0;">JUMEIRAH LAKE TOWERS</p>
+                <p style="margin: 0;">DUBAI. <span style="font-weight: 700;">U.A.E.</span></p>
+            </div>
+        </div>
+
+        <!-- Title -->
+        <div style="text-align: center; margin-bottom: 30px;" contenteditable="true">
+            <p style="font-size: 16px; font-weight: bold; margin: 0;">DRAFT</p>
+        </div>
+
+        <!-- Date -->
+        <div style="text-align: right; margin-bottom: 30px; font-size: 12px;" contenteditable="true">
+            <p style="margin: 0; font-weight: 700;"><span>DATE:</span> {{../date}}</p>
+        </div>
+
+        <!-- Amount Section -->
+        <div style="margin-bottom: 30px;" contenteditable="true">
+            <p style="font-size: 12px; font-weight: 700; margin: 0 0 20px 0;">AMOUNT USD {{../amountUSD}}</p>
+            
+            <p style="font-size: 12px; line-height: 1.8; margin: 0; text-align: justify; font-weight: 700;">
+                AT {{../daysFromBL}} DAYS FROM BILL OF LADING DATE ({{../blDate}}) OF THIS {{this.draftType}} BILL OF EXCHANGE 
+                ({{this.billType}} OF SAME DATE AND TENOR BEING UNPAID), PLEASE PAY TO THE ORDER OF {{../bankNameWithAddress}} THE SUM OF USD 
+                {{../amountUSD}} ({{../amountInWords}}) BEING THE VALUE RECEIVED AS PER INVOICE NUMBER: {{../commercialInvoiceNumber}}.
+            </p>
+        </div>
+
+        <!-- TO section -->
+        <div style="margin: 30px 0;" contenteditable="true">
+            <p style="font-size: 12px; font-weight: 700; margin: 0 0 15px 0;">TO</p>
+            <div style="font-size: 12px; line-height: 1.6; font-weight: 700;">
+                {{#each ../buyerBank}}
+                <p style="margin: 0 0 3px 0;">{{this}}</p>
+                {{/each}}
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div style="margin: 30px 0; font-size: 12px; line-height: 1.6;" contenteditable="true">
+            {{#each ../instructions}}
+            <p style="margin: 0 0 5px 0; font-weight: 700;">{{this}}</p>
+            {{/each}}
+        </div>
+
+        <!-- Signature Section -->
+        <div style="margin-top: 100px; text-align: right; margin-bottom: 30px;" contenteditable="true">
+            <p style="font-size: 12px; font-weight: 700; margin: 0 0 80px 0;">AGRIFIELDS DMCC</p>
+            <p style="font-size: 12px; font-weight: 700; margin: 0;">AUTHORIZED SIGNATURE</p>
+        </div>
+    </div>
+    <div style="page-break-after: always;"></div>
+    {{/each}}
+    </div>
+</body>
+</html>
+
+
+<!-- 
+Sample Data Structure:
+{
+    "types": [
+        { draftType: "SECOND", billType: "FIRST" },
+        { draftType: "FIRST", billType: "SECOND" },
+    ]
+    "date": "26th April 2023",
+    "amountUSD": "5,737,975.95",
+    "daysFromBL": "30",
+    "blDate": "10.04.2023",
+    "bankNameWithAddress": "ICICI BANK LIMITED, DIFC BRANCH, DUBAI, UAE",
+    "amountInWords": "US DOLLARS FIVE MILLION SEVEN HUNDRED THIRTY-SEVEN THOUSAND NINE HUNDRED SEVENTY-FIVE AND NINETY-FIVE CENTS ONLY",
+    "commercialInvoiceNumber": "2023-92",
+    "buyerBank": [
+        "KKBKINBBCPC",
+        "KOTAK MAHINDRA BANK LIMITED",
+        "(CPC – TRADE FINANCE)",
+        "OFF WESTERN EXPRESS HIGHWAY",
+        "GENERAL AK VAIDYA MARG, MALAD",
+        "MUMBAI 400097"
+    ],
+    "instructions": [
+        "LETTER OF CREDIT NUMBER 0422JLF231004514 AND DATE 31.03.2023",
+        "IMPORT LICENCE NO. PARA 2.1 OF CHAPTER 2 OF FOREIGN TRADE POLICY 2015-2020."
+    ]
+}
+-->
+

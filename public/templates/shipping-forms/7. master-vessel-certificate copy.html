@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate from the Master of the Vessel or Agent</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 20mm;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.2;
+            color: #000;
+            background: white;
+        }
+
+        @media print {
+            body {
+                width: 210mm;
+                height: 297mm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="font-family: Arial, sans-serif; font-size: 12px; line-height: 1.2; color: #000; margin: 0 auto;">
+        <!-- Header -->
+        <div style="margin-bottom: 30px; font-size: 12px;">
+            <p style="margin: 0 0 15px 0; font-weight: 400;">TO WHOM IT MAY CONCERN</p>
+            <p style="margin: 0; font-weight: 400;">DATE: <span contenteditable="true">{{date}}</span></p>
+        </div>
+
+        <!-- Title -->
+        <div style="text-align: center; margin: 50px 0 40px 0;">
+            <p style="font-size: 16px; font-weight: bold; margin: 0; text-decoration: underline;">CERTIFICATE FROM THE MASTER OF THE VESSEL OR AGENT</p>
+        </div>
+
+        <!-- Vessel Details -->
+        <div style="margin-bottom: 30px; font-size: 12px; line-height: 1.8;" contenteditable="true">
+            <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+                <span style="font-weight: 400; min-width: 220px;">NAME OF VESSEL</span>
+                <span style="font-weight: 400;">:</span>
+                <span style="font-weight: 400;">{{vesselName}}</span>
+            </div>
+            <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+                <span style="font-weight: 400; min-width: 220px;">PORT OF LOADING</span>
+                <span style="font-weight: 400;">:</span>
+                <span style="font-weight: 400;">{{loadingPort}}</span>
+            </div>
+            <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+                <span style="font-weight: 400; min-width: 220px;">PORT OF DISCHARGE</span>
+                <span style="font-weight: 400;">:</span>
+                <span style="font-weight: 400;">{{dischargePort}}</span>
+            </div>
+            <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+                <span style="font-weight: 400; min-width: 220px;">CARGO</span>
+                <span style="font-weight: 400;">:</span>
+                <span style="font-weight: 400;">{{cargo}}</span>
+            </div>
+            <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+                <span style="font-weight: 400; min-width: 220px;">QUANTITY</span>
+                <span style="font-weight: 400;">:</span>
+                <span style="font-weight: 400;">{{quantity}}</span>
+            </div>
+            <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+                <span style="font-weight: 400; min-width: 220px;">BILL OF LADING NUMBER & DATE</span>
+                <span style="font-weight: 400;">:</span>
+                <span style="font-weight: 400;">{{blNumber}}</span>
+            </div>
+        </div>
+
+        <!-- Certificate Text -->
+        <div style="margin: 40px 0; font-size: 12px; line-height: 1.8; text-align: justify;">
+            <p style="margin: 0 0 20px 0;" contenteditable="true">
+                {{certificateText}}
+            </p>
+        </div>
+
+        <!-- Signature Section -->
+        <div style="margin-top: 80px;">
+            <div style="margin-bottom: 10px; font-size: 12px;">
+                <p style="margin: 0 0 5px 0; font-weight: 400;" contenteditable="true">YOURS FAITHFULLY,</p>
+                <p style="margin: 0; font-weight: 400;" contenteditable="true">AS AGENTS ON BEHALF OF THE MASTER OF {{vesselName}}</p>
+            </div>
+
+            <!-- Signature and Stamp Area -->
+            <div style="margin-top: 60px; position: relative;">
+                <div style="border-bottom: 1px solid #000; width: 200px; margin-bottom: 5px;"></div>
+                <div style="font-size: 12px; font-weight: 400;" contenteditable="true">AUTHORIZED SIGNATORY</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!-- 
+Sample Data Structure:
+{
+    "date": "19.09.2025",
+    "vesselName": "MV CLIPPER ALEXANDRIA",
+    "loadingPort": "ZHANGJIAGANG SAFE PORT IN CHINA",
+    "dischargePort": "MUMBAI PORT, INDIA",
+    "cargo": "AMMONIUM SULPHATE",
+    "quantity": "26,900 MT",
+    "blNumber": "CA25001ZJGHR03 and 19 SEPTEMBER 2025",
+    "classificationSociety": "LLOYDS REGISTER",
+    "agentCompany": "GENESIS COMMODITIES FZE",
+    "agentRole": "AS AGENTS ON BEHALF OF THE MASTER OF MV CLIPPER ALEXANDRIA"
+}
+-->
+

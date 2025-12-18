@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate from the Beneficiaries</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 20mm;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.2;
+            color: #000;
+            background: white;
+        }
+
+        @media print {
+            body {
+                width: 210mm;
+                height: 297mm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        {{#each instructions}}
+        <div style="font-family: Arial, sans-serif; font-size: 12px; line-height: 1.2; color: #000; margin: 0 auto;">
+            <!-- Header -->
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 6px; max-width: 55%;">
+                    <img src="https://test.istakapaza.com/users/image?item=newblob1753095306189" style="max-width: 160px; box-sizing: border-box;" alt="Company Logo">
+                    <div style="display: flex; flex-direction: row; align-items: flex-start; gap: 10px;">
+                        <div>
+                            <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 600; text-align: start;">TEL</p>
+                            <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 600; text-align: start;">FAX</p>
+                            <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 600; text-align: start;">EMAIL</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 400; text-align: start;">+971 4 2766391</p>
+                            <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 400; text-align: start;">+971 4 2766032</p>
+                            <p style="font-size: 12px; margin: 0; margin-top: 5px; font-weight: 400; text-align: start;">naj@agrifields.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: left; max-width: 40%; font-size: 12px;">
+                    <p style="font-weight: bold; font-size: 14px; margin: 0 0 6px 0;">AGRIFIELDS DMCC</p>
+                    <p style="margin: 0 0 3px 0;">JBC 4, UNIT 3201, CLUSTER N,</p>
+                    <p style="margin: 0 0 3px 0;">JUMEIRAH LAKE TOWERS</p>
+                    <p style="margin: 0;">DUBAI <span style="font-weight: 700;">U.A.E</span></p>
+                </div>
+            </div>
+
+            <!-- Date -->
+            <div style="text-align: right; margin-bottom: 20px; font-size: 12px;">
+                <span contenteditable="true">{{../date}}</span>
+            </div>
+
+            <!-- Title -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <p style="font-size: 18px; font-weight: bold; margin: 0; text-decoration: underline;" contenteditable="true">CERTIFICATE FROM THE BENEFICIARIES</p>
+            </div>
+
+            <!-- Vessel Details -->
+            <div style="margin-bottom: 20px; font-size: 12px; line-height: 1.6;" contenteditable="true">
+                <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+                    <span style="font-weight: 600; min-width: 180px;">NAME OF VESSEL</span>
+                    <span style="font-weight: 600;">:</span>
+                    <span>{{../vesselName}}</span>
+                </div>
+                <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+                    <span style="font-weight: 600; min-width: 180px;">PORT OF LOADING</span>
+                    <span style="font-weight: 600;">:</span>
+                    <span>{{../loadingPort}}</span>
+                </div>
+                <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+                    <span style="font-weight: 600; min-width: 180px;">PORT OF DISCHARGE</span>
+                    <span style="font-weight: 600;">:</span>
+                    <span>{{../dischargePort}}</span>
+                </div>
+                <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+                    <span style="font-weight: 600; min-width: 180px;">DESCRIPTION OF GOODS</span>
+                    <span style="font-weight: 600;">:</span>
+                    <span>{{../goodsDescription}}</span>
+                </div>
+                <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+                    <span style="font-weight: 600; min-width: 180px;">QUANTITY SHIPPED</span>
+                    <span style="font-weight: 600;">:</span>
+                    <span>{{../quantityShipped}}</span>
+                </div>
+                {{#if ../blNumber}}
+                <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+                    <span style="font-weight: 600; min-width: 180px;">B/L NO. & DATE</span>
+                    <span style="font-weight: 600;">:</span>
+                    <span>{{../blNumber}}</span>
+                </div>
+                {{/if}}
+                {{#if ../lcNumber}}
+                <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+                    <span style="font-weight: 600; min-width: 180px;">LC NUMBER AND DATE</span>
+                    <span style="font-weight: 600;">:</span>
+                    <span>{{../lcNumber}}</span>
+                </div>
+                {{/if}}
+            </div>
+
+            <!-- Certificate Text -->
+            <div style="margin: 40px 0; font-size: 14px; line-height: 1.8; text-align: justify;">
+                <p style="margin: 0;" contenteditable="true">
+                    {{this}}
+                </p>
+            </div>
+
+            <!-- Signature Section -->
+            <div style="margin-top: 80px; margin-bottom: 80px;">
+                <div style="font-weight: 600; margin-bottom: 100px; font-size: 12px;" contenteditable="true">For AGRIFIELDS DMCC</div>
+                <div style="margin-top: 40px; font-size: 12px;">
+                    <span style="text-decoration: underline; font-weight: 400;" contenteditable="true">Authorised Signatory</span>            
+                </div>
+            </div>
+        </div>
+<div style="page-break-after: always;"></div>
+        {{/each}}
+    </div>
+</body>
+</html>
+
+
+<!-- 
+Sample Data Structure:
+{
+    "date": "17.11.2025",
+    "vesselName": "MV AEGIR SELMER",
+    "loadingPort": "SIPITANG PORT, MALAYSIA",
+    "dischargePort": "KARAIKAL PORT, INDIA",
+    "goodsDescription": "GRANULAR BULK UREA 46 PCT MINIMUM NITROGEN FERTILIZER GRADE",
+    "quantityShipped": "42,987.88 MTS",
+    "blNumber": "SPT/AS/25/11-01 DATED 16.11.2025",
+    "lcNumber": "2841NMLC0022226 DATED 06.11.2025"
+}
+-->
+
