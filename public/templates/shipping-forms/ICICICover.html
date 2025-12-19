@@ -85,9 +85,9 @@
         <!-- Bank Details -->
         <div style="margin-bottom: 15px; font-size: 11px; line-height: 1.5;">
             <p style="margin: 0 0 5px 0; font-weight: 600;">Details as below:</p>
-            <p style="margin: 0 0 2px 0;" contenteditable="true">ICICI BANK LIMITED</p>
-            <p style="margin: 0 0 2px 0;" contenteditable="true">Address - EMGEE SQUARE, MG ROAD, ERNAKULAM, KOCHI, KERALA, 682035, INDIA</p>
-            <p style="margin: 0 0 2px 0;" contenteditable="true">Swift Code: ICICINBB010</p>
+            {{#each bankDetails}}
+            <p style="margin: 0 0 2px 0;" contenteditable="true">{{this}}</p>
+            {{/each}}
             <p style="margin: 0 0 10px 0;" contenteditable="true">LC NO. {{lcNumber}} AND DATE - {{lcDate}}</p>
             
             <p style="margin: 0 0 2px 0; font-weight: 700;">NOTE: REMITTANCE INSTRUCTION TO LC ISSUING BANK</p>

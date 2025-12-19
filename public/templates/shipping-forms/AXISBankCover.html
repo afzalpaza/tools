@@ -85,9 +85,9 @@
         <!-- Bank Details -->
         <div style="margin-bottom: 15px; font-size: 11px; line-height: 1.5;">
             <p style="margin: 0 0 5px 0; font-weight: 600;">Details as below:</p>
-            <p style="margin: 0 0 2px 0;" contenteditable="true">AXIS BANK LTD,</p>
-            <p style="margin: 0 0 10px 0;" contenteditable="true">ADDRESS - CORPORATE BRANCH BANKING CENTRE,,FOREX DEPARTMENT, 2ND FLOOR, OLD NO: 2, NEW NO: 3, CLUB HOUSE ROAD,ANNA SALAI CHENNAI-600002,INDIA</p>
-            <p style="margin: 0 0 2px 0;" contenteditable="true">SWIFT CODE: AXISINBBA01</p>
+            {{#each bankDetails}}
+            <p style="margin: 0 0 2px 0;" contenteditable="true">{{this}}</p>
+            {{/each}}
             <p style="margin: 0 0 2px 0;" contenteditable="true">LC NO. {{lcNumber}} AND DATE {{lcDate}}</p>
         </div>
 
